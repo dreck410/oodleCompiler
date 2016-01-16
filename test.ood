@@ -1,0 +1,13 @@
+~ this is a comment
+
+class main is
+  x: int        ~ x coord
+  name: string  ~ identifier
+  start() is
+    i: int
+    begin
+       print("hey,\"sue!\"" & name)
+     end
+ % ~ the % is a bad token
+ en"unterminated
+ "hey\q"

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<project default="generate_scanner_parser" basedir=".">
+    <property name="grammar.file" value="oodle.scc"/>
+
+    <taskdef name="sablecc" classname="org.sablecc.ant.taskdef.Sablecc"
+        classpath="/home/daniel/sablecc-3.7/sablecc-anttask-1.0.1/lib/sablecc-anttask.jar;/home/daniel/sablecc-3.7/lib/sablecc.jar" />
+      
+    <target name="create_run_jar">
+    	<delete file="oodle.jar" />
+        <jar destfile="./oodle.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="com.bju.cps450.Oodle"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ jargs.jar junit-4.12.jar hamcrest-core-1.3.jar"/>
+            </manifest>
+            <zipfileset src="./lib/jar-in-jar-loader.zip"/>
+            <fileset dir="./out/production/oodleproject"/>
+		    <fileset dir="./" includes="*.c"/>
+		    <fileset dir="./" includes="*.o"/>
+            <zipfileset dir="./lib" includes="jargs.jar"/>
+        </jar>
+    </target>
+	
+    <target name="generate_scanner_parser" depends="clean">
+        <mkdir dir="gen-src"/>
+        <sablecc src="src" includes="${grammar.file}" outputdirectory="gen-src" /> 
+    </target>
+
+    <target name="clean">
+        <delete dir="gen-src"/>
+    </target>
+</project>
