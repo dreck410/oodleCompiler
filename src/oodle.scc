@@ -39,7 +39,7 @@ Helpers
 
 Tokens
   new_line             = new_line;
-  ignore               = space | comment | tab;
+  ignore               = space | comment | tab | underscore new_line;
   string               = 'string'; 
   then                 = 'then'; 
   true                 = 'true';

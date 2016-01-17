@@ -1,5 +1,6 @@
 ~ lexertest.ood
-class main is
+class main _
+is
 
   r1: string := "q"
   % := -3
