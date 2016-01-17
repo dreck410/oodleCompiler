@@ -1,0 +1,36 @@
+~ this is a comment
+
+class main is
+  x: int        ~ x coord
+  name: string  ~ identifier
+
+  start() is
+    i: int
+    begin
+       print("hey,\"sue!\"" & name)
+     end
+ % ~ the % is a bad token
+ end "unterminated
+ "hey\q"
+~ test1.ood
+
+class main is 
+
+  r1: string := ""
+  y := 3
+
+  start() is
+  begin
+    loop while s = ""
+      out.write("enter your name:")
+      s := in.readline()
+      if not s = "" then 
+        out.write(s)
+      end if
+      y := y + 1 * 2 / _
+          (56 + 2) - 3
+      out.write(s & "this is a test." & "there we go")
+    end loop
+  end start
+
+end main

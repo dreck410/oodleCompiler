@@ -1,0 +1,41 @@
+test.ood:1,20:CR
+test.ood:2,1:CR
+test.ood:3,1:Keyword:class
+test.ood:3,7:Identifier:main
+test.ood:3,12:Keyword:is
+test.ood:3,14:CR
+test.ood:4,3:Identifier:x
+test.ood:4,4:':'
+test.ood:4,6:Keyword:int
+test.ood:4,26:CR
+test.ood:5,3:Identifier:name
+test.ood:5,7:':'
+test.ood:5,9:Keyword:string
+test.ood:5,29:CR
+test.ood:6,1:CR
+test.ood:7,3:Identifier:start
+test.ood:7,8:'('
+test.ood:7,9:')'
+test.ood:7,11:Keyword:is
+test.ood:7,13:CR
+test.ood:8,5:Identifier:i
+test.ood:8,6:':'
+test.ood:8,8:Keyword:int
+test.ood:8,11:CR
+test.ood:9,5:Keyword:begin
+test.ood:9,10:CR
+test.ood:10,8:Identifier:print
+test.ood:10,13:'('
+test.ood:10,14:String Lit: "hey,\"sue!\""
+test.ood:10,29:Operator: &
+test.ood:10,31:Identifier:name
+test.ood:10,35:')'
+test.ood:10,36:CR
+test.ood:11,6:Keyword:end
+test.ood:11,9:CR
+test.ood:12,2:Unrecognized Char:%
+test.ood:12,26:CR
+test.ood:13,2:Keyword:end
+test.ood:13,6:Unterminated String: "unterminated
+test.ood:13,19:CR
+test.ood:14,2:Invalid String:"hey\q"

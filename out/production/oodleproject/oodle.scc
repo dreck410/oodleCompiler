@@ -1,0 +1,90 @@
+Package com.bju.cps450;
+
+Helpers
+
+  tab                 = 9;
+  line_feed           = 10;
+  carriage_return     = 13;
+  form_feed           = '\f'| '014';
+
+  any_character       = [0x0 .. 0xfffff];
+  letter              = [['a'..'z'] + ['A'..'Z']];
+  octal               = ['0'..'7'];
+  digit               = ['0'..'9'];
+  tilde               = '~';
+  underscore          = '_';
+  space               = ' ';
+  escape              = '\';
+  quote               = '"';
+  escaped_tab         = escape't' | escape'011';
+  escaped_quote       = escape'"';
+  escaped_newline     = escape'n' | escape'012';
+  escaped_r           = escape'r' | escape'015';
+  escaped_slash       = escape escape | escape'134';
+
+  new_line            = line_feed | carriage_return;
+  comment             = tilde([any_character - [line_feed + carriage_return]] )*;
+  valid_string        = ([[[[any_character - quote] - escape] - line_feed] - carriage_return]
+                                                 | escaped_tab
+                                                 | escaped_newline
+                                                 | escaped_r
+                                                 | escaped_slash
+                                                 | escaped_quote);
+
+  invalid_string      = valid_string* escape*;
+
+
+
+Tokens
+  new_line             = new_line;
+  ignore               = space | comment;
+  string               = 'string'; 
+  then                 = 'then'; 
+  true                 = 'true';
+  false                = 'false';
+  from                 = 'from';
+  class                = 'class';
+  while                = 'while';
+  null                 = 'null';
+  new                  = 'new';
+  me                   = 'me';
+  loop                 = 'loop';
+  is                   = 'is';
+  int                  = 'int';
+  inherits             = 'inherits';
+  if                   = 'if';
+  else                 = 'else';
+  end                  = 'end';
+  boolean              = 'boolean';
+  begin                = 'begin';
+  identifier           = (underscore | letter)(letter | digit | underscore)*;
+  string_lit           = quote valid_string* quote;
+
+  string_concat        = '&';
+  plus                 = '+';
+  minus                = '-';
+  divide               = '/';
+  multiply             = '*';
+  logical_and          = 'and';
+  logical_or           = 'or';
+  logical_not          = 'not';
+  gt                   = '>';
+  gteq                 = '>=';
+  eq                   = '=';
+
+  colon                = ':';
+  dot                  = '.';
+  oparen               = '(';
+  cparen               = ')';
+  obrace               = '[';
+  cbrace               = ']';
+  semicolon            = ';';
+  comma                = ',';
+  assignment           = ':=';
+
+
+  unterminated_string = quote valid_string* invalid_string*;
+  illegal_string      = quote invalid_string* quote;
+
+  illegal             = any_character;
+
