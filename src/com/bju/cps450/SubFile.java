@@ -15,4 +15,11 @@ public class SubFile {
         this.Name = Name;
     }
 
+    public Boolean InRange(Integer line){
+        return (this.StartLine <= line && line <= this.EndLine);
+    }
+
+    public Integer getOffset(Integer line){
+        return (line - this.StartLine + 1);
+    }
 }

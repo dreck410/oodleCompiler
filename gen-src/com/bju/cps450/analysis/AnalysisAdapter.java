@@ -195,13 +195,31 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTIdentifier(TIdentifier node)
+    public void caseTLogicalAnd(TLogicalAnd node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTLogicalOr(TLogicalOr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTLogicalNot(TLogicalNot node)
     {
         defaultCase(node);
     }
 
     @Override
     public void caseTStringLit(TStringLit node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTInteger(TInteger node)
     {
         defaultCase(node);
     }
@@ -232,24 +250,6 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTMultiply(TMultiply node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTLogicalAnd(TLogicalAnd node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTLogicalOr(TLogicalOr node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTLogicalNot(TLogicalNot node)
     {
         defaultCase(node);
     }
@@ -322,6 +322,12 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTAssignment(TAssignment node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTIdentifier(TIdentifier node)
     {
         defaultCase(node);
     }

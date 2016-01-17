@@ -21,15 +21,17 @@ import java.util.ArrayList;
  * Created by daniel on 1/16/16.
  */
 public class SuperFile {
+
     private PushbackReader baseReader;
+
+
     public ArrayList<SubFile> SubFiles;
 
     public SuperFile(String[] fileNames) throws IOException{
         Integer start;
         Integer current = 1;
-        Integer end;
         SubFiles = new ArrayList<>();
-        BufferedWriter out = null;
+        BufferedWriter out;
         FileWriter fstream = new FileWriter("combined.txt", false);
         out = new BufferedWriter(fstream);
         try
@@ -65,7 +67,7 @@ public class SuperFile {
 
     public PushbackReader getReader(){
         try {
-            baseReader = new PushbackReader(new FileReader("combined.txt"));
+            this.baseReader = new PushbackReader(new FileReader("combined.txt"));
             return baseReader;
         }catch (FileNotFoundException e){
             return null;
@@ -81,10 +83,5 @@ public class SuperFile {
         }
         return null;
     }
-
-
-
-
-
 
 }

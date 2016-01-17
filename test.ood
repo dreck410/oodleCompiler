@@ -1,5 +1,4 @@
-~ this is a comment
-
+~ test.ood
 class main is
   x: int        ~ x coord
   name: string  ~ identifier

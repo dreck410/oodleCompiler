@@ -32,16 +32,16 @@ public interface Analysis extends Switch
     void caseTEnd(TEnd node);
     void caseTBoolean(TBoolean node);
     void caseTBegin(TBegin node);
-    void caseTIdentifier(TIdentifier node);
+    void caseTLogicalAnd(TLogicalAnd node);
+    void caseTLogicalOr(TLogicalOr node);
+    void caseTLogicalNot(TLogicalNot node);
     void caseTStringLit(TStringLit node);
+    void caseTInteger(TInteger node);
     void caseTStringConcat(TStringConcat node);
     void caseTPlus(TPlus node);
     void caseTMinus(TMinus node);
     void caseTDivide(TDivide node);
     void caseTMultiply(TMultiply node);
-    void caseTLogicalAnd(TLogicalAnd node);
-    void caseTLogicalOr(TLogicalOr node);
-    void caseTLogicalNot(TLogicalNot node);
     void caseTGt(TGt node);
     void caseTGteq(TGteq node);
     void caseTEq(TEq node);
@@ -54,6 +54,7 @@ public interface Analysis extends Switch
     void caseTSemicolon(TSemicolon node);
     void caseTComma(TComma node);
     void caseTAssignment(TAssignment node);
+    void caseTIdentifier(TIdentifier node);
     void caseTUnterminatedString(TUnterminatedString node);
     void caseTIllegalString(TIllegalString node);
     void caseTIllegal(TIllegal node);

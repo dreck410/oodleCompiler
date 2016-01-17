@@ -13,15 +13,35 @@ public class LexerTest extends TestCase {
 
 	public void testSuccessfulScan() throws IOException, LexerException {
 		Lexer lexer = new Lexer(new PushbackReader(new BufferedReader(new FileReader("lexertest.ood"))));
+		assertNextToken(lexer, TNewLine.class);
+		assertNextToken(lexer, TClass.class);
+		assertNextToken(lexer, TIdentifier.class);
+		assertNextToken(lexer, TIs.class);
+		assertNextToken(lexer, TNewLine.class);
+		assertNextToken(lexer, TNewLine.class);
+		assertNextToken(lexer, TIdentifier.class);
+		assertNextToken(lexer, TColon.class);
 		assertNextToken(lexer, TString.class);
-		assertNextToken(lexer, TThen.class);
-		assertNextToken(lexer, TWhile.class);
-		assertNextToken(lexer, EOF.class);
+		assertNextToken(lexer, TAssignment.class);
+		assertNextToken(lexer, TStringLit.class);
+		assertNextToken(lexer, TNewLine.class);
+		assertNextToken(lexer, TIllegal.class);
+		assertNextToken(lexer, TAssignment.class);
+		assertNextToken(lexer, TInteger.class);
+		assertNextToken(lexer, TNewLine.class);
+		assertNextToken(lexer, TLogicalAnd.class);
+		assertNextToken(lexer, TLogicalNot.class);
+
 	}
 
+	// Checks the next token is the assumed token
+	// Ignores space and comments and will skip them
 	public void assertNextToken(Lexer lexer, Class tokenExpected) throws IOException, LexerException {
 		Token t = lexer.next();
 		System.err.println(t);
+		while(t.getClass().equals(TIgnore.class)){
+			t = lexer.next();
+		}
 		if(t.getClass().equals(tokenExpected)) {
 			return;
 		} else {
