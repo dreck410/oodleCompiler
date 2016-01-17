@@ -327,6 +327,18 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseTUnterminatedString(TUnterminatedString node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTIllegalString(TIllegalString node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTIllegal(TIllegal node)
     {
         defaultCase(node);

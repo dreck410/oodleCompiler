@@ -3,11 +3,12 @@
 class main is
   x: int        ~ x coord
   name: string  ~ identifier
+
   start() is
     i: int
     begin
        print("hey,\"sue!\"" & name)
      end
  % ~ the % is a bad token
- en"unterminated
+ end "unterminated
  "hey\q"

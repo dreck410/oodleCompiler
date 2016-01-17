@@ -6,14 +6,14 @@ Helpers
   line_feed           = 10;
   carriage_return     = 13;
   form_feed           = '\f'| '014';
-  
+
+  any_character       = [0x0 .. 0xfffff];
   letter              = [['a'..'z'] + ['A'..'Z']];
   octal               = ['0'..'7'];
   digit               = ['0'..'9'];
   tilde               = '~';
   underscore          = '_';
   space               = ' ';
-  comment             = tilde(space | letter | digit)*;
   escape              = '\';
   quote               = '"';
   escaped_tab         = escape't' | escape'011';
@@ -22,11 +22,21 @@ Helpers
   escaped_r           = escape'r' | escape'015';
   escaped_slash       = escape escape | escape'134';
 
+  new_line            = line_feed | carriage_return;
+  comment             = tilde([any_character - [line_feed + carriage_return]] )*;
+  valid_string        = ([[[[any_character - quote] - escape] - line_feed] - carriage_return]
+                                                 | escaped_tab
+                                                 | escaped_newline
+                                                 | escaped_r
+                                                 | escaped_slash
+                                                 | escaped_quote);
 
-  any_character = [0x0 .. 0xfffff];
+  invalid_string      = valid_string* escape*;
+
+
 
 Tokens
-  new_line             = line_feed | carriage_return;
+  new_line             = new_line;
   ignore               = space | comment;
   string               = 'string'; 
   then                 = 'then'; 
@@ -48,12 +58,7 @@ Tokens
   boolean              = 'boolean';
   begin                = 'begin';
   identifier           = (underscore | letter)(letter | digit | underscore)*;
-  string_lit           = quote([[any_character - quote] - escape]
-                                | escaped_tab
-                                | escaped_newline
-                                | escaped_r
-                                | escaped_slash
-                                | escaped_quote)*quote;
+  string_lit           = quote valid_string* quote;
 
   string_concat        = '&';
   plus                 = '+';
@@ -78,6 +83,8 @@ Tokens
   assignment           = ':=';
 
 
+  unterminated_string = quote valid_string* invalid_string*;
+  illegal_string      = quote invalid_string* quote;
 
-  illegal = any_character;
+  illegal             = any_character;
 

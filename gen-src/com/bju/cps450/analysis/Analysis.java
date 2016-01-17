@@ -54,6 +54,8 @@ public interface Analysis extends Switch
     void caseTSemicolon(TSemicolon node);
     void caseTComma(TComma node);
     void caseTAssignment(TAssignment node);
+    void caseTUnterminatedString(TUnterminatedString node);
+    void caseTIllegalString(TIllegalString node);
     void caseTIllegal(TIllegal node);
     void caseEOF(EOF node);
     void caseInvalidToken(InvalidToken node);

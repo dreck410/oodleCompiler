@@ -41,33 +41,38 @@ public class Oodle
 	 */
     public static void main(String[] args) throws IOException, IllegalOptionValueException, UnknownOptionException, LexerException {
     	CmdLineParser parser = new CmdLineParser();
+		Options options = new Options();
     	//command line options
 		CmdLineParser.Option help = parser.addBooleanOption('?', "help");
-		CmdLineParser.Option ds = parser.addDoubleOption("ds");
+		CmdLineParser.Option ds = parser.addBooleanOption("ds");
+
 		//parse command line arguments
 		Boolean printTokens = false;
 
 		parser.parse(args);
 		
 		//set applicable values from options class
+		options.setDs((Boolean)parser.getOptionValue(ds, false));
 		if ((Boolean)parser.getOptionValue(help, false)) {
 			printHelp();
 			return;
 		}
-
-		if((Boolean)parser.getOptionValue(ds, false)){
-			printTokens = true;
-		}
+		options.setFiles(parser.getRemainingArgs());
 
 		if(parser.getRemainingArgs().length > 0) {
-			String file = parser.getRemainingArgs()[0];
-			PushbackReader reader = new PushbackReader(new InputStreamReader(new FileInputStream(file)));
-			OodleLexer lexer = new OodleLexer(reader,file);
-			//lexer.filter();
-			Token token = lexer.next();
-			while(!Objects.equals(token.getText(), "")){
-				//System.out.print(token.getText());
-				token = lexer.next();
+			try {
+				SuperFile reader = new SuperFile(options.getFileNames());
+				OodleLexer lexer = new OodleLexer(reader, options.getDs());
+				Token token = lexer.next();
+
+
+				while(!Objects.equals(token.getText(), "")){
+					//System.out.print(token.getText());
+					token = lexer.next();
+				}
+
+			}catch(IOException e){
+				return;
 			}
 
 		} else {
