@@ -77,7 +77,7 @@ public class SuperFile {
     public SubFile getFileByLine(Integer line){
         Integer s = this.SubFiles.size();
         for (Integer i = 0; i < s; ++i){
-            if (this.SubFiles.get(i).StartLine <= line && line <= this.SubFiles.get(i).EndLine){
+            if (this.SubFiles.get(i).InRange(line)){
                 return this.SubFiles.get(i);
             }
         }

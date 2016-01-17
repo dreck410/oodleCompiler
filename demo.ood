@@ -2,7 +2,7 @@
 
 class main is 
 
-  r1: string := ""
+  r1: string := "\q"
   y := 3
 
   start() is

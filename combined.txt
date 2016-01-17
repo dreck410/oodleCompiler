@@ -1,8 +1,21 @@
+~ test.ood
+class main is
+  x: int        ~ x coord
+  name: string  ~ identifier
+
+  start() is
+    i: int
+    begin
+       print("hey,\"sue!\"" & name)
+     end
+ % ~ the % is a bad token
+ end "unterminated
+ "hey\q"
 ~ demo.ood
 
 class main is 
 
-  r1: string := ""
+  r1: string := "\q"
   y := 3
 
   start() is
@@ -20,24 +33,11 @@ class main is
   end start
 
 end main
-~ test.ood
-class main is
-  x: int        ~ x coord
-  name: string  ~ identifier
-
-  start() is
-    i: int
-    begin
-       print("hey,\"sue!\"" & name)
-     end
- % ~ the % is a bad token
- end "unterminated
- "hey\q"
 ~ lexertest.ood
 class main _
 is
 
-  r1: string := "q"
+  r1: string := "\q"
   % := -3
   and not
   start() is

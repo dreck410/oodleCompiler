@@ -2,7 +2,7 @@
 class main _
 is
 
-  r1: string := "q"
+  r1: string := "\q"
   % := -3
   and not
   start() is

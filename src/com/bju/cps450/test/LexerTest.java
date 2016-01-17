@@ -23,7 +23,7 @@ public class LexerTest extends TestCase {
 		assertNextToken(lexer, TColon.class);
 		assertNextToken(lexer, TString.class);
 		assertNextToken(lexer, TAssignment.class);
-		assertNextToken(lexer, TStringLit.class);
+		assertNextToken(lexer, TIllegalString.class);
 		assertNextToken(lexer, TNewLine.class);
 		assertNextToken(lexer, TIllegal.class);
 		assertNextToken(lexer, TAssignment.class);
@@ -42,6 +42,7 @@ public class LexerTest extends TestCase {
 		while(t.getClass().equals(TIgnore.class)){
 			t = lexer.next();
 		}
+
 		if(t.getClass().equals(tokenExpected)) {
 			return;
 		} else {
