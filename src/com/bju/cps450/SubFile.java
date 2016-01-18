@@ -16,7 +16,6 @@ public class SubFile {
     }
 
     public Boolean InRange(Integer line){
-
         return (this.StartLine <= line && line <= this.EndLine);
     }
 

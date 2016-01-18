@@ -51,6 +51,8 @@ public class SuperFile {
                 br.close();
                 SubFiles.add(new SubFile(fileNames[i], start, current-1));
             }
+            // last file does not need to be decremented by 1
+            SubFiles.get(SubFiles.size()-1).EndLine++;
         }
         catch (IOException e)
         {

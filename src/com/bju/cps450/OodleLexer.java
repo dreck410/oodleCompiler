@@ -30,7 +30,8 @@ public class OodleLexer extends Lexer {
     protected void filter() throws LexerException, IOException {
         String tokenText = this.getTokenText();
 
-        if ((!Objects.equals(tokenText, "ignore") && this.displayTokens)
+        if (tokenText != "ignored token"
+                && this.displayTokens
                 || this.token instanceof TIllegal
                 || this.token instanceof TUnterminatedString
                 || this.token instanceof TIllegalString){
@@ -48,8 +49,11 @@ public class OodleLexer extends Lexer {
         String output = "";
 
         //ignore
-        output = this.token instanceof TIgnore ? "ignore" : output;
-        output = this.token instanceof EOF ? "ignore" : output;
+        output = this.token instanceof TSpace ? "ignored token" : output;
+        output = this.token instanceof TComment ? "ignored token" : output;
+        output = this.token instanceof TTab ? "ignored token" : output;
+        output = this.token instanceof TLineContinue ? "ignored token" : output;
+        output = this.token instanceof EOF ? "ignored token" : output;
 
         //identifier
         output = this.token instanceof TIdentifier ? "identifier: " + this.token.getText() : output;
@@ -100,6 +104,8 @@ public class OodleLexer extends Lexer {
     protected String getTokenLineInfo(){
         if (CurrentFile == null || !CurrentFile.InRange(this.token.getLine()) ){
             CurrentFile = this.superFile.getFileByLine(this.token.getLine());
+            // got a new file print out a separator line
+            System.out.println(CurrentFile.Name);
         }
 
         Integer column = this.token.getPos();

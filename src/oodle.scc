@@ -2,7 +2,6 @@ Package com.bju.cps450;
 
 Helpers
 
-  tab                 = 9;
   line_feed           = 10;
   carriage_return     = 13;
   form_feed           = '\f'| '014';
@@ -13,7 +12,6 @@ Helpers
   digit               = ['0'..'9'];
   tilde               = '~';
   underscore          = '_';
-  space               = ' ';
   escape              = '\';
   quote               = '"';
   escaped_tab         = escape't' | escape'011';
@@ -24,7 +22,6 @@ Helpers
   escaped_octal       = escape octal octal octal;
 
   new_line            = line_feed | carriage_return;
-  comment             = tilde([any_character - [line_feed + carriage_return]] )*;
   valid_string        = ([[[[any_character - quote] - escape] - line_feed] - carriage_return]
                                                  | escaped_tab
                                                  | escaped_newline
@@ -38,8 +35,15 @@ Helpers
 
 
 Tokens
-  new_line             = new_line;
-  ignore               = space | comment | tab | underscore new_line;
+
+
+  new_line             = line_feed | carriage_return line_feed;
+
+  line_continue        = underscore new_line;
+  space                = ' ';
+  comment              = tilde([any_character - [line_feed + carriage_return]] )*;
+  tab                  = 9;
+
   string               = 'string'; 
   then                 = 'then'; 
   true                 = 'true';
@@ -92,3 +96,8 @@ Tokens
 
   illegal             = any_character;
 
+Ignored Tokens
+  space,
+  comment,
+  tab,
+  line_continue;

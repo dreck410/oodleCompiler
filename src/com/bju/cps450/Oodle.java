@@ -66,7 +66,7 @@ public class Oodle
 				Token token = lexer.next();
 
 
-				while(!token.getClass().equals(EOF.class)){
+				while(!(token.getClass().equals(EOF.class) || token == null)){
 					//System.out.print(token.getText());
 					token = lexer.next();
 				}

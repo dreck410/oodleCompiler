@@ -12,7 +12,10 @@ public interface Analysis extends Switch
     void setOut(Node node, Object o);
 
     void caseTNewLine(TNewLine node);
-    void caseTIgnore(TIgnore node);
+    void caseTLineContinue(TLineContinue node);
+    void caseTSpace(TSpace node);
+    void caseTComment(TComment node);
+    void caseTTab(TTab node);
     void caseTString(TString node);
     void caseTThen(TThen node);
     void caseTTrue(TTrue node);

@@ -39,9 +39,7 @@ public class LexerTest extends TestCase {
 	public void assertNextToken(Lexer lexer, Class tokenExpected) throws IOException, LexerException {
 		Token t = lexer.next();
 		System.err.println(t);
-		while(t.getClass().equals(TIgnore.class)){
-			t = lexer.next();
-		}
+
 
 		if(t.getClass().equals(tokenExpected)) {
 			return;

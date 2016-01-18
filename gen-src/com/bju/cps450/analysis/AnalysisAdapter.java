@@ -75,7 +75,25 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTIgnore(TIgnore node)
+    public void caseTLineContinue(TLineContinue node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTSpace(TSpace node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTComment(TComment node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTTab(TTab node)
     {
         defaultCase(node);
     }
