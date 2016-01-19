@@ -39,7 +39,13 @@ public class LexerTest extends TestCase {
 	public void assertNextToken(Lexer lexer, Class tokenExpected) throws IOException, LexerException {
 		Token t = lexer.next();
 		System.err.println(t);
-
+		while(t.getClass().equals(TComment.class)
+				|| t.getClass().equals(TSpace.class)
+				|| t.getClass().equals(TTab.class)
+				|| t.getClass().equals(TLineContinue.class))
+		{
+			t = lexer.next();
+		}
 
 		if(t.getClass().equals(tokenExpected)) {
 			return;

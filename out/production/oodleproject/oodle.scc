@@ -22,13 +22,13 @@ Helpers
   escaped_octal       = escape octal octal octal;
 
   new_line            = line_feed | carriage_return;
-  valid_string        = ([[[[any_character - quote] - escape] - line_feed] - carriage_return]
+  valid_string        = [ any_character - [ [quote + escape] + [line_feed + carriage_return]  ]]
                                                  | escaped_tab
                                                  | escaped_newline
                                                  | escaped_r
                                                  | escaped_slash
                                                  | escaped_quote
-                                                 | escaped_octal);
+                                                 | escaped_octal;
 
   invalid_string      = valid_string* escape*;
 
@@ -93,7 +93,6 @@ Tokens
 
   unterminated_string = quote valid_string* invalid_string*;
   illegal_string      = quote invalid_string* quote;
-
   illegal             = any_character;
 
 Ignored Tokens
