@@ -1,44 +1,9 @@
-~ demo.ood
-
-class main is 
-
-  r1: string := "\q"
-  y := 3
-
-  start() is
-  Begin
-    loop while s = "" and not s = "!"
-      out.write("enter your name:")
-      s := in.readline()
-      if not s = "" then 
-          out.write(s)
-      end if
-      y := y + 1 * 2 / _
-          (56 + 2) - -3
-      out.write(s & "this is a test." & "there we go")
-    end loop
-  end start
-
-end main
-~ test.ood
-class main is
-  x: int        ~ x coord
-  name: string  ~ identifier
-
-  start() is
-    i: int
-    begin
-       print("hey,\"sue!\"" & name)
-     end
- % ~ the % is a bad token
- end "unterminated
- "hey\q"
 ~ lexertest.ood
 class main _
 is
 
-  r1: string := "\q"
-  % := -3
+  r1: string := "q"
+  h := -3
   and not
   start() is
   Begin
@@ -55,3 +20,4 @@ is
   end start
 
 end main
+"Hello"

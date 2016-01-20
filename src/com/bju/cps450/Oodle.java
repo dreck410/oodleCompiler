@@ -44,7 +44,9 @@ public class Oodle
 		Options options = new Options();
     	//command line options
 		CmdLineParser.Option help = parser.addBooleanOption('?', "help");
-		CmdLineParser.Option ds = parser.addBooleanOption("ds");
+		CmdLineParser.Option d = parser.addBooleanOption('d',"ds");
+		CmdLineParser.Option s = parser.addBooleanOption('s', "ds");
+
 
 		//parse command line arguments
 		Boolean printTokens = false;
@@ -52,7 +54,8 @@ public class Oodle
 		parser.parse(args);
 		
 		//set applicable values from options class
-		options.setDs((Boolean)parser.getOptionValue(ds, false));
+		options.setDs(((Boolean)parser.getOptionValue(d, false) && (Boolean)parser.getOptionValue(s, false)) );
+
 		if ((Boolean)parser.getOptionValue(help, false)) {
 			printHelp();
 			return;
@@ -69,6 +72,9 @@ public class Oodle
 				while(!(token.getClass().equals(EOF.class) || token == null)){
 					//System.out.print(token.getText());
 					token = lexer.next();
+				}
+				if (lexer.hasError){
+					System.exit(1);
 				}
 
 			}catch(IOException e){

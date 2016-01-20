@@ -10,4 +10,4 @@ class main is
      end
  % ~ the % is a bad token
  end "unterminated
- "hey\q"
+ "hey

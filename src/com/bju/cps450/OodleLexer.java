@@ -19,6 +19,7 @@ public class OodleLexer extends Lexer {
     private Integer CurrentLine;
     private Boolean displayTokens;
     private SuperFile superFile;
+    public boolean hasError = false;
 
     public OodleLexer(@SuppressWarnings("hiding") SuperFile in, Boolean printOut) {
         super(in.getReader());
@@ -49,11 +50,34 @@ public class OodleLexer extends Lexer {
         String output = "";
 
         //ignore
-        output = this.token instanceof TSpace ? "ignored token" : output;
-        output = this.token instanceof TComment ? "ignored token" : output;
-        output = this.token instanceof TTab ? "ignored token" : output;
-        output = this.token instanceof TLineContinue ? "ignored token" : output;
-        output = this.token instanceof EOF ? "ignored token" : output;
+        if(isIgnore(this.token)){
+            output = "ignored token";
+            return output;
+
+        }
+
+        //Operators
+        if(isOperator(this.token)){
+            output = "operator: " + this.token.getText();
+            return output;
+
+        }
+
+
+        //Symbols
+        if (isSymbol(this.token)) {
+            output = "'" + this.token.getText() + "'";
+            return output;
+        }
+
+        //Errors
+        if(isError(this.token)){
+            output = this.token instanceof TIllegal ? "unrecognized char: " + this.token.getText() : output;
+            output = this.token instanceof TIllegalString ? "illegal String: " + this.token.getText() : output;
+            output = this.token instanceof TUnterminatedString ? "unterminated string: " + this.token.getText() : output;
+            this.hasError = true;
+            return output;
+        }
 
         //identifier
         output = this.token instanceof TIdentifier ? "identifier: " + this.token.getText() : output;
@@ -63,31 +87,8 @@ public class OodleLexer extends Lexer {
         output = this.token instanceof TStringLit ? "string lit: " + this.token.getText() : output;
         output = this.token instanceof TInteger ? "integer: " + this.token.getText() : output;
 
-        //Operators
-        output = this.token instanceof TStringConcat ? "operator: " + this.token.getText() : output;
-        output = this.token instanceof TPlus ? "operator: " + this.token.getText() : output;
-        output = this.token instanceof TMinus ? "operator: " + this.token.getText() : output;
-        output = this.token instanceof TDivide ? "operator: " + this.token.getText() : output;
-        output = this.token instanceof TMultiply ? "operator: " + this.token.getText() : output;
-        output = this.token instanceof TGt ? "operator: " + this.token.getText() : output;
-        output = this.token instanceof TGteq ? "operator: " + this.token.getText() : output;
-        output = this.token instanceof TEq ? "operator: " + this.token.getText() : output;
 
-        //Symbols
-        output = this.token instanceof TDot ? "'.'" : output;
-        output = this.token instanceof TColon ? "':'" : output;
-        output = this.token instanceof TOparen ? "'('" : output;
-        output = this.token instanceof TCparen ? "')'" : output;
-        output = this.token instanceof TObrace ? "'['" : output;
-        output = this.token instanceof TCbrace ? "']'" : output;
-        output = this.token instanceof TSemicolon ? "';'" : output;
-        output = this.token instanceof TComma ? "','" : output;
-        output = this.token instanceof TAssignment ? "':='" : output;
 
-        //Errors
-        output = this.token instanceof TIllegal ? "unrecognized char: " + this.token.getText() : output;
-        output = this.token instanceof TIllegalString ? "illegal String: " + this.token.getText() : output;
-        output = this.token instanceof TUnterminatedString ? "unterminated string: " + this.token.getText() : output;
 
 
         if (!Objects.equals(output, "")){
@@ -98,6 +99,46 @@ public class OodleLexer extends Lexer {
 
 
         return output;
+    }
+
+    private boolean isError(Token input) {
+        return (this.token instanceof TIllegal
+                || this.token instanceof TIllegalString
+                || this.token instanceof TUnterminatedString
+        );
+    }
+
+    private boolean isSymbol(Token input) {
+        return( input instanceof TDot
+                || input instanceof TColon
+                || input instanceof TOparen
+                || input instanceof TCparen
+                || input instanceof TObrace
+                || input instanceof TCbrace
+                || input instanceof TSemicolon
+                || input instanceof TComma
+                || input instanceof TAssignment
+        );
+    }
+
+    private boolean isOperator(Token input) {
+        return ( input instanceof TStringConcat
+                || input instanceof TPlus
+                || input instanceof TMinus
+                || input instanceof TDivide
+                || input instanceof TMultiply
+                || input instanceof TGt
+                || input instanceof TGteq
+                || input instanceof TEq);
+    }
+
+    private Boolean isIgnore(Token input) {
+        return(input instanceof TSpace
+                || input instanceof TComment
+                || input instanceof TTab
+                || input instanceof TLineContinue
+                || input instanceof EOF );
+
     }
 
 
