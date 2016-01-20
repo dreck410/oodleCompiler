@@ -49,8 +49,6 @@ public class Oodle
 
 
 		//parse command line arguments
-		Boolean printTokens = false;
-
 		parser.parse(args);
 		
 		//set applicable values from options class
@@ -69,9 +67,10 @@ public class Oodle
 				Token token = lexer.next();
 
 
-				while(!(token.getClass().equals(EOF.class) || token == null)){
-					//System.out.print(token.getText());
+				while(!(token.getClass().equals(EOF.class)
+                        || token == null)){
 					token = lexer.next();
+
 				}
 				if (lexer.hasError){
 					System.exit(1);

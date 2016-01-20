@@ -31,7 +31,7 @@ public class OodleLexer extends Lexer {
     protected void filter() throws LexerException, IOException {
         String tokenText = this.getTokenText();
 
-        if (tokenText != "ignored token"
+        if (!Objects.equals(tokenText, "ignored token")
                 && this.displayTokens
                 || this.token instanceof TIllegal
                 || this.token instanceof TUnterminatedString
@@ -47,64 +47,62 @@ public class OodleLexer extends Lexer {
      * @return String of a token
      */
     protected String getTokenText(){
-        String output = "";
+        if (this.token instanceof TNewLine){
+            return "cr";
+        }
 
         //ignore
         if(isIgnore(this.token)){
-            output = "ignored token";
-            return output;
-
+            return "ignored token";
         }
 
         //Operators
         if(isOperator(this.token)){
-            output = "operator: " + this.token.getText();
-            return output;
+            return "operator: " + this.token.getText();
 
         }
-
 
         //Symbols
         if (isSymbol(this.token)) {
-            output = "'" + this.token.getText() + "'";
-            return output;
+            return "'" + this.token.getText() + "'";
         }
 
         //Errors
-        if(isError(this.token)){
-            output = this.token instanceof TIllegal ? "unrecognized char: " + this.token.getText() : output;
-            output = this.token instanceof TIllegalString ? "illegal String: " + this.token.getText() : output;
-            output = this.token instanceof TUnterminatedString ? "unterminated string: " + this.token.getText() : output;
+        if (this.token instanceof TIllegal){
             this.hasError = true;
-            return output;
+            return "unrecognized char: " + this.token.getText();
+        }
+
+        if (this.token instanceof TIllegalString){
+            this.hasError = true;
+            return "illegal String: " + this.token.getText();
+        }
+
+        if (this.token instanceof TUnterminatedString){
+            this.hasError = true;
+            return "unterminated string: " + this.token.getText();
         }
 
         //identifier
-        output = this.token instanceof TIdentifier ? "identifier: " + this.token.getText() : output;
-
-        //special
-        output = this.token instanceof TNewLine ? "cr" : output;
-        output = this.token instanceof TStringLit ? "string lit: " + this.token.getText() : output;
-        output = this.token instanceof TInteger ? "integer: " + this.token.getText() : output;
-
-
-
-
-
-        if (!Objects.equals(output, "")){
-            return output;
+        if (this.token instanceof TIdentifier){
+            return "identifier: " + this.token.getText();
         }
 
-        output = "keyword: " + this.token.getText();
+        //special
+        if (this.token instanceof TStringLit){
+            return "string lit: " + this.token.getText();
+        }
+        if (this.token instanceof TInteger){
+            return "integer: " + this.token.getText();
+        }
 
-
-        return output;
+        return "keyword: " + this.token.getText();
     }
 
-    private boolean isError(Token input) {
-        return (this.token instanceof TIllegal
-                || this.token instanceof TIllegalString
-                || this.token instanceof TUnterminatedString
+    public boolean isError(Token input) {
+        return (input instanceof TIllegal
+                || input instanceof TIllegalString
+                || input instanceof TUnterminatedString
         );
     }
 
