@@ -4,33 +4,36 @@ Helpers
 
   line_feed           = 10;
   carriage_return     = 13;
-  form_feed           = '\f'| '014';
 
-  any_character       = [0x0 .. 0xfffff];
+  any_character       = [0 .. 128];
   letter              = [['a'..'z'] + ['A'..'Z']];
   octal               = ['0'..'7'];
   digit               = ['0'..'9'];
   tilde               = '~';
   underscore          = '_';
   escape              = '\';
-  quote               = '"';
+  escaped_slash       = escape escape | escape'134';
   escaped_tab         = escape't' | escape'011';
   escaped_quote       = escape'"';
   escaped_newline     = escape'n' | escape'012';
   escaped_r           = escape'r' | escape'015';
-  escaped_slash       = escape escape | escape'134';
+  form_feed           = escape 'f' | escape'014';
   escaped_octal       = escape octal octal octal;
 
+
+  quote               = '"';
   new_line            = line_feed | carriage_return;
-  valid_string        = [ any_character - [ [quote + escape] + [line_feed + carriage_return]  ]]
+  invalid_string_chars = [[[quote  + escape] + line_feed ]+ carriage_return];
+  valid_string        = [ any_character - invalid_string_chars]
                                                  | escaped_tab
                                                  | escaped_newline
                                                  | escaped_r
                                                  | escaped_slash
                                                  | escaped_quote
-                                                 | escaped_octal;
+                                                 | escaped_octal
+                                                 | form_feed;
 
-  invalid_string      = valid_string* escape*;
+  invalid_string      = valid_string* escape valid_string* ;
 
 
 

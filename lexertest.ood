@@ -7,7 +7,7 @@ is
   and not
   start() is
   Begin
-    loop while s = "" and not s = "!"
+    loop while s = "" and not s = "String w/ named escapes\t\f\n\r\"\\"
       out.write("enter your name:")
       s := in.readline()
       if not s = "" then
