@@ -2,8 +2,8 @@
 class main _
 is
 
-  r1: string := "q"
-  h := -3
+  r1: string := "\q"
+  % := -3
   and not
   start() is
   Begin

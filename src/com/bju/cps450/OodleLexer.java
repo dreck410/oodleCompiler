@@ -28,6 +28,11 @@ public class OodleLexer extends Lexer {
 
     }
 
+    /**
+     * prints the info about a token
+     * @throws LexerException
+     * @throws IOException
+     */
     protected void filter() throws LexerException, IOException {
         String tokenText = this.getTokenText();
 
@@ -99,6 +104,11 @@ public class OodleLexer extends Lexer {
         return "keyword: " + this.token.getText();
     }
 
+    /**
+     * Checks to see if a token is an error
+     * @param input
+     * @return
+     */
     public boolean isError(Token input) {
         return (input instanceof TIllegal
                 || input instanceof TIllegalString
@@ -106,6 +116,12 @@ public class OodleLexer extends Lexer {
         );
     }
 
+    /**
+     * Returns true if the token is a symbol
+     * false if not
+     * @param input
+     * @return
+     */
     private boolean isSymbol(Token input) {
         return( input instanceof TDot
                 || input instanceof TColon
@@ -139,7 +155,13 @@ public class OodleLexer extends Lexer {
 
     }
 
-
+    /**
+     * get's the token's original file and location
+     * from the subfiles.
+     * will change currentFile if we have moved out of the file
+     *
+     * @return
+     */
     protected String getTokenLineInfo(){
         if (CurrentFile == null || !CurrentFile.InRange(this.token.getLine()) ){
             CurrentFile = this.superFile.getFileByLine(this.token.getLine());

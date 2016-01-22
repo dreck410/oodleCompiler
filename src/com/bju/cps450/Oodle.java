@@ -75,6 +75,8 @@ public class Oodle
 				if (lexer.hasError){
 					System.exit(1);
 				}
+				// NO ERRORS! YAY time to check syntax
+
 
 			}catch(IOException e){
 				return;

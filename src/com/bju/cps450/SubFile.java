@@ -15,10 +15,20 @@ public class SubFile {
         this.Name = Name;
     }
 
+    /**
+     * Checks to see if a line number is in the range
+     * @param line
+     * @return
+     */
     public Boolean InRange(Integer line){
         return (this.StartLine <= line && line <= this.EndLine);
     }
 
+    /**
+     * does the math of getting an offset
+     * @param line
+     * @return
+     */
     public Integer getOffset(Integer line){
         return (line - this.StartLine + 1);
     }

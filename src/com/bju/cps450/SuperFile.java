@@ -27,6 +27,13 @@ public class SuperFile {
 
     public ArrayList<SubFile> SubFiles;
 
+    /**
+     * Instantiates the superfile
+     * generates a temp file named combined.txt
+     * reads all the files and stores important data in
+     * a files list of subfiles
+     * @param fileNames
+     * */
     public SuperFile(String[] fileNames) throws IOException{
         Integer start;
         Integer current = 1;
@@ -76,6 +83,11 @@ public class SuperFile {
         }
     }
 
+    /**
+     * takes a line number and finds the subfile that line is in.
+     * @param line
+     * @return
+     */
     public SubFile getFileByLine(Integer line){
         Integer s = this.SubFiles.size();
         for (Integer i = 0; i < s; ++i){

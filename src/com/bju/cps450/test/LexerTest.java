@@ -1,7 +1,10 @@
 package com.bju.cps450.test;
 
 import java.io.*;
+import java.util.ArrayList;
 
+import com.bju.cps450.OodleLexer;
+import com.bju.cps450.SuperFile;
 import com.bju.cps450.node.*;
 import junit.framework.TestCase;
 
@@ -9,10 +12,12 @@ import com.bju.cps450.lexer.Lexer;
 import com.bju.cps450.lexer.LexerException;
 
 public class LexerTest extends TestCase {
-	Lexer lex;
+	OodleLexer lexer;
 
 	public void testSuccessfulScan() throws IOException, LexerException {
-		Lexer lexer = new Lexer(new PushbackReader(new BufferedReader(new FileReader("lexertest.ood"))));
+		String[] files = {"lexertest.ood"};
+		SuperFile file = new SuperFile(files);
+		lexer = new OodleLexer(file, false);
 		assertNextToken(lexer, TNewLine.class);
 		assertNextToken(lexer, TClass.class);
 		assertNextToken(lexer, TIdentifier.class);
