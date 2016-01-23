@@ -1,19 +1,20 @@
-~ This is a comment
-  
-and boolean begin class else end false from if inherits int is loop new not or string then true while
-asdf23 _asdf5 2af_2_   _
-1234 0 -326
-"This is a test."  
-:= () [] , ; : . +-*/ &
-"String w/ named escapes\t\f\n\r\"\\"
-"String w/ octal escapes\034\056" "Standard String"
-"String w/ named & octal escapes \034\n\""
-"String w/ illegal escape \q"
-"String w/ illegal escape \099"
-"An unterminated string... 
-"
-%
-~ Another comment
-  
-some stuff
-^
+~ Test1.ood
+class Main is
+  ~ Attributes
+  r1: string := ""
+  y := 3
+
+  start() is
+  begin
+    loop while s.equals("")
+      out.write("Hey, \"Sue!\"")
+      s := in.readline()
+      if not s.equals("") then
+        out.write(s)
+      end if
+      y := y + 1 * 2 / (56 + 2) - 3
+      out.write((s & "This is a test.").cat("Hey"))
+    end loop
+  end start
+
+end Main

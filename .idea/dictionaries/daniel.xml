@@ -3,8 +3,10 @@
     <words>
       <w>cbrace</w>
       <w>cparen</w>
+      <w>decl</w>
       <w>lparen</w>
       <w>obrace</w>
+      <w>oodle</w>
       <w>oparen</w>
       <w>rparen</w>
     </words>

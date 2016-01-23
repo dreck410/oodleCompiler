@@ -9,6 +9,8 @@ package com.bju.cps450;
 import com.bju.cps450.lexer.Lexer;
 import com.bju.cps450.node.EOF;
 import com.bju.cps450.node.Token;
+import com.bju.cps450.parser.Parser;
+import com.bju.cps450.parser.ParserException;
 import jargs.gnu.CmdLineParser;
 import jargs.gnu.CmdLineParser.IllegalOptionValueException;
 import jargs.gnu.CmdLineParser.UnknownOptionException;
@@ -61,8 +63,9 @@ public class Oodle
 		options.setFiles(parser.getRemainingArgs());
 
 		if(parser.getRemainingArgs().length > 0) {
+			SuperFile reader = null;
 			try {
-				SuperFile reader = new SuperFile(options.getFileNames());
+				reader = new SuperFile(options.getFileNames());
 				OodleLexer lexer = new OodleLexer(reader, options.getDs());
 				Token token = lexer.next();
 
@@ -76,12 +79,16 @@ public class Oodle
 					System.exit(1);
 				}
 				// NO ERRORS! YAY time to check syntax
-
+				OodleParser oodleParser = new OodleParser(new OodleLexer(reader, options.getDs()), reader);
+				oodleParser.parse();
+				if(oodleParser.NumberOfErrors > 0 ){
+					System.out.println(oodleParser.NumberOfErrors + " errors found");
+					System.exit(1);
+				}
 
 			}catch(IOException e){
 				return;
 			}
-
 		} else {
 			throw new IOException("no files to lex");
 		}
