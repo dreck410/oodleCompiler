@@ -87,6 +87,12 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseASingleStart(ASingleStart node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseAClassDecl(AClassDecl node)
     {
         defaultCase(node);

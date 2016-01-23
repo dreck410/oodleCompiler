@@ -14,6 +14,7 @@ public interface Analysis extends Switch
     void caseStart(Start node);
     void caseAClassyStart(AClassyStart node);
     void caseASpaceStart(ASpaceStart node);
+    void caseASingleStart(ASingleStart node);
     void caseAClassDecl(AClassDecl node);
     void caseAClassHead(AClassHead node);
     void caseAClassInherits(AClassInherits node);

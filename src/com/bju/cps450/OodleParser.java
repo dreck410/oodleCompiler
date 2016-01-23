@@ -2,6 +2,7 @@ package com.bju.cps450;
 
 import com.bju.cps450.lexer.Lexer;
 import com.bju.cps450.lexer.LexerException;
+import com.bju.cps450.node.EOF;
 import com.bju.cps450.node.Start;
 import com.bju.cps450.parser.Parser;
 import com.bju.cps450.parser.ParserException;
@@ -28,14 +29,23 @@ public class OodleParser extends Parser {
             System.out.println(NumberOfErrors + " errors found");
             return start;
         } catch (ParserException e) {
+            if(e.getToken().getClass().equals(EOF.class)){
+                return null;
+            }
             NumberOfErrors++;
             SubFile file = this.superFile.getFileByLine(e.getToken().getLine());
-            String output = file.Name
-                    + ":"
-                    + e.getToken().getLine()
-                    + ","
-                    + e.getToken().getPos()
-                    + e.getMessage() + " got " + e.getToken().getText();
+            String output = new StringBuilder()
+                    .append(file.Name)
+                    .append(": ")
+                    .append(file.getOffset(e.getToken().getLine()))
+                    .append(",")
+                    .append(e.getToken().getPos())
+                    .append(": got ")
+                    .append(this.oodleLexer.getTokenText())
+//                    .append(" but ")
+//                    .append(e.getMessage())
+                    .append(" after ")
+                    .append(this.nodeList.get(0)).toString();
             System.out.println(output);
            // this.oodleLexer.next();
             //this.parse();

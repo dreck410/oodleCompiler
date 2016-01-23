@@ -19,6 +19,7 @@ public class OodleLexer extends Lexer {
     private Integer CurrentLine;
     private Boolean displayTokens;
     private SuperFile superFile;
+    public Integer NumberOfErrors = 0;
     public boolean hasError = false;
 
     public OodleLexer(@SuppressWarnings("hiding") SuperFile in, Boolean printOut) {
@@ -74,16 +75,21 @@ public class OodleLexer extends Lexer {
 
         //Errors
         if (this.token instanceof TIllegal){
-            this.hasError = true;
+            this.NumberOfErrors++;
+            this.hasError= true;
             return "unrecognized char: " + this.token.getText();
         }
 
         if (this.token instanceof TIllegalString){
+            this.NumberOfErrors++;
+
             this.hasError = true;
             return "illegal String: " + this.token.getText();
         }
 
         if (this.token instanceof TUnterminatedString){
+            this.NumberOfErrors++;
+
             this.hasError = true;
             return "unterminated string: " + this.token.getText();
         }

@@ -66,25 +66,9 @@ public class Oodle
 			SuperFile reader = null;
 			try {
 				reader = new SuperFile(options.getFileNames());
-				OodleLexer lexer = new OodleLexer(reader, options.getDs());
-				Token token = lexer.next();
+				OodleCompiler oodleCompiler = new OodleCompiler(reader, options.getDs());
+				oodleCompiler.Compile();
 
-
-				while(!(token.getClass().equals(EOF.class)
-                        || token == null)){
-					token = lexer.next();
-
-				}
-				if (lexer.hasError){
-					System.exit(1);
-				}
-				// NO ERRORS! YAY time to check syntax
-				OodleParser oodleParser = new OodleParser(new OodleLexer(reader, options.getDs()), reader);
-				oodleParser.parse();
-				if(oodleParser.NumberOfErrors > 0 ){
-					System.out.println(oodleParser.NumberOfErrors + " errors found");
-					System.exit(1);
-				}
 
 			}catch(IOException e){
 				return;

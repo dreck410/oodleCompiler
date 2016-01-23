@@ -89,6 +89,27 @@ public class DepthFirstAdapter extends AnalysisAdapter
         outASpaceStart(node);
     }
 
+    public void inASingleStart(ASingleStart node)
+    {
+        defaultIn(node);
+    }
+
+    public void outASingleStart(ASingleStart node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseASingleStart(ASingleStart node)
+    {
+        inASingleStart(node);
+        if(node.getNewLine() != null)
+        {
+            node.getNewLine().apply(this);
+        }
+        outASingleStart(node);
+    }
+
     public void inAClassDecl(AClassDecl node)
     {
         defaultIn(node);
