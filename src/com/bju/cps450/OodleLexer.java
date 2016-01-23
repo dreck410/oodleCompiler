@@ -17,15 +17,24 @@ public class OodleLexer extends Lexer {
     private String FileName;
     private SubFile CurrentFile = null;
     private Integer CurrentLine;
-    private Boolean displayTokens;
+    private Integer displayTokens;
     private SuperFile superFile;
     public Integer NumberOfErrors = 0;
     public boolean hasError = false;
 
-    public OodleLexer(@SuppressWarnings("hiding") SuperFile in, Boolean printOut) {
+    /**
+     * printOut is
+     * 0 quiet
+     * 1 print out errors
+     * or 2 verbose
+     * @param in
+     * @param printOut
+     */
+    public OodleLexer(@SuppressWarnings("hiding") SuperFile in, Integer printOut) {
         super(in.getReader());
         this.superFile = in;
         this.displayTokens = printOut;
+
 
     }
 
@@ -38,10 +47,11 @@ public class OodleLexer extends Lexer {
         String tokenText = this.getTokenText();
 
         if (!Objects.equals(tokenText, "ignored token")
-                && this.displayTokens
-                || this.token instanceof TIllegal
-                || this.token instanceof TUnterminatedString
-                || this.token instanceof TIllegalString){
+                && this.displayTokens > 1
+                    || ( this.displayTokens !=0
+                        && (this.token instanceof TIllegal
+                        || this.token instanceof TUnterminatedString
+                        || this.token instanceof TIllegalString))){
 
             System.out.println(this.getTokenLineInfo() + ": " + tokenText);
         }
@@ -172,7 +182,7 @@ public class OodleLexer extends Lexer {
         if (CurrentFile == null || !CurrentFile.InRange(this.token.getLine()) ){
             CurrentFile = this.superFile.getFileByLine(this.token.getLine());
             // got a new file print out a separator line
-            System.out.println(CurrentFile.Name);
+            System.out.println("\n"+CurrentFile.Name);
         }
 
         Integer column = this.token.getPos();

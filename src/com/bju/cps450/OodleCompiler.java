@@ -14,10 +14,10 @@ public class OodleCompiler {
     OodleParser oodleParser;
     SuperFile superFile;
 
-    public OodleCompiler(SuperFile in, boolean printOut){
+    public OodleCompiler(SuperFile in, Integer printOut){
         superFile = in;
         oodleLexer = new OodleLexer(superFile, printOut);
-        oodleParser = new OodleParser(new OodleLexer(superFile,false), superFile);
+        oodleParser = new OodleParser(new OodleLexer(superFile,0), superFile);
 
     }
 
@@ -51,14 +51,19 @@ public class OodleCompiler {
     }
 
     public void Compile(){
-        if(Lex() > 0){
-            System.out.println(oodleLexer.NumberOfErrors + " lexical error(s) found");
+        System.out.println("\nLexing:");
+        Lex();
+        System.out.println("\nParsing:");
+        Parse();
+        if(oodleLexer.NumberOfErrors > 0 || oodleParser.NumberOfErrors > 0){
+            System.out.println((new StringBuilder()
+                    .append("\n")
+                    .append(oodleLexer.NumberOfErrors + oodleParser.NumberOfErrors)
+                    .toString()) + " error(s) found");
             System.exit(1);
         }
-        if(Parse() > 0){
-            System.out.println(oodleParser.NumberOfErrors + " parse error(s) found");
-            System.exit(1);
-        }
+
+
 
 
 

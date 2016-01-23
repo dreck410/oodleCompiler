@@ -1,44 +1,70 @@
 ~ Test2.ood
-class Main is 
-  
+class Main is
+  ~ Attributes
+
   start() is
   begin
-    if x > 5 then
-      x:= -5 + 5 
-      z:= not a or c
+    ~ Test line continuation character
+    if not (s = "") _
+               and not (t = 26) then
 
-       
+        x := new Frog
+        x := x.hi()
+        x := (new Frog).init()
+
     end if
   end start
 
-  m2(a:int; b:string): boolean is
+  m2(a:int): boolean is
   a2: boolean
-  a3: int
   begin
-  
-  end m2       
-  
+
+  end m2
+
 
 end Main
-~ Test2.ood
-class Main is 
-  
-  start() is
-  begin
-    if x > 5 
-      x:= -5 + 5 +
-      z:= not a or c
+~ demo.ood
 
-       
-    end if
+class main is 
+
+  r1: string := "\q"
+  y := 3
+
+  start() is
+  Begin
+    loop while s = "" and not s = "!"
+      out.write("enter your name:")
+      s := in.readline()
+      if not s = "" then 
+          out.write(s)
+      end if
+      y := y + 1 * 2 / _
+          (56 + 2) - -3
+      out.write(s & "this is a test." & "there we go")
+    end loop
   end start
 
-  m2(a:int; b:string): boolean is
-  a2: boolean
-  a3: int
-  begin
-  
-  end m2       
-  
+end main
+~ lexertest.ood
+class main _
+is
 
-end Main
+  r1: string := "\q"
+  % := -3
+  and not
+  start() is
+  Begin
+    loop while s = "" and not s = "String w/ named escapes\t\f\n\r\"\\"
+      out.write("enter your name:")
+      s := in.readline()
+      if not s = "" then
+          out.write(s)
+      end if
+      y := y + 1 * 2 / _
+          (56 + 2) - -3
+      out.write(s & "this is a test." & "there we go")
+    end loop
+  end start
+
+end main
+"Hello"

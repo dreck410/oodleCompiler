@@ -15,8 +15,12 @@ public class Options {
         this.ds = in;
     }
 
-    public Boolean getDs(){
-        return this.ds;
+    public Integer getDs(){
+        if (this.ds){
+            return 2;
+        }else{
+            return 1;
+        }
     }
 
     public void setFiles(String[] files) {

@@ -42,10 +42,12 @@ public class OodleParser extends Parser {
                     .append(e.getToken().getPos())
                     .append(": got ")
                     .append(this.oodleLexer.getTokenText())
-//                    .append(" but ")
-//                    .append(e.getMessage())
-                    .append(" after ")
-                    .append(this.nodeList.get(0)).toString();
+                    .append(" but ")
+                    .append(e.getMessage())
+//                    .append(" after ")
+//                    .append(this.nodeList.get(0))
+
+                    .toString();
             System.out.println(output);
            // this.oodleLexer.next();
             //this.parse();

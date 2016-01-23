@@ -17,7 +17,7 @@ public class LexerTest extends TestCase {
 	public void testSuccessfulScan() throws IOException, LexerException {
 		String[] files = {"lexertest.ood"};
 		SuperFile file = new SuperFile(files);
-		lexer = new OodleLexer(file, false);
+		lexer = new OodleLexer(file, 1);
 		assertNextToken(lexer, TNewLine.class);
 		assertNextToken(lexer, TClass.class);
 		assertNextToken(lexer, TIdentifier.class);
