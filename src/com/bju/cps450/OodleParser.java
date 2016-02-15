@@ -29,9 +29,6 @@ public class OodleParser extends Parser {
             System.out.println(NumberOfErrors + " errors found");
             return start;
         } catch (ParserException e) {
-            if(e.getToken().getClass().equals(EOF.class)){
-                return null;
-            }
             NumberOfErrors++;
             SubFile file = this.superFile.getFileByLine(e.getToken().getLine());
             String output = new StringBuilder()
@@ -49,6 +46,10 @@ public class OodleParser extends Parser {
 
                     .toString();
             System.out.println(output);
+            if(e.getToken().getClass().equals(EOF.class)){
+                return null;
+            }
+
            // this.oodleLexer.next();
             //this.parse();
 
