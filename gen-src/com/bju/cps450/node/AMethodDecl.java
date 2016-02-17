@@ -9,7 +9,7 @@ public final class AMethodDecl extends PMethodDecl
 {
     private PMethodHead _methodHead_;
     private PMethodBody _methodBody_;
-    private PEnd _end_;
+    private PMethodEnd _methodEnd_;
 
     public AMethodDecl()
     {
@@ -19,14 +19,14 @@ public final class AMethodDecl extends PMethodDecl
     public AMethodDecl(
         @SuppressWarnings("hiding") PMethodHead _methodHead_,
         @SuppressWarnings("hiding") PMethodBody _methodBody_,
-        @SuppressWarnings("hiding") PEnd _end_)
+        @SuppressWarnings("hiding") PMethodEnd _methodEnd_)
     {
         // Constructor
         setMethodHead(_methodHead_);
 
         setMethodBody(_methodBody_);
 
-        setEnd(_end_);
+        setMethodEnd(_methodEnd_);
 
     }
 
@@ -36,7 +36,7 @@ public final class AMethodDecl extends PMethodDecl
         return new AMethodDecl(
             cloneNode(this._methodHead_),
             cloneNode(this._methodBody_),
-            cloneNode(this._end_));
+            cloneNode(this._methodEnd_));
     }
 
     @Override
@@ -95,16 +95,16 @@ public final class AMethodDecl extends PMethodDecl
         this._methodBody_ = node;
     }
 
-    public PEnd getEnd()
+    public PMethodEnd getMethodEnd()
     {
-        return this._end_;
+        return this._methodEnd_;
     }
 
-    public void setEnd(PEnd node)
+    public void setMethodEnd(PMethodEnd node)
     {
-        if(this._end_ != null)
+        if(this._methodEnd_ != null)
         {
-            this._end_.parent(null);
+            this._methodEnd_.parent(null);
         }
 
         if(node != null)
@@ -117,7 +117,7 @@ public final class AMethodDecl extends PMethodDecl
             node.parent(this);
         }
 
-        this._end_ = node;
+        this._methodEnd_ = node;
     }
 
     @Override
@@ -126,7 +126,7 @@ public final class AMethodDecl extends PMethodDecl
         return ""
             + toString(this._methodHead_)
             + toString(this._methodBody_)
-            + toString(this._end_);
+            + toString(this._methodEnd_);
     }
 
     @Override
@@ -145,9 +145,9 @@ public final class AMethodDecl extends PMethodDecl
             return;
         }
 
-        if(this._end_ == child)
+        if(this._methodEnd_ == child)
         {
-            this._end_ = null;
+            this._methodEnd_ = null;
             return;
         }
 
@@ -170,9 +170,9 @@ public final class AMethodDecl extends PMethodDecl
             return;
         }
 
-        if(this._end_ == oldChild)
+        if(this._methodEnd_ == oldChild)
         {
-            setEnd((PEnd) newChild);
+            setMethodEnd((PMethodEnd) newChild);
             return;
         }
 

@@ -26,7 +26,7 @@ public class OodleParser extends Parser {
         try {
             Start start;
             start = super.parse();
-            System.out.println(NumberOfErrors + " errors found");
+            //System.out.println(NumberOfErrors + " errors found");
             return start;
         } catch (ParserException e) {
             NumberOfErrors++;

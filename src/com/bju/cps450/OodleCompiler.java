@@ -21,6 +21,10 @@ public class OodleCompiler {
 
     }
 
+    /**
+     * Does a lexical analysis of the file till EOF or the token is null
+     * @return the number of errors
+     */
     public Integer Lex(){
         try {
             Token token = oodleLexer.next();
@@ -37,6 +41,10 @@ public class OodleCompiler {
 
     }
 
+    /**
+     * does a parse of the file to ensure it is syntactically valid
+     * @return the number of errors found
+     */
     public Integer Parse(){
         try {
             oodleParser.parse();
@@ -52,14 +60,16 @@ public class OodleCompiler {
 
     public void Compile(){
         System.out.println("\nLexing:");
+        // does a lexical analysis of the file.
         Lex();
         System.out.println("\nParsing:");
+        // parses the file
         Parse();
+        System.out.println((new StringBuilder()
+                .append("\n")
+                .append(oodleLexer.NumberOfErrors + oodleParser.NumberOfErrors)
+                .toString()) + " error(s) found");
         if(oodleLexer.NumberOfErrors > 0 || oodleParser.NumberOfErrors > 0){
-            System.out.println((new StringBuilder()
-                    .append("\n")
-                    .append(oodleLexer.NumberOfErrors + oodleParser.NumberOfErrors)
-                    .toString()) + " error(s) found");
             System.exit(1);
         }
 

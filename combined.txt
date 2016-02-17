@@ -1,18 +1,44 @@
-~ part1.ood
+~ Test1.ood
 class Main is 
   ~ Attributes
-  
+  r1: string := ""
+  y := 3
+
   start() is
   begin
-    ~ Test line continuation character
-    if not (s = "") _
-       and not (t = 26) then
-       
-        x := new Frog
-        x := x.hi() 
-        x := (new Frog).init()
-       
-    end if
+    loop while s.equals("")
+      out.write("Hey, \"Sue!\"")
+      s := in.readline()
+      if not s.equals("") then 
+        out.write(s)
+      end if
+      y := y + 1 * 2 / (56 + 2) - 3
+      out.write((s & "This is a test.").cat("Hey"))
+    end loop
   end start
+end Main 
 
-  m2(a:int): boolean is
+
+class Main is 
+  ~ Attributes
+  r1: string := ""
+  y := 3
+
+  start() is
+  begin
+    loop while s.equals("")
+      out.write("Hey, \"Sue!\"")
+      s := in.readline()
+      if not s.equals("") then 
+        out.write(s)
+      end if
+      y := y + 1 * 2 / (56 + 2) - 3
+      out.write((s & "This is a test.").cat("Hey"))
+    end loop
+  end start
+end Main
+
+
+
+
+~ hello

@@ -105,11 +105,13 @@ Ignored Tokens
   line_continue;
 
 Productions
- start                  = {classy} P.class_decl P.classes*
-                        | {space} T.new_line P.start
-                        | {single} T.new_line;
+ start                  = {classy} P.class_decl P.classes?
+                        | {lines} T.new_line P.start;
 
- class_decl             = class_head class_body P.end ;
+
+ classes                =  P.class_decl P.classes?;
+
+ class_decl             = class_head class_body P.class_end;
 
  class_head             = [cls]:T.class [class_name]:T.identifier class_inherits? T.is T.new_line+;
  class_inherits         = T.inherits T.from T.identifier;
@@ -117,12 +119,12 @@ Productions
 
  class_body             = P.var_decl* P.method_decl*;
 
+ class_end              = T.end T.identifier T.new_line+;
 
- classes                = class_decl T.new_line;
 
  var_decl               = T.identifier type_decl [expr]:type_decl? T.new_line+;
 
- method_decl            = P.method_head P.method_body P.end;
+ method_decl            = P.method_head P.method_body P.method_end;
 
  method_head            = T.identifier T.oparen P.arg_decl_list? T.cparen P.type_decl? T.is
                          T.new_line+
@@ -131,7 +133,7 @@ Productions
 
  method_body            = T.begin T.new_line+ stmt_list;
 
- end                    = T.end T.identifier T.new_line+;
+ method_end              = T.end T.identifier T.new_line+;
 
  type_decl              = {type} T.colon P.type
                         | {expr} T.assignment P.expression;

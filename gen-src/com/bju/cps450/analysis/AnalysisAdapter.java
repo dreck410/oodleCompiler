@@ -81,13 +81,13 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseASpaceStart(ASpaceStart node)
+    public void caseALinesStart(ALinesStart node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseASingleStart(ASingleStart node)
+    public void caseAClasses(AClasses node)
     {
         defaultCase(node);
     }
@@ -117,7 +117,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAClasses(AClasses node)
+    public void caseAClassEnd(AClassEnd node)
     {
         defaultCase(node);
     }
@@ -147,7 +147,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAEnd(AEnd node)
+    public void caseAMethodEnd(AMethodEnd node)
     {
         defaultCase(node);
     }

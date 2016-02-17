@@ -13,18 +13,18 @@ public interface Analysis extends Switch
 
     void caseStart(Start node);
     void caseAClassyStart(AClassyStart node);
-    void caseASpaceStart(ASpaceStart node);
-    void caseASingleStart(ASingleStart node);
+    void caseALinesStart(ALinesStart node);
+    void caseAClasses(AClasses node);
     void caseAClassDecl(AClassDecl node);
     void caseAClassHead(AClassHead node);
     void caseAClassInherits(AClassInherits node);
     void caseAClassBody(AClassBody node);
-    void caseAClasses(AClasses node);
+    void caseAClassEnd(AClassEnd node);
     void caseAVarDecl(AVarDecl node);
     void caseAMethodDecl(AMethodDecl node);
     void caseAMethodHead(AMethodHead node);
     void caseAMethodBody(AMethodBody node);
-    void caseAEnd(AEnd node);
+    void caseAMethodEnd(AMethodEnd node);
     void caseATypeTypeDecl(ATypeTypeDecl node);
     void caseAExprTypeDecl(AExprTypeDecl node);
     void caseAArgDeclList(AArgDeclList node);

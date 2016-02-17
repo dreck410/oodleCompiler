@@ -8,7 +8,7 @@ import com.bju.cps450.analysis.*;
 public final class AClasses extends PClasses
 {
     private PClassDecl _classDecl_;
-    private TNewLine _newLine_;
+    private PClasses _classes_;
 
     public AClasses()
     {
@@ -17,12 +17,12 @@ public final class AClasses extends PClasses
 
     public AClasses(
         @SuppressWarnings("hiding") PClassDecl _classDecl_,
-        @SuppressWarnings("hiding") TNewLine _newLine_)
+        @SuppressWarnings("hiding") PClasses _classes_)
     {
         // Constructor
         setClassDecl(_classDecl_);
 
-        setNewLine(_newLine_);
+        setClasses(_classes_);
 
     }
 
@@ -31,7 +31,7 @@ public final class AClasses extends PClasses
     {
         return new AClasses(
             cloneNode(this._classDecl_),
-            cloneNode(this._newLine_));
+            cloneNode(this._classes_));
     }
 
     @Override
@@ -65,16 +65,16 @@ public final class AClasses extends PClasses
         this._classDecl_ = node;
     }
 
-    public TNewLine getNewLine()
+    public PClasses getClasses()
     {
-        return this._newLine_;
+        return this._classes_;
     }
 
-    public void setNewLine(TNewLine node)
+    public void setClasses(PClasses node)
     {
-        if(this._newLine_ != null)
+        if(this._classes_ != null)
         {
-            this._newLine_.parent(null);
+            this._classes_.parent(null);
         }
 
         if(node != null)
@@ -87,7 +87,7 @@ public final class AClasses extends PClasses
             node.parent(this);
         }
 
-        this._newLine_ = node;
+        this._classes_ = node;
     }
 
     @Override
@@ -95,7 +95,7 @@ public final class AClasses extends PClasses
     {
         return ""
             + toString(this._classDecl_)
-            + toString(this._newLine_);
+            + toString(this._classes_);
     }
 
     @Override
@@ -108,9 +108,9 @@ public final class AClasses extends PClasses
             return;
         }
 
-        if(this._newLine_ == child)
+        if(this._classes_ == child)
         {
-            this._newLine_ = null;
+            this._classes_ = null;
             return;
         }
 
@@ -127,9 +127,9 @@ public final class AClasses extends PClasses
             return;
         }
 
-        if(this._newLine_ == oldChild)
+        if(this._classes_ == oldChild)
         {
-            setNewLine((TNewLine) newChild);
+            setClasses((PClasses) newChild);
             return;
         }
 

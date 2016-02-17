@@ -2,14 +2,13 @@
 
 package com.bju.cps450.node;
 
-import java.util.*;
 import com.bju.cps450.analysis.*;
 
 @SuppressWarnings("nls")
 public final class AClassyStart extends PStart
 {
     private PClassDecl _classDecl_;
-    private final LinkedList<PClasses> _classes_ = new LinkedList<PClasses>();
+    private PClasses _classes_;
 
     public AClassyStart()
     {
@@ -18,7 +17,7 @@ public final class AClassyStart extends PStart
 
     public AClassyStart(
         @SuppressWarnings("hiding") PClassDecl _classDecl_,
-        @SuppressWarnings("hiding") List<?> _classes_)
+        @SuppressWarnings("hiding") PClasses _classes_)
     {
         // Constructor
         setClassDecl(_classDecl_);
@@ -32,7 +31,7 @@ public final class AClassyStart extends PStart
     {
         return new AClassyStart(
             cloneNode(this._classDecl_),
-            cloneList(this._classes_));
+            cloneNode(this._classes_));
     }
 
     @Override
@@ -66,30 +65,29 @@ public final class AClassyStart extends PStart
         this._classDecl_ = node;
     }
 
-    public LinkedList<PClasses> getClasses()
+    public PClasses getClasses()
     {
         return this._classes_;
     }
 
-    public void setClasses(List<?> list)
+    public void setClasses(PClasses node)
     {
-        for(PClasses e : this._classes_)
+        if(this._classes_ != null)
         {
-            e.parent(null);
+            this._classes_.parent(null);
         }
-        this._classes_.clear();
 
-        for(Object obj_e : list)
+        if(node != null)
         {
-            PClasses e = (PClasses) obj_e;
-            if(e.parent() != null)
+            if(node.parent() != null)
             {
-                e.parent().removeChild(e);
+                node.parent().removeChild(node);
             }
 
-            e.parent(this);
-            this._classes_.add(e);
+            node.parent(this);
         }
+
+        this._classes_ = node;
     }
 
     @Override
@@ -110,8 +108,9 @@ public final class AClassyStart extends PStart
             return;
         }
 
-        if(this._classes_.remove(child))
+        if(this._classes_ == child)
         {
+            this._classes_ = null;
             return;
         }
 
@@ -128,22 +127,10 @@ public final class AClassyStart extends PStart
             return;
         }
 
-        for(ListIterator<PClasses> i = this._classes_.listIterator(); i.hasNext();)
+        if(this._classes_ == oldChild)
         {
-            if(i.next() == oldChild)
-            {
-                if(newChild != null)
-                {
-                    i.set((PClasses) newChild);
-                    newChild.parent(this);
-                    oldChild.parent(null);
-                    return;
-                }
-
-                i.remove();
-                oldChild.parent(null);
-                return;
-            }
+            setClasses((PClasses) newChild);
+            return;
         }
 
         throw new RuntimeException("Not a child.");

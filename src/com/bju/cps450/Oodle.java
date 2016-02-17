@@ -46,6 +46,7 @@ public class Oodle
 		Options options = new Options();
     	//command line options
 		CmdLineParser.Option help = parser.addBooleanOption('?', "help");
+		// makes it possible to specify -ds
 		CmdLineParser.Option d = parser.addBooleanOption('d',"ds");
 		CmdLineParser.Option s = parser.addBooleanOption('s', "ds");
 
@@ -54,6 +55,7 @@ public class Oodle
 		parser.parse(args);
 		
 		//set applicable values from options class
+		// ds is only set if both d and s are present
 		options.setDs(((Boolean)parser.getOptionValue(d, false) && (Boolean)parser.getOptionValue(s, false)) );
 
 		if ((Boolean)parser.getOptionValue(help, false)) {
@@ -65,8 +67,11 @@ public class Oodle
 		if(parser.getRemainingArgs().length > 0) {
 			SuperFile reader = null;
 			try {
+                // takes the input files and combines them into 1 super file object
 				reader = new SuperFile(options.getFileNames());
-				OodleCompiler oodleCompiler = new OodleCompiler(reader, options.getDs());
+				// creates a new compiler with the given source code
+                OodleCompiler oodleCompiler = new OodleCompiler(reader, options.getDs());
+
 				oodleCompiler.Compile();
 
 

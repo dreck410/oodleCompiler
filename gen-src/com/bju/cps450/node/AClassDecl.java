@@ -9,7 +9,7 @@ public final class AClassDecl extends PClassDecl
 {
     private PClassHead _classHead_;
     private PClassBody _classBody_;
-    private PEnd _end_;
+    private PClassEnd _classEnd_;
 
     public AClassDecl()
     {
@@ -19,14 +19,14 @@ public final class AClassDecl extends PClassDecl
     public AClassDecl(
         @SuppressWarnings("hiding") PClassHead _classHead_,
         @SuppressWarnings("hiding") PClassBody _classBody_,
-        @SuppressWarnings("hiding") PEnd _end_)
+        @SuppressWarnings("hiding") PClassEnd _classEnd_)
     {
         // Constructor
         setClassHead(_classHead_);
 
         setClassBody(_classBody_);
 
-        setEnd(_end_);
+        setClassEnd(_classEnd_);
 
     }
 
@@ -36,7 +36,7 @@ public final class AClassDecl extends PClassDecl
         return new AClassDecl(
             cloneNode(this._classHead_),
             cloneNode(this._classBody_),
-            cloneNode(this._end_));
+            cloneNode(this._classEnd_));
     }
 
     @Override
@@ -95,16 +95,16 @@ public final class AClassDecl extends PClassDecl
         this._classBody_ = node;
     }
 
-    public PEnd getEnd()
+    public PClassEnd getClassEnd()
     {
-        return this._end_;
+        return this._classEnd_;
     }
 
-    public void setEnd(PEnd node)
+    public void setClassEnd(PClassEnd node)
     {
-        if(this._end_ != null)
+        if(this._classEnd_ != null)
         {
-            this._end_.parent(null);
+            this._classEnd_.parent(null);
         }
 
         if(node != null)
@@ -117,7 +117,7 @@ public final class AClassDecl extends PClassDecl
             node.parent(this);
         }
 
-        this._end_ = node;
+        this._classEnd_ = node;
     }
 
     @Override
@@ -126,7 +126,7 @@ public final class AClassDecl extends PClassDecl
         return ""
             + toString(this._classHead_)
             + toString(this._classBody_)
-            + toString(this._end_);
+            + toString(this._classEnd_);
     }
 
     @Override
@@ -145,9 +145,9 @@ public final class AClassDecl extends PClassDecl
             return;
         }
 
-        if(this._end_ == child)
+        if(this._classEnd_ == child)
         {
-            this._end_ = null;
+            this._classEnd_ = null;
             return;
         }
 
@@ -170,9 +170,9 @@ public final class AClassDecl extends PClassDecl
             return;
         }
 
-        if(this._end_ == oldChild)
+        if(this._classEnd_ == oldChild)
         {
-            setEnd((PEnd) newChild);
+            setClassEnd((PClassEnd) newChild);
             return;
         }
 
