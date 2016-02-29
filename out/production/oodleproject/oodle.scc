@@ -111,15 +111,13 @@ Productions
 
  classes                =  P.class_decl P.classes?;
 
- class_decl             = class_head class_body P.class_end;
 
- class_head             = [cls]:T.class [class_name]:T.identifier class_inherits? T.is T.new_line+;
+ class_decl             = [cls]:T.class [class_name]:T.identifier class_inherits? T.is [isnl]:T.new_line+
+                        P.var_decl*
+                        P.method_decl*
+                        T.end T.identifier [endnl]:T.new_line+;
+
  class_inherits         = T.inherits T.from T.identifier;
-
-
- class_body             = P.var_decl* P.method_decl*;
-
- class_end              = T.end T.identifier T.new_line+;
 
 
  var_decl               = T.identifier type_decl [expr]:type_decl? T.new_line+;
@@ -233,3 +231,7 @@ Productions
                         ;
 
  method_call_expr       = expression_last T.dot;
+
+
+
+
