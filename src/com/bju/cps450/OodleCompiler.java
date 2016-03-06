@@ -2,6 +2,7 @@ package com.bju.cps450;
 
 import com.bju.cps450.lexer.LexerException;
 import com.bju.cps450.node.EOF;
+import com.bju.cps450.node.Start;
 import com.bju.cps450.node.Token;
 
 import java.io.IOException;
@@ -12,12 +13,14 @@ import java.io.IOException;
 public class OodleCompiler {
     OodleLexer oodleLexer;
     OodleParser oodleParser;
+    SemanticAnalyzer oodleSemanticChecker;
     SuperFile superFile;
 
     public OodleCompiler(SuperFile in, Integer printOut){
         superFile = in;
         oodleLexer = new OodleLexer(superFile, printOut);
         oodleParser = new OodleParser(new OodleLexer(superFile,0), superFile);
+        oodleSemanticChecker = new SemanticAnalyzer(superFile);
 
     }
 
@@ -45,16 +48,16 @@ public class OodleCompiler {
      * does a parse of the file to ensure it is syntactically valid
      * @return the number of errors found
      */
-    public Integer Parse(){
+    public Start Parse(){
         try {
-            oodleParser.parse();
+            return oodleParser.parse();
         } catch (LexerException e) {
-            return oodleParser.NumberOfErrors + 1;
+            return null;
         } catch (IOException e) {
-            return oodleParser.NumberOfErrors + 1;
+            return null;
 
         }
-        return oodleParser.NumberOfErrors;
+
 
     }
 
@@ -64,14 +67,22 @@ public class OodleCompiler {
         Lex();
         System.out.println("\nParsing:");
         // parses the file
-        Parse();
+
+        Start node = Parse();
+
+        if(node != null) {
+            System.out.println("\nChecking Semantics");
+            node.apply(oodleSemanticChecker);
+        }
         System.out.println((new StringBuilder()
                 .append("\n")
-                .append(oodleLexer.NumberOfErrors + oodleParser.NumberOfErrors)
+                .append(oodleLexer.NumberOfErrors + oodleParser.NumberOfErrors + oodleSemanticChecker.NumberOfErrors)
                 .toString()) + " error(s) found");
-        if(oodleLexer.NumberOfErrors > 0 || oodleParser.NumberOfErrors > 0){
+        if(node == null || oodleLexer.NumberOfErrors > 0 || oodleParser.NumberOfErrors > 0 || oodleSemanticChecker.NumberOfErrors > 0){
             System.exit(1);
         }
+
+
 
 
     }

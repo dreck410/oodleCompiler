@@ -1,5 +1,7 @@
 package com.bju.cps450;
 
+import com.bju.cps450.node.Token;
+
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -27,6 +29,14 @@ public class SuperFile {
 
     public ArrayList<SubFile> SubFiles;
 
+
+    public int getFileLineByToken(Token token){
+        int output = 0;
+
+        SubFile file = this.getFileByLine(token.getLine());
+        return file.getOffset(token.getLine());
+
+    }
     /**
      * Instantiates the superfile
      * generates a temp file named combined.txt

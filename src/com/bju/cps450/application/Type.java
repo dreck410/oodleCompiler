@@ -6,10 +6,10 @@ package com.bju.cps450.application;
 public class Type {
 
     // built in types
-    public static Type OodleInteger = new Type("int");
-    public static Type OodleString = new Type("string");
-    public static Type OodleArray = new Type("array");
-    public static Type OodleBoolean = new Type("boolean");
+    public static Type oodleInt = new Type("int");
+    public static Type oodleString = new Type("string");
+    public static Type oodleArray = new Type("array");
+    public static Type oodleBoolean = new Type("boolean");
 
 
     private String name;

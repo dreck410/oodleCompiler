@@ -1,27 +1,20 @@
-~ part1.ood
-class Main is 
-  ~ Attributes
-  
+~
+~ decls1.ood
+~ - No errors, no arrays
+~
+
+class test1 is
+                              
+  x: int                   ~ DEFINE x: int 
+  y: boolean               ~ DEFINE y: boolean
+  z: int
+
   start() is
   begin
-    ~ Test line continuation character
-    if not (s = "") _
-       and not (t = 26) then
-       
-        x := new Frog
-        x := x.hi() 
-        x := (new Frog).init()
-       
-    end if
+    x := 3                     ~ REFERENCE x: int 
+    z := x - 1                 ~ REFERENCE z: int ; REFERENCE x: int
+
+    y := true                  ~ REFERENCE y: boolean
   end start
-
-  m2(a:int): boolean is
-~ part2.ood
-
-  a2: boolean
-  begin
   
-  end m2       
-  
-
-end Main
+end test1

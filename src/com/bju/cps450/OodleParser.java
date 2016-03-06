@@ -16,6 +16,7 @@ public class OodleParser extends Parser {
     public Integer NumberOfErrors = 0;
     public SuperFile superFile;
     public  OodleLexer oodleLexer;
+
     public OodleParser(@SuppressWarnings("hiding") OodleLexer lexer, SuperFile superFileIn) {
         super(lexer);
         oodleLexer = lexer;
@@ -30,13 +31,15 @@ public class OodleParser extends Parser {
             return start;
         } catch (ParserException e) {
             NumberOfErrors++;
+
             SubFile file = this.superFile.getFileByLine(e.getToken().getLine());
             String output = new StringBuilder()
                     .append(file.Name)
-                    .append(": ")
-                    .append(file.getOffset(e.getToken().getLine()))
+                    .append(": at (")
+                    .append(this.superFile.getFileLineByToken(e.getToken()))
                     .append(",")
                     .append(e.getToken().getPos())
+                    .append(") ")
                     .append(": got ")
                     .append(this.oodleLexer.getTokenText())
                     .append(" but ")
