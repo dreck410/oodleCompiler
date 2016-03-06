@@ -14,10 +14,30 @@ import java.util.Stack;
 public class SymbolTable {
     private Stack<List<AbstractDeclaration>> symbolTableStack = new Stack<>();
 
-    public void beginScope(){
+    public void beginScope() throws Exception{
         symbolTableStack.push(new ArrayList<AbstractDeclaration>());
+        switch (symbolTableStack.size()){
+            case 1:
+                // Globals??
+
+                break;
+            case 2:
+                // class
+                break;
+            case 3:
+                // Methods
+                break;
+            default:
+                // uhhh NO
+                throw new Exception("Too many scopes");
 
 
+        }
+
+    }
+
+    private void addDeclToSymbolTable(AbstractDeclaration decl){
+        symbolTableStack.get(symbolTableStack.size() - 1).add(decl);
     }
 
     public void endScope(){
@@ -28,5 +48,7 @@ public class SymbolTable {
 
         symbolTableStack.pop();
     }
+
+
 
 }

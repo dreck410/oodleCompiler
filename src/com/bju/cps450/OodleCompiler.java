@@ -13,14 +13,14 @@ import java.io.IOException;
 public class OodleCompiler {
     OodleLexer oodleLexer;
     OodleParser oodleParser;
-    SemanticAnalyzer oodleSemanticChecker;
+    SemanticChecker oodleSemanticChecker;
     SuperFile superFile;
 
     public OodleCompiler(SuperFile in, Integer printOut){
         superFile = in;
         oodleLexer = new OodleLexer(superFile, printOut);
         oodleParser = new OodleParser(new OodleLexer(superFile,0), superFile);
-        oodleSemanticChecker = new SemanticAnalyzer(superFile);
+        oodleSemanticChecker = new SemanticChecker(superFile);
 
     }
 
