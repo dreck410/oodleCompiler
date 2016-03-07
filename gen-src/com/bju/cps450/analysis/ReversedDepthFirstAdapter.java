@@ -273,6 +273,14 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
     public void caseAIntType(AIntType node)
     {
         inAIntType(node);
+        {
+            List<PExpression> copy = new ArrayList<PExpression>(node.getExpression());
+            Collections.reverse(copy);
+            for(PExpression e : copy)
+            {
+                e.apply(this);
+            }
+        }
         if(node.getInt() != null)
         {
             node.getInt().apply(this);
@@ -294,6 +302,14 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
     public void caseAStringType(AStringType node)
     {
         inAStringType(node);
+        {
+            List<PExpression> copy = new ArrayList<PExpression>(node.getExpression());
+            Collections.reverse(copy);
+            for(PExpression e : copy)
+            {
+                e.apply(this);
+            }
+        }
         if(node.getString() != null)
         {
             node.getString().apply(this);
@@ -315,36 +331,19 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
     public void caseABooleanType(ABooleanType node)
     {
         inABooleanType(node);
+        {
+            List<PExpression> copy = new ArrayList<PExpression>(node.getExpression());
+            Collections.reverse(copy);
+            for(PExpression e : copy)
+            {
+                e.apply(this);
+            }
+        }
         if(node.getBoolean() != null)
         {
             node.getBoolean().apply(this);
         }
         outABooleanType(node);
-    }
-
-    public void inAArrayType(AArrayType node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAArrayType(AArrayType node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAArrayType(AArrayType node)
-    {
-        inAArrayType(node);
-        if(node.getExpression() != null)
-        {
-            node.getExpression().apply(this);
-        }
-        if(node.getType() != null)
-        {
-            node.getType().apply(this);
-        }
-        outAArrayType(node);
     }
 
     public void inACustomType(ACustomType node)
@@ -361,6 +360,14 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
     public void caseACustomType(ACustomType node)
     {
         inACustomType(node);
+        {
+            List<PExpression> copy = new ArrayList<PExpression>(node.getExpression());
+            Collections.reverse(copy);
+            for(PExpression e : copy)
+            {
+                e.apply(this);
+            }
+        }
         if(node.getIdentifier() != null)
         {
             node.getIdentifier().apply(this);

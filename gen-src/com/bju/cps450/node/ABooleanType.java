@@ -2,12 +2,14 @@
 
 package com.bju.cps450.node;
 
+import java.util.*;
 import com.bju.cps450.analysis.*;
 
 @SuppressWarnings("nls")
 public final class ABooleanType extends PType
 {
     private TBoolean _boolean_;
+    private final LinkedList<PExpression> _expression_ = new LinkedList<PExpression>();
 
     public ABooleanType()
     {
@@ -15,10 +17,13 @@ public final class ABooleanType extends PType
     }
 
     public ABooleanType(
-        @SuppressWarnings("hiding") TBoolean _boolean_)
+        @SuppressWarnings("hiding") TBoolean _boolean_,
+        @SuppressWarnings("hiding") List<?> _expression_)
     {
         // Constructor
         setBoolean(_boolean_);
+
+        setExpression(_expression_);
 
     }
 
@@ -26,7 +31,8 @@ public final class ABooleanType extends PType
     public Object clone()
     {
         return new ABooleanType(
-            cloneNode(this._boolean_));
+            cloneNode(this._boolean_),
+            cloneList(this._expression_));
     }
 
     @Override
@@ -60,11 +66,38 @@ public final class ABooleanType extends PType
         this._boolean_ = node;
     }
 
+    public LinkedList<PExpression> getExpression()
+    {
+        return this._expression_;
+    }
+
+    public void setExpression(List<?> list)
+    {
+        for(PExpression e : this._expression_)
+        {
+            e.parent(null);
+        }
+        this._expression_.clear();
+
+        for(Object obj_e : list)
+        {
+            PExpression e = (PExpression) obj_e;
+            if(e.parent() != null)
+            {
+                e.parent().removeChild(e);
+            }
+
+            e.parent(this);
+            this._expression_.add(e);
+        }
+    }
+
     @Override
     public String toString()
     {
         return ""
-            + toString(this._boolean_);
+            + toString(this._boolean_)
+            + toString(this._expression_);
     }
 
     @Override
@@ -74,6 +107,11 @@ public final class ABooleanType extends PType
         if(this._boolean_ == child)
         {
             this._boolean_ = null;
+            return;
+        }
+
+        if(this._expression_.remove(child))
+        {
             return;
         }
 
@@ -88,6 +126,24 @@ public final class ABooleanType extends PType
         {
             setBoolean((TBoolean) newChild);
             return;
+        }
+
+        for(ListIterator<PExpression> i = this._expression_.listIterator(); i.hasNext();)
+        {
+            if(i.next() == oldChild)
+            {
+                if(newChild != null)
+                {
+                    i.set((PExpression) newChild);
+                    newChild.parent(this);
+                    oldChild.parent(null);
+                    return;
+                }
+
+                i.remove();
+                oldChild.parent(null);
+                return;
+            }
         }
 
         throw new RuntimeException("Not a child.");

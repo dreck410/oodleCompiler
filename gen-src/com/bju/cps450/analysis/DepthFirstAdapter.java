@@ -271,6 +271,13 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getInt().apply(this);
         }
+        {
+            List<PExpression> copy = new ArrayList<PExpression>(node.getExpression());
+            for(PExpression e : copy)
+            {
+                e.apply(this);
+            }
+        }
         outAIntType(node);
     }
 
@@ -291,6 +298,13 @@ public class DepthFirstAdapter extends AnalysisAdapter
         if(node.getString() != null)
         {
             node.getString().apply(this);
+        }
+        {
+            List<PExpression> copy = new ArrayList<PExpression>(node.getExpression());
+            for(PExpression e : copy)
+            {
+                e.apply(this);
+            }
         }
         outAStringType(node);
     }
@@ -313,32 +327,14 @@ public class DepthFirstAdapter extends AnalysisAdapter
         {
             node.getBoolean().apply(this);
         }
+        {
+            List<PExpression> copy = new ArrayList<PExpression>(node.getExpression());
+            for(PExpression e : copy)
+            {
+                e.apply(this);
+            }
+        }
         outABooleanType(node);
-    }
-
-    public void inAArrayType(AArrayType node)
-    {
-        defaultIn(node);
-    }
-
-    public void outAArrayType(AArrayType node)
-    {
-        defaultOut(node);
-    }
-
-    @Override
-    public void caseAArrayType(AArrayType node)
-    {
-        inAArrayType(node);
-        if(node.getType() != null)
-        {
-            node.getType().apply(this);
-        }
-        if(node.getExpression() != null)
-        {
-            node.getExpression().apply(this);
-        }
-        outAArrayType(node);
     }
 
     public void inACustomType(ACustomType node)
@@ -358,6 +354,13 @@ public class DepthFirstAdapter extends AnalysisAdapter
         if(node.getIdentifier() != null)
         {
             node.getIdentifier().apply(this);
+        }
+        {
+            List<PExpression> copy = new ArrayList<PExpression>(node.getExpression());
+            for(PExpression e : copy)
+            {
+                e.apply(this);
+            }
         }
         outACustomType(node);
     }

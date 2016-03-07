@@ -44,7 +44,7 @@ Tokens
 
   line_continue        = underscore new_line;
   space                = ' ';
-  comment              = tilde([any_character - [line_feed + carriage_return]] )*;
+  comment              = tilde ([any_character - [line_feed + carriage_return]] )*;
   tab                  = 9;
 
   string               = 'string'; 
@@ -148,6 +148,8 @@ Productions
  call_stmt {-> statement } = P.caller? T.identifier T.oparen P.expr_list T.cparen
                             {-> New statement.call(caller.expression, identifier, [expr_list.expression]) };
 
+ caller  {-> expression } = P.expression_last T.dot {-> expression_last.expression};
+
  loop_stmt {-> statement } = T.loop T.while P.expression T.new_line+
                         P.stmt* T.end [endloop]:T.loop
                         {-> New statement.loop(expression, [stmt.statement]) };
@@ -166,16 +168,14 @@ Productions
  assign_stmt  {-> statement } = T.identifier brace_expr* T.assignment P.expression
                                 {-> New statement.assignment(identifier, [brace_expr.expression], expression) };
 
- caller  {-> expression } = P.expression_last T.dot {-> expression_last.expression};
 
  brace_expr {-> expression } = T.obrace P.expression T.cbrace {-> expression };
 
-
- type  {-> type }       = {int} T.int {-> New type.int(int) }
-                        | {bool} T.boolean {-> New type.boolean(boolean) }
-                        | {string} T.string {-> New type.string(string) }
-                        | {id} T.identifier {-> New type.custom(identifier) }
-                        | {array} type T.obrace [size]:P.expression? T.cbrace {-> New type.array(type, size) };
+ type  {-> type }       = {int} T.int brace_expr* {-> New type.int(int, [brace_expr.expression]) }
+                        | {bool} T.boolean brace_expr* {-> New type.boolean(boolean, [brace_expr.expression]) }
+                        | {string} T.string brace_expr*  {-> New type.string(string, [brace_expr.expression]) }
+                        | {id} T.identifier brace_expr* {-> New type.custom(identifier, [brace_expr.expression]) }
+                        ;
 
 
  expr_list  {-> expression* } = P.expression comma_expr* {-> [expression, comma_expr.expression] };
@@ -249,8 +249,6 @@ Productions
                                             {-> New expression.me(me) }
                         | {new} T.new P.type
                                             {-> New expression.new(type) }
-                        | {array} T.identifier brace_expr+
-                                            {-> New expression.array(identifier, [brace_expr.expression]) }
                         | {methodcall} method_call_expr? T.identifier T.oparen P.expr_list? T.cparen
                                             {-> New expression.method_call(method_call_expr.expression, identifier, [expr_list.expression]) }
                         | {parenth} T.oparen P.expression T.cparen
@@ -275,11 +273,10 @@ Abstract Syntax Tree
 
  method         = type [name]:identifier;
 
- type           = {int} int
-                | {string} string
-                | {boolean} boolean
-                | {array} type expression?
-                | {custom} identifier;
+ type           = {int} int expression*
+                | {string} string expression*
+                | {boolean} boolean expression*
+                | {custom} identifier expression*;
 
  statement      = {if} [condition]:expression [true]:statement* [false]:statement*
                 | {loop} [condition]:expression statement*

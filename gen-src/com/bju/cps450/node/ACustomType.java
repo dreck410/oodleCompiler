@@ -2,12 +2,14 @@
 
 package com.bju.cps450.node;
 
+import java.util.*;
 import com.bju.cps450.analysis.*;
 
 @SuppressWarnings("nls")
 public final class ACustomType extends PType
 {
     private TIdentifier _identifier_;
+    private final LinkedList<PExpression> _expression_ = new LinkedList<PExpression>();
 
     public ACustomType()
     {
@@ -15,10 +17,13 @@ public final class ACustomType extends PType
     }
 
     public ACustomType(
-        @SuppressWarnings("hiding") TIdentifier _identifier_)
+        @SuppressWarnings("hiding") TIdentifier _identifier_,
+        @SuppressWarnings("hiding") List<?> _expression_)
     {
         // Constructor
         setIdentifier(_identifier_);
+
+        setExpression(_expression_);
 
     }
 
@@ -26,7 +31,8 @@ public final class ACustomType extends PType
     public Object clone()
     {
         return new ACustomType(
-            cloneNode(this._identifier_));
+            cloneNode(this._identifier_),
+            cloneList(this._expression_));
     }
 
     @Override
@@ -60,11 +66,38 @@ public final class ACustomType extends PType
         this._identifier_ = node;
     }
 
+    public LinkedList<PExpression> getExpression()
+    {
+        return this._expression_;
+    }
+
+    public void setExpression(List<?> list)
+    {
+        for(PExpression e : this._expression_)
+        {
+            e.parent(null);
+        }
+        this._expression_.clear();
+
+        for(Object obj_e : list)
+        {
+            PExpression e = (PExpression) obj_e;
+            if(e.parent() != null)
+            {
+                e.parent().removeChild(e);
+            }
+
+            e.parent(this);
+            this._expression_.add(e);
+        }
+    }
+
     @Override
     public String toString()
     {
         return ""
-            + toString(this._identifier_);
+            + toString(this._identifier_)
+            + toString(this._expression_);
     }
 
     @Override
@@ -74,6 +107,11 @@ public final class ACustomType extends PType
         if(this._identifier_ == child)
         {
             this._identifier_ = null;
+            return;
+        }
+
+        if(this._expression_.remove(child))
+        {
             return;
         }
 
@@ -88,6 +126,24 @@ public final class ACustomType extends PType
         {
             setIdentifier((TIdentifier) newChild);
             return;
+        }
+
+        for(ListIterator<PExpression> i = this._expression_.listIterator(); i.hasNext();)
+        {
+            if(i.next() == oldChild)
+            {
+                if(newChild != null)
+                {
+                    i.set((PExpression) newChild);
+                    newChild.parent(this);
+                    oldChild.parent(null);
+                    return;
+                }
+
+                i.remove();
+                oldChild.parent(null);
+                return;
+            }
         }
 
         throw new RuntimeException("Not a child.");

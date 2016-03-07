@@ -22,7 +22,6 @@ public interface Analysis extends Switch
     void caseAIntType(AIntType node);
     void caseAStringType(AStringType node);
     void caseABooleanType(ABooleanType node);
-    void caseAArrayType(AArrayType node);
     void caseACustomType(ACustomType node);
     void caseAIfStatement(AIfStatement node);
     void caseALoopStatement(ALoopStatement node);
