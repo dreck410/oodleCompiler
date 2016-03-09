@@ -50,6 +50,7 @@ public class MethodDecl extends AbstractDeclaration {
     }
 
     public AbstractDeclaration lookupVariables(String name){
+        name = name.trim();
         for(int i = 0; i < getVariables().size(); ++i){
             if(getVariables().get(i).getName().equals(name)){
                 return getVariables().get(i);

@@ -58,7 +58,7 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
 
     private Type getArrayDimType(Type t, LinkedList<PExpression> expressions){
         for(int i = 0; i < expressions.size(); ++i){
-            t = new Type(t.getName() + "[]");
+            t = new Type(t.getType() + "[]");
         }
         return t;
     }
@@ -147,7 +147,7 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
     public void outAVarDecl(AVarDecl node) {
         Type t = Application.getNodeProperties(node.getType()).getType();
         try{
-            symbolTable.addVarDecl(node.getIdentifier().getText(), node.getType());
+            symbolTable.addVarDecl(node.getIdentifier().getText(), t);
 
         } catch (Exception e){
             reportError(e.getMessage());
@@ -159,6 +159,30 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
     public void outAIntType(AIntType node) {
         Type t = Type.oodleInt;
         t = getArrayDimType(t, node.getExpression());
+        Application.getNodeProperties(node).setType(t);
+    }
+
+    @Override
+    public void outAIntExpression(AIntExpression node) {
+        Type t = Type.oodleInt;
+
+        Application.getNodeProperties(node).setType(t);
+    }
+
+    @Override
+    public void outAStringLitExpression(AStringLitExpression node) {
+        Type t = Type.oodleString;
+        Application.getNodeProperties(node).setType(t);
+    }
+
+    @Override
+    public void outATrueExpression(ATrueExpression node) {
+        Type t = Type.oodleBoolean;
+        Application.getNodeProperties(node).setType(t);    }
+
+    @Override
+    public void outAFalseExpression(AFalseExpression node) {
+        Type t = Type.oodleBoolean;
         Application.getNodeProperties(node).setType(t);
     }
 
@@ -187,6 +211,8 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
         Application.getNodeProperties(node).setType(t);
 
     }
+
+
 
     @Override
     public void inAAssignmentStatement(AAssignmentStatement node) {

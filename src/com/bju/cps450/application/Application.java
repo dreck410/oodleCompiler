@@ -27,7 +27,6 @@ public class Application {
     public static NodePropertiesContainer getNodeProperties(Node node){
         if(nodePropertyMap.get(node) == null){
             nodePropertyMap.put(node, new NodePropertiesContainer());
-
         }
         return nodePropertyMap.get(node);
     }

@@ -18,9 +18,10 @@ public class Type {
         this.name = name;
     }
 
-    public String getName(){
+    public String getType(){
         return name;
     }
+
     @Override
     public boolean equals(Object o){
         if (this == o) {

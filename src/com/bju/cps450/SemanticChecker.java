@@ -4,6 +4,7 @@ import com.bju.cps450.analysis.DepthFirstAdapter;
 import com.bju.cps450.application.Application;
 import com.bju.cps450.application.SymbolTable;
 import com.bju.cps450.application.Type;
+import com.bju.cps450.declarations.AbstractDeclaration;
 import com.bju.cps450.declarations.ClassDecl;
 import com.bju.cps450.declarations.MethodDecl;
 import com.bju.cps450.declarations.VarDecl;
@@ -62,6 +63,17 @@ public class SemanticChecker extends DepthFirstAdapter {
     }
 
 
+    private Type getType(Node node){
+        AbstractDeclaration decl = Globals.symbolTable.getCurrentMethodDecl().lookupVariables(node.toString());
+        if(decl != null){
+            return decl.getType();
+        }
+        decl = Globals.symbolTable.getCurrentClassDecl().lookupVariables(node.toString());
+        if(decl != null){
+            return decl.getType();
+        }
+        return null;
+    }
     // Begin IN statements
 
 
@@ -113,14 +125,43 @@ public class SemanticChecker extends DepthFirstAdapter {
         if(node.getIndex().size() > 0 && !Objects.equals(node.getIndex().getClass(), Type.oodleInt.getClass())){
             reportError("Index must be of type Int");
         }
-        VarDecl var = Globals.symbolTable.lookup(node.getIdentifier().getText(), VarDecl.class);
-        if(!Objects.equals(node.getClass(), node.getValue().getClass())){
-            reportError("Tried to assign object of class '"+ node.getValue().getClass() + "' to object of type '"+ node.getClass()+"'");
+        Type lhsType = getType(node.getIdentifier());
+
+        if (Objects.equals(lhsType, null)){
+            // still no?
+            reportError("Variable '" + node.getIdentifier().getText() + "' does not exist in current scope");
+        }
+
+        Type rhsType = getType(node.getValue());
+        if(rhsType == null){
+            rhsType =Application.getNodeProperties(node.getValue()).getType();
+        }
+
+        if(!Objects.equals(lhsType, rhsType)){
+            reportError("Tried to assign object of type '"+ rhsType.getType() + "' to object of type '"+ lhsType.getType() +"'");
         }
 
     }
 
 
+    @Override
+    public void outAMinusExpression(AMinusExpression node) {
+        Type lhsType = getType(node.getLhs());
+        if (lhsType == null){
+            // still null probably a literal
+            lhsType = Application.getNodeProperties(node.getLhs()).getType();
 
+        }
+        Type rhsType = getType(node.getRhs());
+        if (rhsType == null){
+            // still null probably a literal
+            rhsType = Application.getNodeProperties(node.getRhs()).getType();
 
+        }
+        if(!Objects.equals(lhsType, Type.oodleInt)
+                || !Objects.equals(rhsType, Type.oodleInt)){
+            reportError("Non integer value found in minus expression");
+        }
+        Application.getNodeProperties(node).setType(Type.oodleInt);
+    }
 }

@@ -50,7 +50,7 @@ public class SymbolTable {
                     if (clazz.equals(ClassDecl.class)) {
                         // they're both classes!
 
-                        if (((ClassDecl) decl).getType().getName().equals(name)) {
+                        if (((ClassDecl) decl).getType().getType().equals(name)) {
                             // they have the same name
                             // found it!!
                             return (T) decl;
@@ -58,12 +58,12 @@ public class SymbolTable {
                         }
                     } else if (clazz.equals(MethodDecl.class)) {
                         // they're both methods!
-                        if (((MethodDecl) decl).getType().getName().equals(name)) {
+                        if (((MethodDecl) decl).getType().getType().equals(name)) {
                             // they have the same name!
                             return (T) decl;
                         }
                     } else if (clazz.equals(VarDecl.class)) {
-                        if (((VarDecl) decl).getType().getName().equals(name)) {
+                        if (((VarDecl) decl).getType().getType().equals(name)) {
                             return (T) decl;
                         } // if Var Decl
                     }// if
@@ -78,6 +78,15 @@ public class SymbolTable {
         return null;
     } // end lookup
 
+    private void addTheLiterals(){
+        for (int i = 0; i < 10; ++i){
+            VarDecl decl = new VarDecl();
+            decl.setName(String.valueOf(i));
+            decl.setType(Type.oodleInt);
+            addDeclToSymbolTable(decl);
+        }
+
+    }
 
     public void beginScope() throws Exception{
         symbolTableStack.push(new ArrayList<AbstractDeclaration>());
@@ -85,6 +94,7 @@ public class SymbolTable {
             case 1:
                 // Globals??
                 currentScope = 1;
+                addTheLiterals();
 
                 break;
             case 2:
@@ -129,7 +139,7 @@ public class SymbolTable {
                 // has to be in class
                 MethodDecl decl = new MethodDecl();
                 decl.setName(name);
-                decl.setType(new Type(type.toString()));
+                //decl.setType(new Type(type.toString()));
                 addDeclToSymbolTable(decl);
                 currentMethodDecl = decl;
                 return decl;
@@ -142,13 +152,13 @@ public class SymbolTable {
     }
 
 
-    public VarDecl addVarDecl(String name, PType type) throws Exception{
+    public VarDecl addVarDecl(String name, Type type) throws Exception{
         if (lookup(name, VarDecl.class) == null) {
             if (symbolTableStack.size() != 1) {
                 // has to be not in global
                 VarDecl decl = new VarDecl();
                 decl.setName(name);
-                decl.setType(new Type(type.toString()));
+                decl.setType(type);
                 addDeclToSymbolTable(decl);
                 return decl;
             } else {
