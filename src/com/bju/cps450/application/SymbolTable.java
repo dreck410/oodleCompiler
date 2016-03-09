@@ -123,12 +123,13 @@ public class SymbolTable {
         }
     }
 
-    public MethodDecl addMethodDecl(String name) throws Exception {
+    public MethodDecl addMethodDecl(String name, PType type) throws Exception {
         if(lookup(name, MethodDecl.class) == null){
             if(symbolTableStack.size() == 2){
                 // has to be in class
                 MethodDecl decl = new MethodDecl();
-                decl.setType(new Type(name));
+                decl.setName(name);
+                decl.setType(new Type(type.toString()));
                 addDeclToSymbolTable(decl);
                 currentMethodDecl = decl;
                 return decl;
@@ -141,12 +142,13 @@ public class SymbolTable {
     }
 
 
-    public VarDecl addVarDecl(String name, Type type) throws Exception{
+    public VarDecl addVarDecl(String name, PType type) throws Exception{
         if (lookup(name, VarDecl.class) == null) {
             if (symbolTableStack.size() != 1) {
                 // has to be not in global
                 VarDecl decl = new VarDecl();
-                decl.setType(type);
+                decl.setName(name);
+                decl.setType(new Type(type.toString()));
                 addDeclToSymbolTable(decl);
                 return decl;
             } else {
@@ -164,6 +166,7 @@ public class SymbolTable {
             // check the scope
             if (symbolTableStack.size() == 1) {
                 ClassDecl decl = new ClassDecl();
+                decl.setName(name);
                 decl.setType(new Type(name));
                 addDeclToSymbolTable(decl);
                 currentClassDecl = decl;

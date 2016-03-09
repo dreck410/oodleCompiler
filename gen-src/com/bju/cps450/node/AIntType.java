@@ -8,7 +8,7 @@ import com.bju.cps450.analysis.*;
 @SuppressWarnings("nls")
 public final class AIntType extends PType
 {
-    private TInt _int_;
+    private TInt _identifier_;
     private final LinkedList<PExpression> _expression_ = new LinkedList<PExpression>();
 
     public AIntType()
@@ -17,11 +17,11 @@ public final class AIntType extends PType
     }
 
     public AIntType(
-        @SuppressWarnings("hiding") TInt _int_,
+        @SuppressWarnings("hiding") TInt _identifier_,
         @SuppressWarnings("hiding") List<?> _expression_)
     {
         // Constructor
-        setInt(_int_);
+        setIdentifier(_identifier_);
 
         setExpression(_expression_);
 
@@ -31,7 +31,7 @@ public final class AIntType extends PType
     public Object clone()
     {
         return new AIntType(
-            cloneNode(this._int_),
+            cloneNode(this._identifier_),
             cloneList(this._expression_));
     }
 
@@ -41,16 +41,16 @@ public final class AIntType extends PType
         ((Analysis) sw).caseAIntType(this);
     }
 
-    public TInt getInt()
+    public TInt getIdentifier()
     {
-        return this._int_;
+        return this._identifier_;
     }
 
-    public void setInt(TInt node)
+    public void setIdentifier(TInt node)
     {
-        if(this._int_ != null)
+        if(this._identifier_ != null)
         {
-            this._int_.parent(null);
+            this._identifier_.parent(null);
         }
 
         if(node != null)
@@ -63,7 +63,7 @@ public final class AIntType extends PType
             node.parent(this);
         }
 
-        this._int_ = node;
+        this._identifier_ = node;
     }
 
     public LinkedList<PExpression> getExpression()
@@ -96,7 +96,7 @@ public final class AIntType extends PType
     public String toString()
     {
         return ""
-            + toString(this._int_)
+            + toString(this._identifier_)
             + toString(this._expression_);
     }
 
@@ -104,9 +104,9 @@ public final class AIntType extends PType
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._int_ == child)
+        if(this._identifier_ == child)
         {
-            this._int_ = null;
+            this._identifier_ = null;
             return;
         }
 
@@ -122,9 +122,9 @@ public final class AIntType extends PType
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._int_ == oldChild)
+        if(this._identifier_ == oldChild)
         {
-            setInt((TInt) newChild);
+            setIdentifier((TInt) newChild);
             return;
         }
 

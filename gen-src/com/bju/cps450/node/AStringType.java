@@ -8,7 +8,7 @@ import com.bju.cps450.analysis.*;
 @SuppressWarnings("nls")
 public final class AStringType extends PType
 {
-    private TString _string_;
+    private TString _identifier_;
     private final LinkedList<PExpression> _expression_ = new LinkedList<PExpression>();
 
     public AStringType()
@@ -17,11 +17,11 @@ public final class AStringType extends PType
     }
 
     public AStringType(
-        @SuppressWarnings("hiding") TString _string_,
+        @SuppressWarnings("hiding") TString _identifier_,
         @SuppressWarnings("hiding") List<?> _expression_)
     {
         // Constructor
-        setString(_string_);
+        setIdentifier(_identifier_);
 
         setExpression(_expression_);
 
@@ -31,7 +31,7 @@ public final class AStringType extends PType
     public Object clone()
     {
         return new AStringType(
-            cloneNode(this._string_),
+            cloneNode(this._identifier_),
             cloneList(this._expression_));
     }
 
@@ -41,16 +41,16 @@ public final class AStringType extends PType
         ((Analysis) sw).caseAStringType(this);
     }
 
-    public TString getString()
+    public TString getIdentifier()
     {
-        return this._string_;
+        return this._identifier_;
     }
 
-    public void setString(TString node)
+    public void setIdentifier(TString node)
     {
-        if(this._string_ != null)
+        if(this._identifier_ != null)
         {
-            this._string_.parent(null);
+            this._identifier_.parent(null);
         }
 
         if(node != null)
@@ -63,7 +63,7 @@ public final class AStringType extends PType
             node.parent(this);
         }
 
-        this._string_ = node;
+        this._identifier_ = node;
     }
 
     public LinkedList<PExpression> getExpression()
@@ -96,7 +96,7 @@ public final class AStringType extends PType
     public String toString()
     {
         return ""
-            + toString(this._string_)
+            + toString(this._identifier_)
             + toString(this._expression_);
     }
 
@@ -104,9 +104,9 @@ public final class AStringType extends PType
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._string_ == child)
+        if(this._identifier_ == child)
         {
-            this._string_ = null;
+            this._identifier_ = null;
             return;
         }
 
@@ -122,9 +122,9 @@ public final class AStringType extends PType
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._string_ == oldChild)
+        if(this._identifier_ == oldChild)
         {
-            setString((TString) newChild);
+            setIdentifier((TString) newChild);
             return;
         }
 

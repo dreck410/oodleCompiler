@@ -267,9 +267,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseAIntType(AIntType node)
     {
         inAIntType(node);
-        if(node.getInt() != null)
+        if(node.getIdentifier() != null)
         {
-            node.getInt().apply(this);
+            node.getIdentifier().apply(this);
         }
         {
             List<PExpression> copy = new ArrayList<PExpression>(node.getExpression());
@@ -295,9 +295,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseAStringType(AStringType node)
     {
         inAStringType(node);
-        if(node.getString() != null)
+        if(node.getIdentifier() != null)
         {
-            node.getString().apply(this);
+            node.getIdentifier().apply(this);
         }
         {
             List<PExpression> copy = new ArrayList<PExpression>(node.getExpression());
@@ -323,9 +323,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseABooleanType(ABooleanType node)
     {
         inABooleanType(node);
-        if(node.getBoolean() != null)
+        if(node.getIdentifier() != null)
         {
-            node.getBoolean().apply(this);
+            node.getIdentifier().apply(this);
         }
         {
             List<PExpression> copy = new ArrayList<PExpression>(node.getExpression());

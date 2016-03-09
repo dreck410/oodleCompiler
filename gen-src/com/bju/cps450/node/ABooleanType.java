@@ -8,7 +8,7 @@ import com.bju.cps450.analysis.*;
 @SuppressWarnings("nls")
 public final class ABooleanType extends PType
 {
-    private TBoolean _boolean_;
+    private TBoolean _identifier_;
     private final LinkedList<PExpression> _expression_ = new LinkedList<PExpression>();
 
     public ABooleanType()
@@ -17,11 +17,11 @@ public final class ABooleanType extends PType
     }
 
     public ABooleanType(
-        @SuppressWarnings("hiding") TBoolean _boolean_,
+        @SuppressWarnings("hiding") TBoolean _identifier_,
         @SuppressWarnings("hiding") List<?> _expression_)
     {
         // Constructor
-        setBoolean(_boolean_);
+        setIdentifier(_identifier_);
 
         setExpression(_expression_);
 
@@ -31,7 +31,7 @@ public final class ABooleanType extends PType
     public Object clone()
     {
         return new ABooleanType(
-            cloneNode(this._boolean_),
+            cloneNode(this._identifier_),
             cloneList(this._expression_));
     }
 
@@ -41,16 +41,16 @@ public final class ABooleanType extends PType
         ((Analysis) sw).caseABooleanType(this);
     }
 
-    public TBoolean getBoolean()
+    public TBoolean getIdentifier()
     {
-        return this._boolean_;
+        return this._identifier_;
     }
 
-    public void setBoolean(TBoolean node)
+    public void setIdentifier(TBoolean node)
     {
-        if(this._boolean_ != null)
+        if(this._identifier_ != null)
         {
-            this._boolean_.parent(null);
+            this._identifier_.parent(null);
         }
 
         if(node != null)
@@ -63,7 +63,7 @@ public final class ABooleanType extends PType
             node.parent(this);
         }
 
-        this._boolean_ = node;
+        this._identifier_ = node;
     }
 
     public LinkedList<PExpression> getExpression()
@@ -96,7 +96,7 @@ public final class ABooleanType extends PType
     public String toString()
     {
         return ""
-            + toString(this._boolean_)
+            + toString(this._identifier_)
             + toString(this._expression_);
     }
 
@@ -104,9 +104,9 @@ public final class ABooleanType extends PType
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._boolean_ == child)
+        if(this._identifier_ == child)
         {
-            this._boolean_ = null;
+            this._identifier_ = null;
             return;
         }
 
@@ -122,9 +122,9 @@ public final class ABooleanType extends PType
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._boolean_ == oldChild)
+        if(this._identifier_ == oldChild)
         {
-            setBoolean((TBoolean) newChild);
+            setIdentifier((TBoolean) newChild);
             return;
         }
 

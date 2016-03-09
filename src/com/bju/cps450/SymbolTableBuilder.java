@@ -109,7 +109,7 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
     public void inAMethodDecl(AMethodDecl node) {
         lastToken = node.getName();
         try{
-            currentMethod = symbolTable.addMethodDecl(node.getName().getText());
+            currentMethod = symbolTable.addMethodDecl(node.getName().getText(), node.getType());
         }catch(Exception e){
             reportError(e.getMessage());
         }
@@ -147,7 +147,7 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
     public void outAVarDecl(AVarDecl node) {
         Type t = Application.getNodeProperties(node.getType()).getType();
         try{
-            symbolTable.addVarDecl(node.getIdentifier().getText(), node);
+            symbolTable.addVarDecl(node.getIdentifier().getText(), node.getType());
 
         } catch (Exception e){
             reportError(e.getMessage());

@@ -120,6 +120,7 @@ Productions
 
  var_decl {-> var_decl} = T.identifier type_decl? expr_assignment? T.new_line+ {-> New var_decl(identifier, type_decl.type, expr_assignment.expression) };
 
+
  method_decl {-> method_decl} = [start]:T.identifier T.oparen P.arg_decl_list? T.cparen P.type_decl? T.is [isnl]:T.new_line+
                         P.var_decl*
                         T.begin [beginnl]:T.new_line+
@@ -145,7 +146,7 @@ Productions
                         ;
 
 
- call_stmt {-> statement } = P.caller? T.identifier T.oparen P.expr_list T.cparen
+ call_stmt {-> statement } = P.caller? T.identifier T.oparen P.expr_list? T.cparen
                             {-> New statement.call(caller.expression, identifier, [expr_list.expression]) };
 
  caller  {-> expression } = P.expression_last T.dot {-> expression_last.expression};
@@ -249,13 +250,12 @@ Productions
                                             {-> New expression.me(me) }
                         | {new} T.new P.type
                                             {-> New expression.new(type) }
-                        | {methodcall} method_call_expr? T.identifier T.oparen P.expr_list? T.cparen
-                                            {-> New expression.method_call(method_call_expr.expression, identifier, [expr_list.expression]) }
+                        | {methodcall} caller? T.identifier T.oparen P.expr_list? T.cparen
+                                            {-> New expression.method_call(caller.expression, identifier, [expr_list.expression]) }
                         | {parenth} T.oparen P.expression T.cparen
                                             {-> expression.expression }
                         ;
 
- method_call_expr {-> expression} = expression_last T.dot {-> expression_last.expression};
 
 Abstract Syntax Tree
 
@@ -273,10 +273,10 @@ Abstract Syntax Tree
 
  method         = type [name]:identifier;
 
- type           = {int} int expression*
-                | {string} string expression*
-                | {boolean} boolean expression*
-                | {custom} identifier expression*;
+ type           = {int} [identifier]:int expression*
+                | {string} [identifier]:string expression*
+                | {boolean} [identifier]:boolean expression*
+                | {custom} [identifier]:identifier expression*;
 
  statement      = {if} [condition]:expression [true]:statement* [false]:statement*
                 | {loop} [condition]:expression statement*
