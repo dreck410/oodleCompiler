@@ -1,53 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" description="                    }&#10;                    if (symb..." line="203" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" description="                    }&#10;                    if (symb..." line="204" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a857c136-3dcb-492e-b4af-725a36bb600b" name="Default" comment="code refactorization DRY&#10;tests pass&#10;3_id shows up as an integer and an identifier look into this?">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/bju/cps450/application/Application.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractVarDecl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/bju/cps450/declarations/ClassDecl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/bju/cps450/declarations/VarDecl.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/AArrayType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/OodleSymbolTableBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/AArrayType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/bju/cps450/OodleSymbolTableBuilder.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/parser.dat" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/parser.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/OodleCompiler.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/OodleCompiler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/SemanticChecker.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/SemanticChecker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/Analysis.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/Analysis.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/AnalysisAdapter.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/AnalysisAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/DepthFirstAdapter.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/DepthFirstAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/ReversedDepthFirstAdapter.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/ReversedDepthFirstAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/application/SymbolTable.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/application/SymbolTable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/application/Type.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/application/Type.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/ABooleanType.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/ABooleanType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/ACustomType.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/ACustomType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/AIntType.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/AIntType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/AStringType.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/AStringType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/Parser.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/Parser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/parser.dat" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/parser.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/combined.txt" afterPath="$PROJECT_DIR$/combined.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/Analysis.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/Analysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/AnalysisAdapter.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/AnalysisAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/DepthFirstAdapter.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/DepthFirstAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/ReversedDepthFirstAdapter.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/ReversedDepthFirstAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/ABooleanType.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/ABooleanType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/ACustomType.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/ACustomType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/AIntType.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/AIntType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/AStringType.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/AStringType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/Parser.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/oodle.scc" afterPath="$PROJECT_DIR$/out/production/oodleproject/oodle.scc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/OodleCompiler.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/OodleCompiler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/application/Type.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/application/Type.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oodle.scc" afterPath="$PROJECT_DIR$/src/oodle.scc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractDeclaration.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractDeclaration.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/phase_3/decls/decls1.ood" afterPath="$PROJECT_DIR$/tests/phase_3/decls/decls1.ood" />
     </list>
     <ignored path="oodleproject.iws" />
@@ -72,7 +35,7 @@
     <favorites_list name="oodleproject" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.54092264">
+    <splitter split-orientation="horizontal" split-proportion="0.6609929">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="OodleCompiler.java" pinned="false" current-in-tab="false">
@@ -91,17 +54,12 @@
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
+                  <caret line="114" column="9" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#975#1006#0" expanded="true" />
                     <element signature="method#reportError#0;class#SemanticChecker#0" expanded="false" />
-                    <element signature="e#1728#1729#0" expanded="true" />
-                    <element signature="e#1760#1761#0" expanded="true" />
-                    <element signature="e#2147#2148#0" expanded="true" />
-                    <element signature="e#2182#2183#0" expanded="true" />
-                    <element signature="e#2416#2417#0" expanded="true" />
-                    <element signature="e#2452#2453#0" expanded="true" />
+                    <element signature="e#2369#2370#0" expanded="true" />
+                    <element signature="e#2405#2406#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -110,11 +68,10 @@
           <file leaf-file-name="SymbolTableBuilder.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="2.3290908">
-                  <caret line="171" column="5" selection-start-line="171" selection-start-column="5" selection-end-line="171" selection-end-column="5" />
+                <state vertical-scroll-proportion="0.33229813">
+                  <caret line="149" column="71" selection-start-line="149" selection-start-column="71" selection-end-line="149" selection-end-column="71" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#759#790#0" expanded="true" />
                     <element signature="method#reportError#0;class#SymbolTableBuilder#0" expanded="false" />
                   </folding>
                 </state>
@@ -125,16 +82,13 @@
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+                  <caret line="143" column="43" selection-start-line="143" selection-start-column="43" selection-end-line="143" selection-end-column="43" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#483#484#0" expanded="true" />
-                    <element signature="e#523#524#0" expanded="true" />
-                    <element signature="e#569#570#0" expanded="true" />
-                    <element signature="e#608#609#0" expanded="true" />
-                    <element signature="e#693#694#0" expanded="true" />
-                    <element signature="e#742#743#0" expanded="true" />
                     <element signature="method#lookup#1;class#SymbolTable#0" expanded="false" />
+                    <element signature="method#beginScope#0;class#SymbolTable#0" expanded="false" />
+                    <element signature="method#addMethodDecl#0;class#SymbolTable#0" expanded="false" />
+                    <element signature="method#endScope#0;class#SymbolTable#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -184,20 +138,20 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="combined.txt" pinned="false" current-in-tab="true">
+          <file leaf-file-name="combined.txt" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/combined.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.16363636">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="oodle.scc" pinned="false" current-in-tab="false">
+          <file leaf-file-name="oodle.scc" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/oodle.scc">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
+                <state vertical-scroll-proportion="-2.3881989">
                   <caret line="176" column="55" selection-start-line="176" selection-start-column="55" selection-end-line="176" selection-end-column="55" />
                   <folding />
                 </state>
@@ -242,7 +196,6 @@
         <option value="$PROJECT_DIR$/src/com/bju/cps450/Oodle.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/OodleSymbolTableBuilder.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/Globals.java" />
-        <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractDeclaration.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/SuperFile.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/OodleParser.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/SemanticAnalyzer.java" />
@@ -253,12 +206,13 @@
         <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/ClassDecl.java" />
-        <option value="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/OodleCompiler.java" />
-        <option value="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
-        <option value="$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java" />
         <option value="$PROJECT_DIR$/src/oodle.scc" />
         <option value="$PROJECT_DIR$/combined.txt" />
+        <option value="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
+        <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractDeclaration.java" />
+        <option value="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" />
+        <option value="$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java" />
       </list>
     </option>
   </component>
@@ -303,9 +257,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -388,7 +342,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/daniel/Desktop/oodleproject/src/com/bju/cps450/SymbolTableBuilder.java&#10;line number&#9;null&#9;null" />
   </component>
-  <component name="RunManager" selected="Application.decl3">
+  <component name="RunManager" selected="Application.decl1">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -912,23 +866,23 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.47595358" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07517966" sideWeight="0.49438202" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2986699" sideWeight="0.42951906" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2986699" sideWeight="0.57048094" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.036484245" sideWeight="0.49438202" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2986699" sideWeight="0.42564952" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18500605" sideWeight="0.41569927" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28899637" sideWeight="0.48258707" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18500605" sideWeight="0.5898286" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18500605" sideWeight="0.5843007" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.48258707" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18186843" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2498618" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25272068" sideWeight="0.5262576" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1840796" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29383314" sideWeight="0.7092316" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14040907" sideWeight="0.505618" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2498618" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -953,13 +907,13 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java</url>
-          <line>110</line>
+          <url>file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java</url>
+          <line>144</line>
           <properties />
-          <option name="timeStamp" value="133" />
+          <option name="timeStamp" value="140" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="136" />
+      <option name="time" value="141" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1206,19 +1160,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractDeclaration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41142857">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding>
-            <element signature="e#206#207#0" expanded="true" />
-            <element signature="e#233#234#0" expanded="true" />
-            <element signature="e#270#271#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SuperFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1256,16 +1197,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
-          <folding>
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#262#263#0" expanded="true" />
-            <element signature="e#319#320#0" expanded="true" />
-            <element signature="e#365#366#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-            <element signature="e#423#424#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1273,7 +1204,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26530612">
           <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1295,16 +1225,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.67346936">
           <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-          <folding>
-            <element signature="e#230#231#0" expanded="false" />
-            <element signature="e#257#258#0" expanded="false" />
-            <element signature="e#296#297#0" expanded="false" />
-            <element signature="e#328#329#0" expanded="false" />
-            <element signature="e#369#370#0" expanded="false" />
-            <element signature="e#403#404#0" expanded="false" />
-            <element signature="e#450#451#0" expanded="false" />
-            <element signature="e#486#487#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1320,12 +1240,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="e#195#196#0" expanded="true" />
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1365,30 +1279,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#483#484#0" expanded="true" />
-            <element signature="e#523#524#0" expanded="true" />
-            <element signature="e#569#570#0" expanded="true" />
-            <element signature="e#608#609#0" expanded="true" />
-            <element signature="e#693#694#0" expanded="true" />
-            <element signature="e#742#743#0" expanded="true" />
-            <element signature="method#lookup#1;class#SymbolTable#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gen-src/com/bju/cps450/node/Start.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#740#741#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1402,55 +1296,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#975#1006#0" expanded="true" />
-            <element signature="method#reportError#0;class#SemanticChecker#0" expanded="false" />
-            <element signature="e#1728#1729#0" expanded="true" />
-            <element signature="e#1760#1761#0" expanded="true" />
-            <element signature="e#2147#2148#0" expanded="true" />
-            <element signature="e#2182#2183#0" expanded="true" />
-            <element signature="e#2416#2417#0" expanded="true" />
-            <element signature="e#2452#2453#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gen-src/com/bju/cps450/node/AIntType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13090909">
           <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/combined.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oodle.scc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="-2.3881989">
           <caret line="176" column="55" selection-start-line="176" selection-start-column="55" selection-end-line="176" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/combined.txt">
+    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16363636">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="114" column="9" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#reportError#0;class#SemanticChecker#0" expanded="false" />
+            <element signature="e#2369#2370#0" expanded="true" />
+            <element signature="e#2405#2406#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractDeclaration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41925466">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="143" column="43" selection-start-line="143" selection-start-column="43" selection-end-line="143" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#lookup#1;class#SymbolTable#0" expanded="false" />
+            <element signature="method#beginScope#0;class#SymbolTable#0" expanded="false" />
+            <element signature="method#addMethodDecl#0;class#SymbolTable#0" expanded="false" />
+            <element signature="method#endScope#0;class#SymbolTable#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3290908">
-          <caret line="171" column="5" selection-start-line="171" selection-start-column="5" selection-end-line="171" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.33229813">
+          <caret line="149" column="71" selection-start-line="149" selection-start-column="71" selection-end-line="149" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#759#790#0" expanded="true" />
             <element signature="method#reportError#0;class#SymbolTableBuilder#0" expanded="false" />
           </folding>
         </state>

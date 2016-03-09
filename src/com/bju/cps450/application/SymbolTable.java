@@ -2,6 +2,7 @@ package com.bju.cps450.application;
 
 
 import com.bju.cps450.declarations.*;
+import com.bju.cps450.node.PType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -140,12 +141,12 @@ public class SymbolTable {
     }
 
 
-    public VarDecl addVarDecl(String name) throws Exception{
+    public VarDecl addVarDecl(String name, Type type) throws Exception{
         if (lookup(name, VarDecl.class) == null) {
             if (symbolTableStack.size() != 1) {
                 // has to be not in global
                 VarDecl decl = new VarDecl();
-                decl.setType(new Type(name));
+                decl.setType(type);
                 addDeclToSymbolTable(decl);
                 return decl;
             } else {

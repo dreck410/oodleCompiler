@@ -6,6 +6,7 @@ import com.bju.cps450.application.SymbolTable;
 import com.bju.cps450.application.Type;
 import com.bju.cps450.declarations.ClassDecl;
 import com.bju.cps450.declarations.MethodDecl;
+import com.bju.cps450.declarations.VarDecl;
 import com.bju.cps450.node.AAssignmentStatement;
 import com.bju.cps450.node.AVarDecl;
 import com.bju.cps450.node.*;
@@ -65,12 +66,6 @@ public class SemanticChecker extends DepthFirstAdapter {
 
 
     @Override
-    public void inAAssignmentStatement(AAssignmentStatement node) {
-
-
-    }
-
-    @Override
     public void inAClassDecl(AClassDecl node) {
         lastToken = node.getStart();
         currentClass = Globals.symbolTable.lookup(node.getStart().getText(), ClassDecl.class);
@@ -105,10 +100,23 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     }
 
+    @Override
+    public void inAAssignmentStatement(AAssignmentStatement node) {
+        lastToken = node.getIdentifier();
+
+    }
+
 
     @Override
     public void outAAssignmentStatement(AAssignmentStatement node) {
 
+        if(node.getIndex().size() > 0 && !Objects.equals(node.getIndex().getClass(), Type.oodleInt.getClass())){
+            reportError("Index must be of type Int");
+        }
+        VarDecl var = Globals.symbolTable.lookup(node.getIdentifier().getText(), VarDecl.class);
+        if(!Objects.equals(node.getClass(), node.getValue().getClass())){
+            reportError("Tried to assign object of class '"+ node.getValue().getClass() + "' to object of type '"+ node.getClass()+"'");
+        }
 
     }
 

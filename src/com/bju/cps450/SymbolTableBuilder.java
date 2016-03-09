@@ -9,6 +9,7 @@ import com.bju.cps450.node.*;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Objects;
 
 import static com.bju.cps450.Globals.symbolTable;
 
@@ -93,6 +94,9 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
 
     @Override
     public void outAClassDecl(AClassDecl node) {
+        if(!Objects.equals(node.getStart().getText(), node.getEnd().getText())){
+            reportError("Class name '" + node.getStart().getText() + "' and end tag do not match.");
+        }
         try {
             symbolTable.endScope();
         } catch (Exception e) {
@@ -121,6 +125,9 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
 
     @Override
     public void outAMethodDecl(AMethodDecl node) {
+        if(!Objects.equals(node.getName().getText(), node.getEnd().getText())){
+            reportError("Method name '"+node.getName().getText()+"' and end tag '" + node.getEnd().getText() + "' do not match");
+        }
         try {
             symbolTable.endScope();
         } catch (Exception e) {
@@ -140,7 +147,7 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
     public void outAVarDecl(AVarDecl node) {
         Type t = Application.getNodeProperties(node.getType()).getType();
         try{
-            symbolTable.addVarDecl(node.getIdentifier().getText());
+            symbolTable.addVarDecl(node.getIdentifier().getText(), node);
 
         } catch (Exception e){
             reportError(e.getMessage());
