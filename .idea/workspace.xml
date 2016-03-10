@@ -4,19 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" description="                    }&#10;                    if (symb..." line="217" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a857c136-3dcb-492e-b4af-725a36bb600b" name="Default" comment="code refactorization DRY&#10;tests pass&#10;3_id shows up as an integer and an identifier look into this?">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/SemanticChecker.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/SemanticChecker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/SymbolTableBuilder.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/SymbolTableBuilder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/application/Type.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/application/Type.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/application/Application.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/application/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/application/Type.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/application/Type.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/phase_3/decls/decls1.ood" afterPath="$PROJECT_DIR$/tests/phase_3/decls/decls1.ood" />
-    </list>
+    <list default="true" id="a857c136-3dcb-492e-b4af-725a36bb600b" name="Default" comment="code refactorization DRY&#10;tests pass&#10;3_id shows up as an integer and an identifier look into this?" />
     <ignored path="oodleproject.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -58,7 +46,7 @@
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.3501805">
-                  <caret line="140" column="122" selection-start-line="140" selection-start-column="122" selection-end-line="140" selection-end-column="122" />
+                  <caret line="140" column="7" selection-start-line="140" selection-start-column="7" selection-end-line="140" selection-end-column="7" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#reportError#0;class#SemanticChecker#0" expanded="false" />
@@ -889,7 +877,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.48258707" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14096186" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29383314" sideWeight="0.67882806" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29383314" sideWeight="0.67882806" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -919,14 +907,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java</url>
-          <line>140</line>
-          <properties />
-          <option name="timeStamp" value="164" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="165" />
     </breakpoint-manager>
     <watches-manager />
@@ -1373,7 +1353,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3501805">
-          <caret line="140" column="122" selection-start-line="140" selection-start-column="122" selection-end-line="140" selection-end-column="122" />
+          <caret line="140" column="7" selection-start-line="140" selection-start-column="7" selection-end-line="140" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#reportError#0;class#SemanticChecker#0" expanded="false" />
