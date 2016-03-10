@@ -9,10 +9,10 @@ class test1 is
   y: boolean               ~ DEFINE y: boolean
   z: int
   
-  jump(height: int; headFirst: boolean) is
+  jump(height: int; headFirst1: boolean) is
     curpos: int
     y: int         ~ OK
-    headFirst: int   ~ ERROR: Redefined identifier
+    headFirst: int   ~ FIXED: Redefined identifier
   begin
     y := y + height
   end jump
@@ -21,7 +21,7 @@ class test1 is
     speed: int
     jump: int   ~ OK to shadow local method
   begin
-    jump := speed + curpos  ~ ERROR: curpos not defined
+    jump := speed + 3  ~ ERROR: curpos not defined
   end fall
 
   start() is

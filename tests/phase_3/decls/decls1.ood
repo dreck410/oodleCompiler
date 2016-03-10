@@ -10,7 +10,7 @@ class test1 is
   z: int
 
   start() is
-  	x : string
+  	x : int
   begin
     x := 3                  ~ REFERENCE x: int 
     z := x - 1                 ~ REFERENCE z: int ; REFERENCE x: int

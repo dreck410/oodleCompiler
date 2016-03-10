@@ -154,6 +154,16 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
         }
     }
 
+    @Override
+    public void outAArg(AArg node) {
+        Type t = Application.getNodeProperties(node.getType()).getType();
+        try{
+            symbolTable.addArgumentDecl(node.getIdentifier().getText(), t);
+
+        } catch (Exception e){
+            reportError(e.getMessage());
+        }
+    }
 
     @Override
     public void outAIntType(AIntType node) {

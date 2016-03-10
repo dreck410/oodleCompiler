@@ -1,5 +1,8 @@
 package com.bju.cps450.declarations;
 
+import com.bju.cps450.application.Type;
+import com.bju.cps450.node.TIdentifier;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +51,15 @@ public class ClassDecl extends AbstractDeclaration {
         }
         for(int i = 0; i < getMethods().size(); ++i){
             if(getMethods().get(i).getName().equals(name)){
+                return getMethods().get(i);
+            }
+        }
+        return null;
+    }
+
+    public AbstractDeclaration lookupMethods(TIdentifier name) {
+        for(int i = 0; i < getMethods().size(); ++i){
+            if(getMethods().get(i).getName().equals(name.getText())){
                 return getMethods().get(i);
             }
         }

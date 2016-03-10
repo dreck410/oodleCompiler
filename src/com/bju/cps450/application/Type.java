@@ -10,12 +10,18 @@ public class Type {
     public static Type oodleString = new Type("string");
     public static Type oodleArray = new Type("array");
     public static Type oodleBoolean = new Type("boolean");
+    public static Type oodleNull = new Type("null");
 
 
     private String name;
 
     public Type(String name){
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 
     public String getType(){

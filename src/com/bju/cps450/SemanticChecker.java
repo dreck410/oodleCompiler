@@ -4,10 +4,7 @@ import com.bju.cps450.analysis.DepthFirstAdapter;
 import com.bju.cps450.application.Application;
 import com.bju.cps450.application.SymbolTable;
 import com.bju.cps450.application.Type;
-import com.bju.cps450.declarations.AbstractDeclaration;
-import com.bju.cps450.declarations.ClassDecl;
-import com.bju.cps450.declarations.MethodDecl;
-import com.bju.cps450.declarations.VarDecl;
+import com.bju.cps450.declarations.*;
 import com.bju.cps450.node.AAssignmentStatement;
 import com.bju.cps450.node.AVarDecl;
 import com.bju.cps450.node.*;
@@ -64,15 +61,26 @@ public class SemanticChecker extends DepthFirstAdapter {
 
 
     private Type getType(Node node){
-        AbstractDeclaration decl = Globals.symbolTable.getCurrentMethodDecl().lookupVariables(node.toString());
+        AbstractDeclaration decl = null;
+        if(currentMethod != null) {
+            decl = currentMethod.lookupVariables(node.toString());
+            if (decl != null) {
+                return decl.getType();
+            }
+        }
+        decl = currentClass.lookupVariables(node.toString());
         if(decl != null){
             return decl.getType();
         }
-        decl = Globals.symbolTable.getCurrentClassDecl().lookupVariables(node.toString());
-        if(decl != null){
-            return decl.getType();
+        return Type.oodleNull;
+    }
+
+    private Type getNodeType(Node node){
+        Type t = getType(node);
+        if (t == Type.oodleNull){
+            t = Application.getNodeProperties(node).getType();
         }
-        return null;
+        return t;
     }
     // Begin IN statements
 
@@ -92,7 +100,8 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     @Override
     public void inAMethodDecl(AMethodDecl node) {
-        currentMethod = Globals.symbolTable.lookup(node.getName().getText(), MethodDecl.class);
+        lastToken = node.getName();
+        currentMethod = (MethodDecl) currentClass.lookupMethods(node.getName());
     }
 
     @Override
@@ -127,37 +136,101 @@ public class SemanticChecker extends DepthFirstAdapter {
         }
         Type lhsType = getType(node.getIdentifier());
 
-        if (Objects.equals(lhsType, null)){
+        if (Objects.equals(lhsType, Type.oodleNull)){
             // still no?
             reportError("Variable '" + node.getIdentifier().getText() + "' does not exist in current scope");
-        }
 
-        Type rhsType = getType(node.getValue());
-        if(rhsType == null){
-            rhsType =Application.getNodeProperties(node.getValue()).getType();
-        }
+        }else {
 
-        if(!Objects.equals(lhsType, rhsType)){
-            reportError("Tried to assign object of type '"+ rhsType.getType() + "' to object of type '"+ lhsType.getType() +"'");
+            Type rhsType = getNodeType(node.getValue());
+
+            if (!Objects.equals(lhsType, rhsType)) {
+                reportError("Tried to assign object of type '" + rhsType + "' to object of type '" + lhsType + "'");
+            }
+        }
+    }
+
+
+
+    @Override
+    public void outAMethodCallExpression(AMethodCallExpression node) {
+        Type t = getNodeType(node);
+        if(Objects.equals(currentClass.lookupMethods(node.getMethod()), null)){
+            reportError("Method '"+node.getMethod().getText()+"' does not exist in current context");
         }
 
     }
 
+    @Override
+    public void outACallStatement(ACallStatement node) {
+        Type t = getNodeType(node);
+        MethodDecl m = (MethodDecl) currentClass.lookupMethods(node.getMethod());
+        if(Objects.equals(m, null)){
+            reportError("Method '"+node.getMethod().getText()+"' does not exist in current context");
+        }
+        else{
+            for (int i = 0; i < m.getArguments().size(); ++i) {
+                Type argType = getNodeType(node.getArgs().get(i));
+                Type paramType = m.getArguments().get(i).getType();
+                if (!Objects.equals(paramType, argType)) {
+                    reportError("Method '" + m.getName() + "' does not take a '" + argType + "'.");
+
+                }
+            }
+        }
+
+
+    }
+
+    @Override
+    public void outAIfStatement(AIfStatement node) {
+        super.outAIfStatement(node);
+    }
+
+    @Override
+    public void outALoopStatement(ALoopStatement node) {
+        super.outALoopStatement(node);
+    }
+
+    @Override
+    public void outAGtExpression(AGtExpression node) {
+
+        Type lhsType = getNodeType(node.getLhs());
+
+
+        Type rhsType = getNodeType(node.getRhs());
+        if(!Objects.equals(lhsType, rhsType)){
+            reportError("Comparing objects of different type " + lhsType +", and " + rhsType);
+        }
+
+        Application.getNodeProperties(node).setType(Type.oodleBoolean);
+
+    }
+
+    @Override
+    public void outAGteqExpression(AGteqExpression node) {
+        super.outAGteqExpression(node);
+    }
+
+    @Override
+    public void outAPlusExpression(APlusExpression node) {
+        Type lhsType = getNodeType(node.getLhs());
+
+        Type rhsType = getNodeType(node.getRhs());
+
+        if(!Objects.equals(lhsType, Type.oodleInt)
+                || !Objects.equals(rhsType, Type.oodleInt)){
+            reportError("Problem in plus expression added '" + lhsType + "' with '" + rhsType + "'.");
+        }
+        Application.getNodeProperties(node).setType(Type.oodleInt);
+    }
 
     @Override
     public void outAMinusExpression(AMinusExpression node) {
-        Type lhsType = getType(node.getLhs());
-        if (lhsType == null){
-            // still null probably a literal
-            lhsType = Application.getNodeProperties(node.getLhs()).getType();
+        Type lhsType = getNodeType(node.getLhs());
 
-        }
-        Type rhsType = getType(node.getRhs());
-        if (rhsType == null){
-            // still null probably a literal
-            rhsType = Application.getNodeProperties(node.getRhs()).getType();
+        Type rhsType = getNodeType(node.getRhs());
 
-        }
         if(!Objects.equals(lhsType, Type.oodleInt)
                 || !Objects.equals(rhsType, Type.oodleInt)){
             reportError("Non integer value found in minus expression");

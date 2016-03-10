@@ -1,26 +1,35 @@
 ~
-~ decls2.ood
-~ - Errors
+~ decls3.ood
+~ - Declarations with methods
 ~
 
-class decls2 is
-
+class test1 is
                               
-  x: int                    ~ DEFINE x: int 
-  x: boolean                ~ ERROR: Redefined identifier x
-  s: boolean
+  x: int                   ~ DEFINE x: int 
+  y: boolean               ~ DEFINE y: boolean
+  z: int
+  
+  jump(height: int; headFirst1: boolean) is
+    curpos: int
+    y: int         ~ OK
+    headFirst: int   ~ FIXED: Redefined identifier
+  begin
+    y := y + height
+  end jump
+  
+  fall(height: int; headFirst: boolean) is
+    speed: int
+    jump: int   ~ OK to shadow local method
+  begin
+    jump := speed + 3  ~ ERROR: curpos not defined
+  end fall
 
   start() is
   begin
-    x := 3                  ~ REFERENCE x
-    
-    y := x - 1              ~ ERROR: Undeclared identifier y ; REFERENCE x
-                                
-    s := 5 > 3              ~ REFERENCE s: boolean
+    x := 3                    
+    z := x - 1                 
 
-    
-    readint()              ~ ERROR: Undefined function 'readint'
-    s := tryme(5)          ~ ERROR: Undefined function 'tryme'
+    y := true                  
   end start
   
-end decls2
+end test1
