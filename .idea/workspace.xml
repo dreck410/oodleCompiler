@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a857c136-3dcb-492e-b4af-725a36bb600b" name="Default" comment="code refactorization DRY&#10;tests pass&#10;3_id shows up as an integer and an identifier look into this?">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/parser.dat" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/parser.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/SemanticChecker.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/SemanticChecker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/DepthFirstAdapter.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/DepthFirstAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/ReversedDepthFirstAdapter.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/ReversedDepthFirstAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/declarations/ArgumentDecl.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/declarations/ArgumentDecl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/AMethodCallExpression.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/AMethodCallExpression.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/Parser.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/Parser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/parser.dat" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/parser.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/combined.txt" afterPath="$PROJECT_DIR$/combined.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/DepthFirstAdapter.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/DepthFirstAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/ReversedDepthFirstAdapter.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/ReversedDepthFirstAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/AMethodCallExpression.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/AMethodCallExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/Parser.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/oodle.scc" afterPath="$PROJECT_DIR$/out/production/oodleproject/oodle.scc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oodle.scc" afterPath="$PROJECT_DIR$/src/oodle.scc" />
     </list>
     <ignored path="oodleproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,14 +29,14 @@
     <favorites_list name="oodleproject" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.75953925">
+    <splitter split-orientation="horizontal" split-proportion="0.6551476">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="SemanticChecker.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.76099426">
-                  <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.5544933">
+                  <caret line="207" column="9" selection-start-line="207" selection-start-column="9" selection-end-line="207" selection-end-column="9" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#reportError#0;class#SemanticChecker#0" expanded="false" />
@@ -132,8 +114,8 @@
           <file leaf-file-name="combined.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/combined.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.57942235">
-                  <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+                <state vertical-scroll-proportion="0.06498195">
+                  <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -218,7 +200,7 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
+    <option name="x" value="-1855" />
     <option name="y" value="-4" />
     <option name="width" value="1855" />
     <option name="height" value="979" />
@@ -676,7 +658,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="com.bju.cps450.Oodle" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="tests/phase_3/noerrors/meth1ok.ood" />
+      <option name="PROGRAM_PARAMETERS" value="tests/phase_3/noerrors/test0ok.ood" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -887,7 +869,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="979" extended-state="6" />
+    <frame x="-1855" y="-4" width="1855" height="979" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1352,18 +1334,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/combined.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57942235">
-          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76099426">
-          <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5544933">
+          <caret line="207" column="9" selection-start-line="207" selection-start-column="9" selection-end-line="207" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#reportError#0;class#SemanticChecker#0" expanded="false" />
@@ -1382,6 +1356,14 @@
             <element signature="e#13719#13720#0" expanded="true" />
             <element signature="e#13793#13794#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/combined.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06498195">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

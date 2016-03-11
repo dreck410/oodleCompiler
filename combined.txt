@@ -1,47 +1,30 @@
-~ Tests scalar type checking with method calls
+~ test0.f
+~ Tests scalar type checking with assignment stmts
 
-class meth1ok is
+class test0 is
 
   b1: boolean
+  b2: boolean
+  
+  b3: boolean
+  
   i1: int
-  
-  s1: string
-  
-  boolmeth(x: int; b1: boolean): boolean is
-  begin
-    boolmeth := b1 or (x > 5)
-  end boolmeth
-  
-  strmeth(): string is
-  begin
-    strmeth := "Test"
-  end strmeth
-  
-  intmeth(x: int; s: string): int is
-  begin
-    intmeth := x + 5
-  end intmeth
-  
-  voidmeth(x: int) is
-  begin
-    x := x + 1
-  end voidmeth
+  i2: int
 
   start() is
   begin
   
-    b1 := boolmeth(5, true)
+    b1 := true
+    b2 := not b1 and true
+    b3 := i1 > i2
+    b2 := false
+    b3 := b1 or true
   
-    s1 := s1 & strmeth()
-    boolmeth(intmeth(3, s1), boolmeth(2, false))
-    b1 := boolmeth(intmeth(3, s1), boolmeth(2, false))
-    
-    out.writeint(i1)
-    i1 := in.readint()
-    in.readint()
-    
-    voidmeth(2)
+    i1 := 10
+    i1 := 10 * i2 - i1
+    i1 := 0 + (3 - 4) * -1
+    i1 := 10 + i2 - i1
     
   end start
 
-end meth1ok
+end test0
