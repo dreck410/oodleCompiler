@@ -135,6 +135,7 @@ public class SymbolTable {
 
                 symbolTableStack.get(0).add(in);
                 symbolTableStack.get(0).add(out);
+
                 break;
             case 2:
                 // class

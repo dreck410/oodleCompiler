@@ -255,31 +255,51 @@ public class SemanticChecker extends DepthFirstAdapter {
         else{
             if(Objects.equals(m, null)){
                 VarDecl caller = Globals.symbolTable.lookup(node.getCaller().toString().trim(), true, VarDecl.class);
-                ClassDecl c = Globals.symbolTable.lookup(caller.getType().getType(), true, ClassDecl.class);
-                m = (MethodDecl) c.lookupMethods(node.getMethod());
-                if(Objects.equals(m, null)){
-                    reportError(c.getName() + " does not have a method '" + node.getMethod() +"'");
-                    Application.getNodeProperties(node).setType(Type.Error);
-                    OK = false;
-                    return;
+                Type callerType = null;
+                if(caller != null){
+                    callerType = caller.getType();
+                }else{
+                    callerType = getNodeType(node.getCaller());
                 }
-            }
-            if(node.getArgs().size() != m.getArguments().size()){
-                reportError("Wrong number of arguments");
-                OK = false;
-                Application.getNodeProperties(node).setType(Type.Error);
-            } else {
-                for (int i = 0; i < m.getArguments().size(); ++i) {
-
-                    Type argType = getNodeType(node.getArgs().get(i));
-                    Type paramType = m.getArguments().get(i).getType();
-                    if (!Objects.equals(paramType, argType)) {
-                        reportError("Method '" + m.getName() + "' does not take a '" + argType + "'.");
+                ClassDecl c = Globals.symbolTable.lookup(callerType.getType(), true, ClassDecl.class);
+                if(c != null){
+                    m = (MethodDecl) c.lookupMethods(node.getMethod());
+                    if(Objects.equals(m, null)){
+                        reportError(c.getName() + " does not have a method '" + node.getMethod() +"'");
                         Application.getNodeProperties(node).setType(Type.Error);
                         OK = false;
+                        return;
+                    }
+                }else{
+                    reportError(node.getCaller() + " is not a class");
+                    Application.getNodeProperties(node).setType(Type.Error);
+                    OK = false;
+                }
+
+            }
+            if(m != null){
+                if(node.getArgs().size() != m.getArguments().size()){
+                    reportError("Wrong number of arguments");
+                    OK = false;
+                    Application.getNodeProperties(node).setType(Type.Error);
+                } else {
+                    for (int i = 0; i < m.getArguments().size(); ++i) {
+
+                        Type argType = getNodeType(node.getArgs().get(i));
+                        Type paramType = m.getArguments().get(i).getType();
+                        if (!Objects.equals(paramType, argType)) {
+                            reportError("Method '" + m.getName() + "' does not take a '" + argType + "'.");
+                            Application.getNodeProperties(node).setType(Type.Error);
+                            OK = false;
+                        }
                     }
                 }
+            }else{
+                reportError("Method " + node.getMethod() + " not in current context");
+                Application.getNodeProperties(node).setType(Type.Error);
+                OK = false;
             }
+
         }
         if(OK){
             Application.getNodeProperties(node).setType(Type.oodleNull);
