@@ -404,6 +404,8 @@ public class SemanticChecker extends DepthFirstAdapter {
         }
     }
 
+
+    // TODO: finish these!!
     @Override
     public void outANegExpression(ANegExpression node) {
         super.outANegExpression(node);
