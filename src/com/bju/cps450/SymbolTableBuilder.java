@@ -146,11 +146,20 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
     @Override
     public void outAVarDecl(AVarDecl node) {
         Type t = Application.getNodeProperties(node.getType()).getType();
-        try{
-            symbolTable.addVarDecl(node.getIdentifier().getText(), t);
+        if(node.getExpression() == null && node.getType() == null){
+            reportError("No type specified");
+        }else {
+            if (node.getExpression() != null && currentMethod == null) {
+                reportError("Unsupported Feature");
+                t = Application.getNodeProperties(node.getExpression()).getType();
 
-        } catch (Exception e){
-            reportError(e.getMessage());
+            }
+            try {
+                symbolTable.addVarDecl(node.getIdentifier().getText(), t);
+
+            } catch (Exception e) {
+                reportError(e.getMessage());
+            }
         }
     }
 
@@ -170,6 +179,14 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
         Type t = Type.oodleInt;
         t = getArrayDimType(t, node.getExpression());
         Application.getNodeProperties(node).setType(t);
+    }
+
+    @Override
+    public void outAClassInherits(AClassInherits node) {
+        Type t = new Type(node.getIdentifier().getText());
+        Application.getNodeProperties(node).setType(t);
+
+        reportError("Class inheritance is not supported");
     }
 
     @Override

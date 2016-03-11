@@ -1,41 +1,39 @@
-~ expr1.ood
-~ Tests expression type checking
+~ test0.ood
+~ Tests scalar type checking with assignment stmts
 
-class Expr1 is
+class test0 is
 
-  n1: int
-  n2: int
   b1: boolean
   b2: boolean
-  b4: boolean
- 
-  b5 := false            ~ ERROR: unsupported feature
-
-  it2: int := 3          ~ ERROR: unsupported feature
-  badone                 ~ ERROR: no type specified
+  b3: boolean
+  
+  i1: int
+  i2: int
+  s1: string  ~ unsupported feature
+  s2: string
 
   start() is
   begin
-    ~ legal
   
-    b1 := b2
-    b2 := true and not b1 or b2
-    n1 := 5 * 15 - 2
-    n2 := -35 + 15 * n1 / n2
+    b1 := true
+    b2 := not b1 and true
+    b3 := i1 > i2
+    b2 := 5                     ~ type mismatch can't assign int to boolean
+    b3 := b1 >= true            ~ >= can't work on boolean
   
-    ~ illegal
+    i1 := 10
+    i1 := 10 * i2 - i1
+    i1 := false                 ~ type mismatch can't assign boolean to int
+    i1 := 10 + i2 - b1          ~ type error can't subtract boolean from int
   
-    b1 := n1            ~ ERROR: cannot assign int to boolean
-    b1 := 5 * b2        ~ ERROR: the * op can only be used with ints and reals
-    b2 := 5 * 3		      ~ ERROR: b2 cannot be assigned to an integer
-    n1 := 5 & 3		      ~ ERROR: the & bin op can only be used with strings
-    b2 := true + false	~ ERROR: the + bin op cannot be used with booleans
-  
-    b2 := +false		    ~ ERROR: the + unary op cannot be used with a boolean
-    n1 := - b2          	  ~ ERRROR: the - unary op cannot be used with a string
-    b4 := not 13   	    ~ ERROR: not requires a boolean
-  
+    s1 := "hello" & s2          ~ unsupported feature
+    
+    in.readint(3)               ~ error: wrong number of parameters for readint
+    i1.readint(3)               ~ error: readint not invoked on Reader object
+    
+    out.writeint("Hi!")         ~ type error: wrong parameter for writeint
+    out.writeint()              ~ error: wrong number of parameters for write
+    out.writeint(3, 5)          ~ error: wrong number of parameters for write
   end start
   
-end Expr1
-
+end test0

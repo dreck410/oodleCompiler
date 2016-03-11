@@ -9,10 +9,10 @@ class Expr1 is
   b2: boolean
   b4: boolean
  
-  b5 := false            ~ ERROR: unsupported feature
+  b5: boolean            ~ ERROR: unsupported feature
 
-  it2: int := 3          ~ ERROR: unsupported feature
-  badone                 ~ ERROR: no type specified
+  it2: int          ~ ERROR: unsupported feature
+                  ~ ERROR: no type specified
 
   start() is
   begin

@@ -136,7 +136,13 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     @Override
     public void outAVarDecl(AVarDecl node) {
-
+        Type rhsType = getNodeType(node.getType());
+        if(Objects.equals(rhsType, Type.oodleString)){
+            reportError("String not supported");
+            Application.getNodeProperties(node).setType(Type.oodleString);
+        }else{
+            Application.getNodeProperties(node).setType(rhsType);
+        }
     }
 
     @Override
@@ -145,6 +151,20 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     }
 
+    @Override
+    public void inACallStatement(ACallStatement node) {
+        lastToken = node.getMethod();
+    }
+
+    @Override
+    public void inALoopStatement(ALoopStatement node) {
+        //lastToken = node.getCondition().;
+    }
+
+    @Override
+    public void inAIfStatement(AIfStatement node) {
+        //super.inAIfStatement(node);
+    }
 
     @Override
     public void outAAssignmentStatement(AAssignmentStatement node) {
@@ -161,7 +181,9 @@ public class SemanticChecker extends DepthFirstAdapter {
         }else {
 
             Type rhsType = getNodeType(node.getValue());
-
+            if(Objects.equals(rhsType, Type.oodleString)){
+                reportError("String not supported");
+            }
             if (!Objects.equals(lhsType, rhsType)) {
                 reportError("Tried to assign object of type '" + rhsType + "' to object of type '" + lhsType + "'");
             }
@@ -190,19 +212,26 @@ public class SemanticChecker extends DepthFirstAdapter {
                     Application.getNodeProperties(node).setType(Type.Error);
                     OK = false;
 
-
+                    return;
                 }
             }
 
-            for (int i = 0; i < m.getArguments().size(); ++i) {
-                Type argType = getNodeType(node.getArgs().get(i));
-                Type paramType = m.getArguments().get(i).getType();
-                if (!Objects.equals(paramType, argType)) {
-                    reportError("Method '" + m.getName() + "' does not take a '" + argType + "'.");
-                    Application.getNodeProperties(node).setType(Type.Error);
-                    OK = false;
+            if(node.getArgs().size() != m.getArguments().size()){
+                reportError("Wrong number of arguments");
+                OK = false;
+                Application.getNodeProperties(node).setType(Type.Error);
+            } else {
+                for (int i = 0; i < m.getArguments().size(); ++i) {
+
+                    Type argType = getNodeType(node.getArgs().get(i));
+                    Type paramType = m.getArguments().get(i).getType();
+                    if (!Objects.equals(paramType, argType)) {
+                        reportError("Method '" + m.getName() + "' does not take a '" + argType + "'.");
+                        Application.getNodeProperties(node).setType(Type.Error);
+                        OK = false;
 
 
+                    }
                 }
             }
         }
@@ -232,20 +261,23 @@ public class SemanticChecker extends DepthFirstAdapter {
                     reportError(c.getName() + " does not have a method '" + node.getMethod() +"'");
                     Application.getNodeProperties(node).setType(Type.Error);
                     OK = false;
-
-
+                    return;
                 }
             }
+            if(node.getArgs().size() != m.getArguments().size()){
+                reportError("Wrong number of arguments");
+                OK = false;
+                Application.getNodeProperties(node).setType(Type.Error);
+            } else {
+                for (int i = 0; i < m.getArguments().size(); ++i) {
 
-            for (int i = 0; i < m.getArguments().size(); ++i) {
-                Type argType = getNodeType(node.getArgs().get(i));
-                Type paramType = m.getArguments().get(i).getType();
-                if (!Objects.equals(paramType, argType)) {
-                    reportError("Method '" + m.getName() + "' does not take a '" + argType + "'.");
-                    Application.getNodeProperties(node).setType(Type.Error);
-                    OK = false;
-
-
+                    Type argType = getNodeType(node.getArgs().get(i));
+                    Type paramType = m.getArguments().get(i).getType();
+                    if (!Objects.equals(paramType, argType)) {
+                        reportError("Method '" + m.getName() + "' does not take a '" + argType + "'.");
+                        Application.getNodeProperties(node).setType(Type.Error);
+                        OK = false;
+                    }
                 }
             }
         }
@@ -256,35 +288,8 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     }
 
-    @Override
-    public void outAIfStatement(AIfStatement node) {
-        super.outAIfStatement(node);
-    }
-
-    @Override
-    public void outALoopStatement(ALoopStatement node) {
-        super.outALoopStatement(node);
-    }
-
-    @Override
-    public void outAGtExpression(AGtExpression node) {
-
-        Type lhsType = getNodeType(node.getLhs());
 
 
-        Type rhsType = getNodeType(node.getRhs());
-        if(!Objects.equals(lhsType, rhsType)){
-            reportError("Comparing objects of different type " + lhsType +", and " + rhsType);
-        }
-
-        Application.getNodeProperties(node).setType(Type.oodleBoolean);
-
-    }
-
-    @Override
-    public void outAGteqExpression(AGteqExpression node) {
-        super.outAGteqExpression(node);
-    }
 
     @Override
     public void outAPlusExpression(APlusExpression node) {
@@ -370,7 +375,7 @@ public class SemanticChecker extends DepthFirstAdapter {
     public void outANotExpression(ANotExpression node) {
         Type t = getNodeType(node.getExpression());
         if (t != Type.oodleBoolean){
-            reportError("'" + node.toString() + "' is not a boolean");
+            reportError("'" + node.getExpression().toString().trim() + "' is not a boolean");
             Application.getNodeProperties(node).setType(Type.Error);
 
         }else{
@@ -405,23 +410,31 @@ public class SemanticChecker extends DepthFirstAdapter {
     }
 
 
-    // TODO: finish these!!
     @Override
     public void outANegExpression(ANegExpression node) {
-        super.outANegExpression(node);
+        Type t = getNodeType(node.getExpression());
+        if (t != Type.oodleInt){
+            reportError("'" + node.getExpression().toString().trim() + "' is not an integer");
+            Application.getNodeProperties(node).setType(Type.Error);
+
+        }else{
+            Application.getNodeProperties(node).setType(Type.oodleInt);
+
+        }
     }
 
     @Override
     public void outAPosExpression(APosExpression node) {
-        super.outAPosExpression(node);
+        Type t = getNodeType(node.getExpression());
+        if (t != Type.oodleInt){
+            reportError("'" + node.getExpression().toString().trim() + "' is not an integer");
+            Application.getNodeProperties(node).setType(Type.Error);
+
+        }else{
+            Application.getNodeProperties(node).setType(Type.oodleInt);
+
+        }
     }
-
-    @Override
-    public void outANewExpression(ANewExpression node) {
-        super.outANewExpression(node);
-    }
-
-
     @Override
     public void outAIdExpression(AIdExpression node) {
 
@@ -451,5 +464,86 @@ public class SemanticChecker extends DepthFirstAdapter {
         Application.getNodeProperties(node).setType(Type.oodleBoolean);
     }
 
+    @Override
+    public void outAIfStatement(AIfStatement node) {
+        Type t = Application.getNodeProperties(node.getCondition()).getType();
+        if(!Objects.equals(t, Type.oodleBoolean)){
+            reportError("Condition for If statement must be a Boolean");
+        }
+
+    }
+
+    @Override
+    public void outALoopStatement(ALoopStatement node) {
+        Type t = Application.getNodeProperties(node.getCondition()).getType();
+        if(!Objects.equals(t, Type.oodleBoolean)){
+            reportError("Condition for loop while must be a Boolean");
+        }
+    }
+    //TODO: finish
+
+
+    @Override
+    public void outANullExpression(ANullExpression node) {
+
+        reportError("Does not support null");
+        Application.getNodeProperties(node).setType(Type.oodleNull);    }
+
+    @Override
+    public void outAMeExpression(AMeExpression node) {
+        reportError("Does not support Me");
+        Application.getNodeProperties(node).setType(Type.Error);
+    }
+
+    @Override
+    public void outANewExpression(ANewExpression node) {
+        reportError("Does not support New");
+        Application.getNodeProperties(node).setType(Type.Error);
+    }
+
+
+    @Override
+    public void outAGtExpression(AGtExpression node) {
+        Type rhsType = Application.getNodeProperties(node.getRhs()).getType();
+        Type lhsType = Application.getNodeProperties(node.getLhs()).getType();
+        if(Objects.equals(rhsType,lhsType)
+                && (Objects.equals(rhsType, Type.oodleInt)
+                || Objects.equals(rhsType, Type.oodleString))){
+            Application.getNodeProperties(node).setType(Type.oodleBoolean);
+        }else{
+            reportError("GT expression requires objects of the same type. Either Ints or strings");
+            Application.getNodeProperties(node).setType(Type.Error);
+        }
+    }
+
+    @Override
+    public void outAGteqExpression(AGteqExpression node) {
+        Type rhsType = Application.getNodeProperties(node.getRhs()).getType();
+        Type lhsType = Application.getNodeProperties(node.getLhs()).getType();
+        if(Objects.equals(rhsType,lhsType)
+                && (Objects.equals(rhsType, Type.oodleInt)
+                    || Objects.equals(rhsType, Type.oodleString))){
+                Application.getNodeProperties(node).setType(Type.oodleBoolean);
+        }else{
+            reportError("GTEQ expression requires objects of the same type. Either Ints or strings");
+            Application.getNodeProperties(node).setType(Type.Error);
+        }
+    }
+
+    @Override
+    public void outAEqExpression(AEqExpression node) {
+        Type rhsType = Application.getNodeProperties(node.getRhs()).getType();
+        Type lhsType = Application.getNodeProperties(node.getLhs()).getType();
+        if(Objects.equals(rhsType,lhsType)
+                && (Objects.equals(rhsType, Type.oodleInt)
+                    || Objects.equals(rhsType, Type.oodleString)
+                    || Objects.equals(rhsType, Type.oodleBoolean))){
+            Application.getNodeProperties(node).setType(Type.oodleBoolean);
+
+        }else{
+            Application.getNodeProperties(node).setType(Type.Error);
+            reportError("EQ expression, objects not the same type. or not of type int, string or bool");
+        }
+    }
 
 }
