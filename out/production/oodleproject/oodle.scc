@@ -297,7 +297,7 @@ Abstract Syntax Tree
                 | {neg} expression
                 | {pos} expression
                 | {new} type
-                | {method_call} [dot]:expression? [method]:identifier [args]:expression*
+                | {method_call} [caller]:expression? [method]:identifier [args]:expression*
                 | {int} integer
                 | {string_lit} string_lit
                 | {true} true

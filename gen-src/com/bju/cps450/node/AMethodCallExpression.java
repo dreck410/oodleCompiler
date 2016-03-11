@@ -8,7 +8,7 @@ import com.bju.cps450.analysis.*;
 @SuppressWarnings("nls")
 public final class AMethodCallExpression extends PExpression
 {
-    private PExpression _dot_;
+    private PExpression _caller_;
     private TIdentifier _method_;
     private final LinkedList<PExpression> _args_ = new LinkedList<PExpression>();
 
@@ -18,12 +18,12 @@ public final class AMethodCallExpression extends PExpression
     }
 
     public AMethodCallExpression(
-        @SuppressWarnings("hiding") PExpression _dot_,
+        @SuppressWarnings("hiding") PExpression _caller_,
         @SuppressWarnings("hiding") TIdentifier _method_,
         @SuppressWarnings("hiding") List<?> _args_)
     {
         // Constructor
-        setDot(_dot_);
+        setCaller(_caller_);
 
         setMethod(_method_);
 
@@ -35,7 +35,7 @@ public final class AMethodCallExpression extends PExpression
     public Object clone()
     {
         return new AMethodCallExpression(
-            cloneNode(this._dot_),
+            cloneNode(this._caller_),
             cloneNode(this._method_),
             cloneList(this._args_));
     }
@@ -46,16 +46,16 @@ public final class AMethodCallExpression extends PExpression
         ((Analysis) sw).caseAMethodCallExpression(this);
     }
 
-    public PExpression getDot()
+    public PExpression getCaller()
     {
-        return this._dot_;
+        return this._caller_;
     }
 
-    public void setDot(PExpression node)
+    public void setCaller(PExpression node)
     {
-        if(this._dot_ != null)
+        if(this._caller_ != null)
         {
-            this._dot_.parent(null);
+            this._caller_.parent(null);
         }
 
         if(node != null)
@@ -68,7 +68,7 @@ public final class AMethodCallExpression extends PExpression
             node.parent(this);
         }
 
-        this._dot_ = node;
+        this._caller_ = node;
     }
 
     public TIdentifier getMethod()
@@ -126,7 +126,7 @@ public final class AMethodCallExpression extends PExpression
     public String toString()
     {
         return ""
-            + toString(this._dot_)
+            + toString(this._caller_)
             + toString(this._method_)
             + toString(this._args_);
     }
@@ -135,9 +135,9 @@ public final class AMethodCallExpression extends PExpression
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._dot_ == child)
+        if(this._caller_ == child)
         {
-            this._dot_ = null;
+            this._caller_ = null;
             return;
         }
 
@@ -159,9 +159,9 @@ public final class AMethodCallExpression extends PExpression
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._dot_ == oldChild)
+        if(this._caller_ == oldChild)
         {
-            setDot((PExpression) newChild);
+            setCaller((PExpression) newChild);
             return;
         }
 

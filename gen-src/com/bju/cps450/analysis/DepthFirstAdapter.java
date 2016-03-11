@@ -840,9 +840,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseAMethodCallExpression(AMethodCallExpression node)
     {
         inAMethodCallExpression(node);
-        if(node.getDot() != null)
+        if(node.getCaller() != null)
         {
-            node.getDot().apply(this);
+            node.getCaller().apply(this);
         }
         if(node.getMethod() != null)
         {

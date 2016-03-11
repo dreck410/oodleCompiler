@@ -8,6 +8,7 @@ import com.bju.cps450.declarations.*;
 import com.bju.cps450.node.AAssignmentStatement;
 import com.bju.cps450.node.AVarDecl;
 import com.bju.cps450.node.*;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import sun.org.mozilla.javascript.tools.shell.Global;
 
 import java.lang.instrument.ClassDefinition;
@@ -98,12 +99,32 @@ public class SemanticChecker extends DepthFirstAdapter {
     @Override
     public void inAMethodDecl(AMethodDecl node) {
         lastToken = node.getName();
+        if(node.getType() != null){
+            Application.getNodeProperties(node).setType(new Type(node.getType().toString().trim()));
+
+        }else{
+            Application.getNodeProperties(node).setType(Type.oodleNull);
+
+        }
+
         currentMethod = (MethodDecl) currentClass.lookupMethods(node.getName());
+        Type t = Application.getNodeProperties(node).getType();
+        currentMethod.setType(t);
+        currentMethod.lookupVariables(node.getName().getText()).setType(t);
     }
 
     @Override
     public void outAMethodDecl(AMethodDecl node) {
+        if (node.getType() == null){
+            Application.getNodeProperties(node).setType(Type.oodleNull);
+           // currentMethod.lookupVariables(node.getName().getText()).setType(Type.oodleNull);
+        }else{
+            Application.getNodeProperties(node).setType(new Type(node.getType().toString()));
+
+        }
+
         currentMethod = null;
+
     }
 
     @Override
@@ -131,7 +152,7 @@ public class SemanticChecker extends DepthFirstAdapter {
         if(node.getIndex().size() > 0 && !Objects.equals(node.getIndex().getClass(), Type.oodleInt.getClass())){
             reportError("Index must be of type Int");
         }
-        Type lhsType = getType(node.getIdentifier());
+        Type lhsType = getNodeType(node.getIdentifier());
 
         if (Objects.equals(lhsType, Type.oodleNull)){
             // still no?
@@ -152,28 +173,84 @@ public class SemanticChecker extends DepthFirstAdapter {
     @Override
     public void outAMethodCallExpression(AMethodCallExpression node) {
         Type t = getNodeType(node);
-        if(Objects.equals(currentClass.lookupMethods(node.getMethod()), null)){
+        boolean OK = true;
+        MethodDecl m = (MethodDecl) currentClass.lookupMethods(node.getMethod());
+        if(Objects.equals(m, null) && Objects.equals(node.getCaller(), null)){
             reportError("Method '"+node.getMethod().getText()+"' does not exist in current context");
+            Application.getNodeProperties(node).setType(Type.Error);
+            OK = false;
         }
+        else{
+            if(Objects.equals(m, null)){
+                VarDecl caller = Globals.symbolTable.lookup(node.getCaller().toString().trim(), true, VarDecl.class);
+                ClassDecl c = Globals.symbolTable.lookup(caller.getType().getType(), true, ClassDecl.class);
+                m = (MethodDecl) c.lookupMethods(node.getMethod());
+                if(Objects.equals(m, null)){
+                    reportError(c.getName() + " does not have a method '" + node.getMethod() +"'");
+                    Application.getNodeProperties(node).setType(Type.Error);
+                    OK = false;
+
+
+                }
+            }
+
+            for (int i = 0; i < m.getArguments().size(); ++i) {
+                Type argType = getNodeType(node.getArgs().get(i));
+                Type paramType = m.getArguments().get(i).getType();
+                if (!Objects.equals(paramType, argType)) {
+                    reportError("Method '" + m.getName() + "' does not take a '" + argType + "'.");
+                    Application.getNodeProperties(node).setType(Type.Error);
+                    OK = false;
+
+
+                }
+            }
+        }
+        if(OK){
+            Application.getNodeProperties(node).setType(m.getType());
+        }
+
 
     }
 
     @Override
     public void outACallStatement(ACallStatement node) {
         Type t = getNodeType(node);
+        boolean OK = true;
         MethodDecl m = (MethodDecl) currentClass.lookupMethods(node.getMethod());
-        if(Objects.equals(m, null)){
+        if(Objects.equals(m, null) && Objects.equals(node.getCaller(), null)){
             reportError("Method '"+node.getMethod().getText()+"' does not exist in current context");
+            Application.getNodeProperties(node).setType(Type.Error);
+            OK = false;
         }
         else{
+            if(Objects.equals(m, null)){
+                VarDecl caller = Globals.symbolTable.lookup(node.getCaller().toString().trim(), true, VarDecl.class);
+                ClassDecl c = Globals.symbolTable.lookup(caller.getType().getType(), true, ClassDecl.class);
+                m = (MethodDecl) c.lookupMethods(node.getMethod());
+                if(Objects.equals(m, null)){
+                    reportError(c.getName() + " does not have a method '" + node.getMethod() +"'");
+                    Application.getNodeProperties(node).setType(Type.Error);
+                    OK = false;
+
+
+                }
+            }
+
             for (int i = 0; i < m.getArguments().size(); ++i) {
                 Type argType = getNodeType(node.getArgs().get(i));
                 Type paramType = m.getArguments().get(i).getType();
                 if (!Objects.equals(paramType, argType)) {
                     reportError("Method '" + m.getName() + "' does not take a '" + argType + "'.");
+                    Application.getNodeProperties(node).setType(Type.Error);
+                    OK = false;
+
 
                 }
             }
+        }
+        if(OK){
+            Application.getNodeProperties(node).setType(Type.oodleNull);
         }
 
 
@@ -275,7 +352,18 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     @Override
     public void outAConcatExpression(AConcatExpression node) {
-        super.outAConcatExpression(node);
+        Type lhsType = getNodeType(node.getLhs());
+
+        Type rhsType = getNodeType(node.getRhs());
+
+        if(!Objects.equals(lhsType, Type.oodleString)
+                || !Objects.equals(rhsType, Type.oodleString)){
+            reportError("Non string value found in concat expression");
+            Application.getNodeProperties(node).setType(Type.Error);
+
+        }else {
+            Application.getNodeProperties(node).setType(Type.oodleString);
+        }
     }
 
     @Override
@@ -290,6 +378,18 @@ public class SemanticChecker extends DepthFirstAdapter {
 
         }
     }
+
+    @Override
+    public void outAOrExpression(AOrExpression node) {
+        Type lhsType = getNodeType(node.getLhs());
+        Type rhsType = getNodeType(node.getRhs());
+
+        if(lhsType != Type.oodleBoolean && rhsType != Type.oodleBoolean){
+            reportError("Non bool type detected in OR statement");
+            Application.getNodeProperties(node).setType(Type.Error);
+        }else{
+            Application.getNodeProperties(node).setType(Type.oodleBoolean);
+        }    }
 
     @Override
     public void outAAndExpression(AAndExpression node) {
@@ -317,6 +417,13 @@ public class SemanticChecker extends DepthFirstAdapter {
     @Override
     public void outANewExpression(ANewExpression node) {
         super.outANewExpression(node);
+    }
+
+
+    @Override
+    public void outAIdExpression(AIdExpression node) {
+
+        Application.getNodeProperties(node).setType(getNodeType(node));
     }
 
     @Override

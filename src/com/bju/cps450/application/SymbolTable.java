@@ -96,12 +96,12 @@ public class SymbolTable {
                 writerDeclaration.setType(new Type("Writer"));
 
                 ClassDecl readerDeclaration = new ClassDecl();
-                readerDeclaration.setName("Writer");
+                readerDeclaration.setName("Reader");
                 readerDeclaration.setType(new Type("Reader"));
 
                 MethodDecl printint = new MethodDecl();
                 printint.setType(Type.oodleNull);
-                printint.setName("printint");
+                printint.setName("writeint");
                 ArgumentDecl printintArg1 = new ArgumentDecl();
                 printintArg1.setName("int");
                 printintArg1.setType(Type.oodleInt);
@@ -119,14 +119,13 @@ public class SymbolTable {
                 readint.setType(Type.oodleInt);
                 readint.setName("readint");
 
-                readint.setClassOwner(writerDeclaration);
+                readint.setClassOwner(readerDeclaration);
                 readerDeclaration.getMethods().add(readint);
 
                 symbolTableStack.get(0).add(readerDeclaration);
 
                 VarDecl in = new VarDecl();
                 in.setType(readerDeclaration.getType());
-
                 in.setName("in");
 
                 VarDecl out = new VarDecl();
@@ -188,8 +187,12 @@ public class SymbolTable {
             if(symbolTableStack.size() == 2){
                 // has to be in class
                 MethodDecl decl = new MethodDecl();
+                VarDecl retValue = new VarDecl();
+                retValue.setName(name);
+
                 decl.setName(name);
-                //decl.setType(new Type(type.toString()));
+                decl.getVariables().add(retValue);
+
                 addDeclToSymbolTable(decl);
                 currentMethodDecl = decl;
                 return decl;

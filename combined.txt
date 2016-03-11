@@ -1,32 +1,47 @@
-~ expr1.ood
-~ Tests expression type checking
+~ Tests scalar type checking with method calls
 
-class Expr1 is
+class meth1ok is
 
-  n1: int
-  n2: int
   b1: boolean
-  b2: int
+  i1: int
   
+  s1: string
+  
+  boolmeth(x: int; b1: boolean): boolean is
+  begin
+    boolmeth := b1 or (x > 5)
+  end boolmeth
+  
+  strmeth(): string is
+  begin
+    strmeth := "Test"
+  end strmeth
+  
+  intmeth(x: int; s: string): int is
+  begin
+    intmeth := x + 5
+  end intmeth
+  
+  voidmeth(x: int) is
+  begin
+    x := x + 1
+  end voidmeth
+
   start() is
   begin
-    ~ legal
   
-    b1 := b1
-    b1 := b2
-    b2 := true and (not b1)
-    n1 := 5 * 15 - 2
-    n2 := -35 + 15 * n1 / n2
+    b1 := boolmeth(5, true)
   
-  
-    b1 := b2
-    n2 := 5 * 3
-    b2 := true
-  
-    b2 := false
-    b2 := not b1
-  
+    s1 := s1 & strmeth()
+    boolmeth(intmeth(3, s1), boolmeth(2, false))
+    b1 := boolmeth(intmeth(3, s1), boolmeth(2, false))
+    
+    out.writeint(i1)
+    i1 := in.readint()
+    in.readint()
+    
+    voidmeth(2)
+    
   end start
-  
-end Expr1
 
+end meth1ok

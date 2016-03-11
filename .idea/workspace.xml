@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" description="                    }&#10;                    if (symb..." line="267" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" description="                    }&#10;                    if (symb..." line="270" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a857c136-3dcb-492e-b4af-725a36bb600b" name="Default" comment="code refactorization DRY&#10;tests pass&#10;3_id shows up as an integer and an identifier look into this?">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/declarations/MethodDecl.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/declarations/MethodDecl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/parser.dat" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/parser.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/SemanticChecker.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/SemanticChecker.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/DepthFirstAdapter.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/DepthFirstAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/ReversedDepthFirstAdapter.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/ReversedDepthFirstAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/declarations/ArgumentDecl.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/declarations/ArgumentDecl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/AMethodCallExpression.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/AMethodCallExpression.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/Parser.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/Parser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/parser.dat" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/parser.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/combined.txt" afterPath="$PROJECT_DIR$/combined.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/DepthFirstAdapter.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/DepthFirstAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/ReversedDepthFirstAdapter.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/ReversedDepthFirstAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/AMethodCallExpression.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/AMethodCallExpression.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/Parser.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/Parser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/oodle.scc" afterPath="$PROJECT_DIR$/out/production/oodleproject/oodle.scc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oodle.scc" afterPath="$PROJECT_DIR$/src/oodle.scc" />
     </list>
     <ignored path="oodleproject.iws" />
@@ -36,19 +47,44 @@
     <favorites_list name="oodleproject" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6385889">
+    <splitter split-orientation="horizontal" split-proportion="0.75953925">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="SemanticChecker.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.69024855">
-                  <caret line="285" column="53" selection-start-line="285" selection-start-column="53" selection-end-line="285" selection-end-column="53" />
+                <state vertical-scroll-proportion="0.76099426">
+                  <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#reportError#0;class#SemanticChecker#0" expanded="false" />
-                    <element signature="e#5723#5724#0" expanded="true" />
-                    <element signature="e#5769#5770#0" expanded="true" />
+                    <element signature="e#8327#8328#0" expanded="true" />
+                    <element signature="e#8370#8371#0" expanded="true" />
+                    <element signature="e#8442#8443#0" expanded="true" />
+                    <element signature="e#8487#8488#0" expanded="true" />
+                    <element signature="e#8968#8969#0" expanded="true" />
+                    <element signature="e#9014#9015#0" expanded="true" />
+                    <element signature="e#13218#13219#0" expanded="true" />
+                    <element signature="e#13263#13264#0" expanded="true" />
+                    <element signature="e#13335#13336#0" expanded="true" />
+                    <element signature="e#13380#13381#0" expanded="true" />
+                    <element signature="e#13452#13453#0" expanded="true" />
+                    <element signature="e#13497#13498#0" expanded="true" />
+                    <element signature="e#13719#13720#0" expanded="true" />
+                    <element signature="e#13793#13794#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/application/Application.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#450#451#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -58,7 +94,7 @@
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+                  <caret line="111" column="46" selection-start-line="111" selection-start-column="46" selection-end-line="111" selection-end-column="46" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#reportError#0;class#SymbolTableBuilder#0" expanded="false" />
@@ -81,31 +117,7 @@
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MethodDecl.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="OodleCompiler.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/OodleCompiler.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="103" column="99" selection-start-line="103" selection-start-column="99" selection-end-line="103" selection-end-column="99" />
+                  <caret line="121" column="57" selection-start-line="121" selection-start-column="57" selection-end-line="121" selection-end-column="57" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -120,8 +132,8 @@
           <file leaf-file-name="combined.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/combined.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.32490975">
-                  <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+                <state vertical-scroll-proportion="0.57942235">
+                  <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -131,7 +143,7 @@
             <entry file="file://$PROJECT_DIR$/src/oodle.scc">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+                  <caret line="299" column="39" selection-start-line="299" selection-start-column="39" selection-end-line="299" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
@@ -180,18 +192,18 @@
         <option value="$PROJECT_DIR$/src/com/bju/cps450/SemanticAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/VarDecl.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractVarDecl.java" />
-        <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractDeclaration.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/application/Application.java" />
-        <option value="$PROJECT_DIR$/combined.txt" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/application/Type.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/ClassDecl.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/OodleCompiler.java" />
-        <option value="$PROJECT_DIR$/src/oodle.scc" />
-        <option value="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java" />
+        <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java" />
+        <option value="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" />
+        <option value="$PROJECT_DIR$/src/oodle.scc" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
+        <option value="$PROJECT_DIR$/combined.txt" />
       </list>
     </option>
   </component>
@@ -343,7 +355,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/daniel/Desktop/oodleproject/src/com/bju/cps450/SymbolTableBuilder.java&#10;line number&#9;null&#9;null" />
   </component>
-  <component name="RunManager" selected="Application.Expr1OK">
+  <component name="RunManager" selected="Application.OK TEST">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -660,11 +672,11 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Expr1OK" type="Application" factoryName="Application">
+    <configuration default="false" name="OK TEST" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="com.bju.cps450.Oodle" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="tests/phase_3/noerrors/EXPR1OK.ood" />
+      <option name="PROGRAM_PARAMETERS" value="tests/phase_3/noerrors/meth1ok.ood" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -791,7 +803,7 @@
       <item index="1" class="java.lang.String" itemvalue="Application.phase_2_fail" />
       <item index="2" class="java.lang.String" itemvalue="Application.decl1" />
       <item index="3" class="java.lang.String" itemvalue="Application.decl3" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Expr1OK" />
+      <item index="4" class="java.lang.String" itemvalue="Application.OK TEST" />
       <item index="5" class="java.lang.String" itemvalue="Application.decl2" />
       <item index="6" class="java.lang.String" itemvalue="Application.Phase 2 parts" />
       <item index="7" class="java.lang.String" itemvalue="Application.multi Classes" />
@@ -885,15 +897,15 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.47595358" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09121061" sideWeight="0.49438202" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3796856" sideWeight="0.44389164" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29383314" sideWeight="0.38474295" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3796856" sideWeight="0.42343837" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29383314" sideWeight="0.368712" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28899637" sideWeight="0.48258707" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32648125" sideWeight="0.5328911" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32648125" sideWeight="0.53067994" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.47816473" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14096186" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29383314" sideWeight="0.615257" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29383314" sideWeight="0.631288" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14040907" sideWeight="0.505618" order="6" side_tool="true" content_ui="tabs" />
@@ -922,7 +934,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="220" />
+      <option name="time" value="259" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -939,21 +951,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/OodleLexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="100" column="5" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oodle.scc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="31" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo.ood">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1145,15 +1142,8 @@
         <state vertical-scroll-proportion="0.76996803">
           <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -1193,16 +1183,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gen-src/com/bju/cps450/node/AAssignmentStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6309091">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="e#1210#1211#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gen-src/com/bju/cps450/node/AMinusExpression.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33272728">
@@ -1210,14 +1190,6 @@
           <folding>
             <element signature="e#911#912#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/application/Type.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1234,26 +1206,6 @@
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
             <element signature="e#1090#1091#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/application/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gen-src/com/bju/cps450/node/AMethodDecl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="e#1657#1658#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1287,19 +1239,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/oodle.scc">
+    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/combined.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32490975">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding />
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1311,12 +1257,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java">
+    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29813665">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/application/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#450#451#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1324,7 +1279,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <caret line="111" column="46" selection-start-line="111" selection-start-column="46" selection-end-line="111" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#reportError#0;class#SymbolTableBuilder#0" expanded="false" />
@@ -1332,25 +1287,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gen-src/com/bju/cps450/node/AMethodDecl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding>
+            <element signature="e#2589#2590#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen-src/com/bju/cps450/node/ABooleanType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/application/Type.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2815735">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen-src/com/bju/cps450/node/AAssignmentStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.111801244">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="e#1210#1211#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/DepthFirstAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="857" column="0" selection-start-line="857" selection-start-column="0" selection-end-line="857" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <caret line="121" column="57" selection-start-line="121" selection-start-column="57" selection-end-line="121" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/oodle.scc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="299" column="39" selection-start-line="299" selection-start-column="39" selection-end-line="299" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/combined.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57942235">
+          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69024855">
-          <caret line="285" column="53" selection-start-line="285" selection-start-column="53" selection-end-line="285" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.76099426">
+          <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#reportError#0;class#SemanticChecker#0" expanded="false" />
-            <element signature="e#5723#5724#0" expanded="true" />
-            <element signature="e#5769#5770#0" expanded="true" />
+            <element signature="e#8327#8328#0" expanded="true" />
+            <element signature="e#8370#8371#0" expanded="true" />
+            <element signature="e#8442#8443#0" expanded="true" />
+            <element signature="e#8487#8488#0" expanded="true" />
+            <element signature="e#8968#8969#0" expanded="true" />
+            <element signature="e#9014#9015#0" expanded="true" />
+            <element signature="e#13218#13219#0" expanded="true" />
+            <element signature="e#13263#13264#0" expanded="true" />
+            <element signature="e#13335#13336#0" expanded="true" />
+            <element signature="e#13380#13381#0" expanded="true" />
+            <element signature="e#13452#13453#0" expanded="true" />
+            <element signature="e#13497#13498#0" expanded="true" />
+            <element signature="e#13719#13720#0" expanded="true" />
+            <element signature="e#13793#13794#0" expanded="true" />
           </folding>
         </state>
       </provider>
