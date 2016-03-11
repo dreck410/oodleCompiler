@@ -72,12 +72,12 @@ public class SemanticChecker extends DepthFirstAdapter {
         if(decl != null){
             return decl.getType();
         }
-        return Type.oodleNull;
+        return Type.Error;
     }
 
     private Type getNodeType(Node node){
         Type t = getType(node);
-        if (t == Type.oodleNull){
+        if (t == Type.Error){
             t = Application.getNodeProperties(node).getType();
         }
         return t;
