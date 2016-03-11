@@ -261,7 +261,7 @@ Abstract Syntax Tree
 
  start          = class_decl*;
 
- class_decl      = [start]:identifier class_inherits? var_decl* method_decl* [end]:identifier;
+ class_decl     = [start]:identifier class_inherits? var_decl* method_decl* [end]:identifier;
 
  class_inherits = identifier;
 

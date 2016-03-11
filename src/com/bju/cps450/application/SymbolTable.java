@@ -90,21 +90,52 @@ public class SymbolTable {
                 // Globals??
                 currentScope = 1;
                 // TODO: add printint as a method
-                /*
-                MethodDeclaration printint = new MethodDeclaration();
-                printint.setReturnType(Type.mjVoid);
+
+                ClassDecl writerDeclaration = new ClassDecl();
+                writerDeclaration.setName("Writer");
+                writerDeclaration.setType(new Type("Writer"));
+
+                ClassDecl readerDeclaration = new ClassDecl();
+                readerDeclaration.setName("Writer");
+                readerDeclaration.setType(new Type("Reader"));
+
+                MethodDecl printint = new MethodDecl();
+                printint.setType(Type.oodleNull);
                 printint.setName("printint");
-                ArgumentDeclaration printintArg1 = new ArgumentDeclaration();
+                ArgumentDecl printintArg1 = new ArgumentDecl();
                 printintArg1.setName("int");
-                printintArg1.setType(Type.mjInteger);
+                printintArg1.setType(Type.oodleInt);
                 printintArg1.setMethodOwner(printint);
                 printint.getArguments().add(printintArg1);
-                printint.setOwner(writerDeclaration);
+                printint.setClassOwner(writerDeclaration);
                 writerDeclaration.getMethods().add(printint);
-                */
+
+                symbolTableStack.get(0).add(writerDeclaration);
+
                 
                 //TODO: add readint method
 
+                MethodDecl readint = new MethodDecl();
+                readint.setType(Type.oodleInt);
+                readint.setName("readint");
+
+                readint.setClassOwner(writerDeclaration);
+                readerDeclaration.getMethods().add(readint);
+
+                symbolTableStack.get(0).add(readerDeclaration);
+
+                VarDecl in = new VarDecl();
+                in.setType(readerDeclaration.getType());
+
+                in.setName("in");
+
+                VarDecl out = new VarDecl();
+                out.setType(writerDeclaration.getType());
+
+                out.setName("out");
+
+                symbolTableStack.get(0).add(in);
+                symbolTableStack.get(0).add(out);
                 break;
             case 2:
                 // class

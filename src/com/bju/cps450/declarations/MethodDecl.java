@@ -1,5 +1,6 @@
 package com.bju.cps450.declarations;
 
+import com.bju.cps450.application.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ public class MethodDecl extends AbstractDeclaration {
     private List<ArgumentDecl> arguments;
     private List<VarDecl> variables;
     private ClassDecl classOwner;
+
 
     public MethodDecl(){
         arguments = new ArrayList<ArgumentDecl>();

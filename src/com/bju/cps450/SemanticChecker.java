@@ -243,12 +243,34 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     @Override
     public void outAMultiplyExpression(AMultiplyExpression node) {
-        super.outAMultiplyExpression(node);
+        Type lhsType = getNodeType(node.getLhs());
+
+        Type rhsType = getNodeType(node.getRhs());
+
+        if(!Objects.equals(lhsType, Type.oodleInt)
+                || !Objects.equals(rhsType, Type.oodleInt)){
+            reportError("Non integer value found in mult expression");
+            Application.getNodeProperties(node).setType(Type.Error);
+
+        }else {
+            Application.getNodeProperties(node).setType(Type.oodleInt);
+        }
     }
 
     @Override
     public void outADivideExpression(ADivideExpression node) {
-        super.outADivideExpression(node);
+        Type lhsType = getNodeType(node.getLhs());
+
+        Type rhsType = getNodeType(node.getRhs());
+
+        if(!Objects.equals(lhsType, Type.oodleInt)
+                || !Objects.equals(rhsType, Type.oodleInt)){
+            reportError("Non integer value found in division expression");
+            Application.getNodeProperties(node).setType(Type.Error);
+
+        }else {
+            Application.getNodeProperties(node).setType(Type.oodleInt);
+        }
     }
 
     @Override
@@ -258,7 +280,28 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     @Override
     public void outANotExpression(ANotExpression node) {
-        super.outANotExpression(node);
+        Type t = getNodeType(node.getExpression());
+        if (t != Type.oodleBoolean){
+            reportError("'" + node.toString() + "' is not a boolean");
+            Application.getNodeProperties(node).setType(Type.Error);
+
+        }else{
+            Application.getNodeProperties(node).setType(Type.oodleBoolean);
+
+        }
+    }
+
+    @Override
+    public void outAAndExpression(AAndExpression node) {
+        Type lhsType = getNodeType(node.getLhs());
+        Type rhsType = getNodeType(node.getRhs());
+
+        if(lhsType != Type.oodleBoolean && rhsType != Type.oodleBoolean){
+            reportError("Non bool type detected in AND statement");
+            Application.getNodeProperties(node).setType(Type.Error);
+        }else{
+            Application.getNodeProperties(node).setType(Type.oodleBoolean);
+        }
     }
 
     @Override
