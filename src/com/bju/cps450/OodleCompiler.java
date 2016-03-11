@@ -101,7 +101,7 @@ public class OodleCompiler {
 
         System.out.println((new StringBuilder()
                 .append("\n")
-                .append(oodleLexer.NumberOfErrors + oodleParser.NumberOfErrors + oodleSemanticChecker.NumberOfErrors + oodleSemanticChecker.NumberOfErrors)
+                .append(oodleLexer.NumberOfErrors + oodleParser.NumberOfErrors + symbolTableBuilder.NumberOfErrors + oodleSemanticChecker.NumberOfErrors)
                 .toString()) + " error(s) found");
         if(node == null
                 || oodleLexer.NumberOfErrors > 0

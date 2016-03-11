@@ -66,7 +66,12 @@ public class SymbolTable {
                         if (((VarDecl) decl).getName().equals(name)) {
                             return (T) decl;
                         } // if Var Decl
-                    }// if
+                    } else if(clazz.equals(ArgumentDecl.class)){
+                        if (((ArgumentDecl) decl).getName().equals(name)) {
+                            return (T) decl;
+                        } // if Var Decl
+                    }
+
                 }// if same class
             } // for j
             if(!allScopes){
@@ -78,23 +83,12 @@ public class SymbolTable {
         return null;
     } // end lookup
 
-    private void addTheLiterals(){
-        for (int i = 0; i < 10; ++i){
-            VarDecl decl = new VarDecl();
-            decl.setName(String.valueOf(i));
-            decl.setType(Type.oodleInt);
-            addDeclToSymbolTable(decl);
-        }
-
-    }
-
     public void beginScope() throws Exception{
         symbolTableStack.push(new ArrayList<AbstractDeclaration>());
         switch (symbolTableStack.size()){
             case 1:
                 // Globals??
                 currentScope = 1;
-                addTheLiterals();
                 // TODO: add printint as a method
                 /*
                 MethodDeclaration printint = new MethodDeclaration();
@@ -148,11 +142,6 @@ public class SymbolTable {
                 decl.setName(name);
                 decl.setType(t);
                 addDeclToSymbolTable(decl);
-
-                VarDecl var = new VarDecl();
-                var.setName(name);
-                var.setType(t);
-                addDeclToSymbolTable(var);
                 return decl;
             } else {
                 throw new Exception("Arguments created outside of method declaration");
@@ -183,7 +172,7 @@ public class SymbolTable {
 
 
     public VarDecl addVarDecl(String name, Type type) throws Exception{
-        if (lookup(name, VarDecl.class) == null) {
+        if (lookup(name, VarDecl.class) == null && lookup(name, ArgumentDecl.class) == null) {
             if (symbolTableStack.size() != 1) {
                 // has to be not in global
                 VarDecl decl = new VarDecl();

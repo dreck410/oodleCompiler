@@ -29,9 +29,6 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     public int NumberOfErrors = 0;
 
-    private HashMap<Node, HashMap<String, Object>> attributeGrammarMap
-            = new HashMap<Node, HashMap<String, Object>>();
-
 
     private void reportError(String error){
         NumberOfErrors += 1;
@@ -221,8 +218,11 @@ public class SemanticChecker extends DepthFirstAdapter {
         if(!Objects.equals(lhsType, Type.oodleInt)
                 || !Objects.equals(rhsType, Type.oodleInt)){
             reportError("Problem in plus expression added '" + lhsType + "' with '" + rhsType + "'.");
+            Application.getNodeProperties(node).setType(Type.Error);
+
+        }else {
+            Application.getNodeProperties(node).setType(Type.oodleInt);
         }
-        Application.getNodeProperties(node).setType(Type.oodleInt);
     }
 
     @Override
@@ -234,7 +234,70 @@ public class SemanticChecker extends DepthFirstAdapter {
         if(!Objects.equals(lhsType, Type.oodleInt)
                 || !Objects.equals(rhsType, Type.oodleInt)){
             reportError("Non integer value found in minus expression");
+            Application.getNodeProperties(node).setType(Type.Error);
+
+        }else {
+            Application.getNodeProperties(node).setType(Type.oodleInt);
         }
+    }
+
+    @Override
+    public void outAMultiplyExpression(AMultiplyExpression node) {
+        super.outAMultiplyExpression(node);
+    }
+
+    @Override
+    public void outADivideExpression(ADivideExpression node) {
+        super.outADivideExpression(node);
+    }
+
+    @Override
+    public void outAConcatExpression(AConcatExpression node) {
+        super.outAConcatExpression(node);
+    }
+
+    @Override
+    public void outANotExpression(ANotExpression node) {
+        super.outANotExpression(node);
+    }
+
+    @Override
+    public void outANegExpression(ANegExpression node) {
+        super.outANegExpression(node);
+    }
+
+    @Override
+    public void outAPosExpression(APosExpression node) {
+        super.outAPosExpression(node);
+    }
+
+    @Override
+    public void outANewExpression(ANewExpression node) {
+        super.outANewExpression(node);
+    }
+
+    @Override
+    public void outAIntExpression(AIntExpression node) {
         Application.getNodeProperties(node).setType(Type.oodleInt);
     }
+
+    @Override
+    public void outAStringLitExpression(AStringLitExpression node) {
+
+        Application.getNodeProperties(node).setType(Type.oodleString);
+        reportError("String is not supported");
+    }
+
+    @Override
+    public void outATrueExpression(ATrueExpression node) {
+        Application.getNodeProperties(node).setType(Type.oodleBoolean);
+
+    }
+
+    @Override
+    public void outAFalseExpression(AFalseExpression node) {
+        Application.getNodeProperties(node).setType(Type.oodleBoolean);
+    }
+
+
 }

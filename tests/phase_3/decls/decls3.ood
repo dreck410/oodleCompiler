@@ -21,7 +21,7 @@ class test1 is
     speed: int
     jump: int   ~ OK to shadow local method
   begin
-    jump := speed + 3  ~ ERROR: curpos not defined
+    jump := curpos + 3  ~ ERROR: curpos not defined
   end fall
 
   start() is
