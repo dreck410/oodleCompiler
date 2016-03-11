@@ -95,6 +95,21 @@ public class SymbolTable {
                 // Globals??
                 currentScope = 1;
                 addTheLiterals();
+                // TODO: add printint as a method
+                /*
+                MethodDeclaration printint = new MethodDeclaration();
+                printint.setReturnType(Type.mjVoid);
+                printint.setName("printint");
+                ArgumentDeclaration printintArg1 = new ArgumentDeclaration();
+                printintArg1.setName("int");
+                printintArg1.setType(Type.mjInteger);
+                printintArg1.setMethodOwner(printint);
+                printint.getArguments().add(printintArg1);
+                printint.setOwner(writerDeclaration);
+                writerDeclaration.getMethods().add(printint);
+                */
+                
+                //TODO: add readint method
 
                 break;
             case 2:
