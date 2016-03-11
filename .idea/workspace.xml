@@ -5,26 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a857c136-3dcb-492e-b4af-725a36bb600b" name="Default" comment="code refactorization DRY&#10;tests pass&#10;3_id shows up as an integer and an identifier look into this?">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/parser.dat" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/parser.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/SemanticChecker.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/SemanticChecker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/Analysis.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/Analysis.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/AnalysisAdapter.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/AnalysisAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/DepthFirstAdapter.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/DepthFirstAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/ReversedDepthFirstAdapter.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/analysis/ReversedDepthFirstAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/AAssignmentStatement.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/node/AAssignmentStatement.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/Parser.class" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/Parser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/parser.dat" afterPath="$PROJECT_DIR$/out/production/oodleproject/com/bju/cps450/parser/parser.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/combined.txt" afterPath="$PROJECT_DIR$/combined.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/Analysis.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/Analysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/AnalysisAdapter.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/AnalysisAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/DepthFirstAdapter.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/DepthFirstAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/ReversedDepthFirstAdapter.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/analysis/ReversedDepthFirstAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/AAssignmentStatement.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/node/AAssignmentStatement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/Parser.java" afterPath="$PROJECT_DIR$/gen-src/com/bju/cps450/parser/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/oodleproject/oodle.scc" afterPath="$PROJECT_DIR$/out/production/oodleproject/oodle.scc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oodle.scc" afterPath="$PROJECT_DIR$/src/oodle.scc" />
     </list>
     <ignored path="oodleproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,20 +30,20 @@
     <favorites_list name="oodleproject" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6307398">
+    <splitter split-orientation="horizontal" split-proportion="0.6473214">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="SemanticChecker.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.52747256">
-                  <caret line="162" column="14" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
+                <state vertical-scroll-proportion="0.6879121">
+                  <caret line="500" column="5" selection-start-line="500" selection-start-column="5" selection-end-line="500" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#5125#5126#0" expanded="true" />
-                    <element signature="e#5169#5170#0" expanded="true" />
-                    <element signature="e#17192#17193#0" expanded="true" />
-                    <element signature="e#17266#17267#0" expanded="true" />
+                    <element signature="e#5072#5073#0" expanded="true" />
+                    <element signature="e#5116#5117#0" expanded="true" />
+                    <element signature="e#17274#17275#0" expanded="true" />
+                    <element signature="e#17348#17349#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -122,8 +104,8 @@
           <file leaf-file-name="combined.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/combined.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.2962963">
-                  <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+                <state vertical-scroll-proportion="0.074074075">
+                  <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
                   <folding />
                 </state>
               </provider>
@@ -132,7 +114,7 @@
           <file leaf-file-name="oodle.scc" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/oodle.scc">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-16.0">
+                <state vertical-scroll-proportion="-3.8064516">
                   <caret line="293" column="26" selection-start-line="293" selection-start-column="26" selection-end-line="293" selection-end-column="26" />
                   <folding />
                 </state>
@@ -192,8 +174,8 @@
         <option value="$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" />
         <option value="$PROJECT_DIR$/src/oodle.scc" />
-        <option value="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
         <option value="$PROJECT_DIR$/combined.txt" />
+        <option value="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
       </list>
     </option>
   </component>
@@ -902,15 +884,15 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.4737424" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09121061" sideWeight="0.49438202" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3796856" sideWeight="0.4002211" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37605804" sideWeight="0.4074074" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3796856" sideWeight="0.39856273" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37605804" sideWeight="0.41017136" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28899637" sideWeight="0.48258707" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32648125" sideWeight="0.51520175" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.47816473" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.042012163" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37605804" sideWeight="0.5925926" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37605804" sideWeight="0.5898286" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -943,7 +925,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java</url>
-          <line>610</line>
+          <line>619</line>
           <properties />
           <option name="timeStamp" value="276" />
         </line-breakpoint>
@@ -953,14 +935,8 @@
           <properties />
           <option name="timeStamp" value="279" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java</url>
-          <line>496</line>
-          <properties />
-          <option name="timeStamp" value="280" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="282" />
+      <option name="time" value="283" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1290,31 +1266,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oodle.scc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.0">
+        <state vertical-scroll-proportion="-3.8064516">
           <caret line="293" column="26" selection-start-line="293" selection-start-column="26" selection-end-line="293" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/combined.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.074074075">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52747256">
-          <caret line="162" column="14" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.6879121">
+          <caret line="500" column="5" selection-start-line="500" selection-start-column="5" selection-end-line="500" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5125#5126#0" expanded="true" />
-            <element signature="e#5169#5170#0" expanded="true" />
-            <element signature="e#17192#17193#0" expanded="true" />
-            <element signature="e#17266#17267#0" expanded="true" />
+            <element signature="e#5072#5073#0" expanded="true" />
+            <element signature="e#5116#5117#0" expanded="true" />
+            <element signature="e#17274#17275#0" expanded="true" />
+            <element signature="e#17348#17349#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/combined.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2962963">
-          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>

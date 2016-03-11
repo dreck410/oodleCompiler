@@ -97,7 +97,7 @@ public class SemanticChecker extends DepthFirstAdapter {
         currentClass = null;
         NumberOfClasses += 1;
         if(NumberOfClasses > 1){
-            reportError("Unsupported Feature: Multiple classes are unsupported.");
+            reportError("Unsupported Feature: Multiple classes");
 
         }
         Application.getNodeProperties(node).setType(new Type(node.getStart().getText()));
@@ -125,7 +125,7 @@ public class SemanticChecker extends DepthFirstAdapter {
     @Override
     public void outAMethodDecl(AMethodDecl node) {
         if(!Objects.equals(node.getName().getText() , "start")){
-            reportError("Unsupported Feature: Only supports one method named 'start'");
+            reportError("Unsupported Feature: Multiple methods");
         }
 
         if(Objects.equals(node.getName().getText(), "start")){
@@ -158,7 +158,7 @@ public class SemanticChecker extends DepthFirstAdapter {
     public void outAVarDecl(AVarDecl node) {
         Type rhsType = getNodeType(node.getType());
         if(Objects.equals(rhsType, Type.oodleString)){
-            reportError("Unsupported Feature: String not supported");
+            reportError("Unsupported Feature: String");
             Application.getNodeProperties(node).setType(Type.oodleString);
         }else{
             Application.getNodeProperties(node).setType(rhsType);
@@ -189,7 +189,7 @@ public class SemanticChecker extends DepthFirstAdapter {
     @Override
     public void outAAssignee(AAssignee node) {
         if(node.getIndex().size() > 0){
-            reportError("Unsupported Feature: does not support indexing");
+            reportError("Unsupported Feature: indexing");
             for(int i = 0; i < node.getIndex().size(); ++i){
                 Type indexType = Application.getNodeProperties(node.getIndex().get(i)).getType();
                 if(!Objects.equals(indexType, Type.oodleInt)){
@@ -218,7 +218,7 @@ public class SemanticChecker extends DepthFirstAdapter {
 
             Type rhsType = getNodeType(node.getValue());
             if(Objects.equals(rhsType, Type.oodleString)){
-                reportError("Unsupported Feature: String not supported");
+                reportError("Unsupported Feature: String");
             }
             if (!Objects.equals(lhsType, rhsType)) {
                 reportError("Tried to assign object of type '" + rhsType + "' to object of type '" + lhsType + "'");
@@ -493,7 +493,10 @@ public class SemanticChecker extends DepthFirstAdapter {
     }
     @Override
     public void outAIdExpression(AIdExpression node) {
-
+        Type t = getNodeType(node.getIdentifier());
+        if(Objects.equals(t, Type.oodleString)){
+            reportError("Unsupported Feature: String");
+        }
         Application.getNodeProperties(node).setType(getNodeType(node));
     }
 
@@ -503,10 +506,16 @@ public class SemanticChecker extends DepthFirstAdapter {
     }
 
     @Override
+    public void outAStringType(AStringType node) {
+        reportError("Unsupported Feature: String");
+        Application.getNodeProperties(node).setType(Type.oodleString);
+    }
+
+    @Override
     public void outAStringLitExpression(AStringLitExpression node) {
 
         Application.getNodeProperties(node).setType(Type.oodleString);
-        reportError("Unsupported Feature: String is not supported");
+        reportError("Unsupported Feature: String");
     }
 
     @Override
@@ -542,18 +551,18 @@ public class SemanticChecker extends DepthFirstAdapter {
     @Override
     public void outANullExpression(ANullExpression node) {
 
-        reportError("Unsupported Feature: Does not support null");
+        reportError("Unsupported Feature: Null");
         Application.getNodeProperties(node).setType(Type.oodleNull);    }
 
     @Override
     public void outAMeExpression(AMeExpression node) {
-        reportError("Unsupported Feature: Does not support Me");
+        reportError("Unsupported Feature: Me");
         Application.getNodeProperties(node).setType(Type.Error);
     }
 
     @Override
     public void outANewExpression(ANewExpression node) {
-        reportError("Unsupported Feature: Does not support New");
+        reportError("Unsupported Feature: New");
         Application.getNodeProperties(node).setType(Type.Error);
     }
 
@@ -604,7 +613,7 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     @Override
     public void outAArrayExpression(AArrayExpression node) {
-        reportError("Unsupported Feature: array indexing is not supported");
+        reportError("Unsupported Feature: indexing");
         for(int i = 0; i < node.getExpression().size(); ++i){
             Type t = Application.getNodeProperties(node.getExpression().get(i)).getType();
             if(!Objects.equals(t, Type.oodleInt)){
