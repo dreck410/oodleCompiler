@@ -11,7 +11,7 @@ public class Type {
     public static Type oodleArray = new Type("array");
     public static Type oodleBoolean = new Type("boolean");
     public static Type oodleNull = new Type("null");
-
+    public static Type Error = new Type("error");
 
     private String name;
 
