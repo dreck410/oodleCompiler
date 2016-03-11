@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a857c136-3dcb-492e-b4af-725a36bb600b" name="Default" comment="code refactorization DRY&#10;tests pass&#10;3_id shows up as an integer and an identifier look into this?">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/combined.txt" afterPath="$PROJECT_DIR$/combined.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
     </list>
     <ignored path="oodleproject.iws" />
@@ -36,14 +35,13 @@
           <file leaf-file-name="SemanticChecker.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6879121">
-                  <caret line="500" column="5" selection-start-line="500" selection-start-column="5" selection-end-line="500" selection-end-column="5" />
+                <state vertical-scroll-proportion="0.7078189">
+                  <caret line="503" column="56" selection-start-line="503" selection-start-column="56" selection-end-line="503" selection-end-column="56" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#5072#5073#0" expanded="true" />
                     <element signature="e#5116#5117#0" expanded="true" />
-                    <element signature="e#17274#17275#0" expanded="true" />
-                    <element signature="e#17348#17349#0" expanded="true" />
+                    <element signature="e#17332#17333#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -925,7 +923,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java</url>
-          <line>619</line>
+          <line>618</line>
           <properties />
           <option name="timeStamp" value="276" />
         </line-breakpoint>
@@ -1282,14 +1280,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6879121">
-          <caret line="500" column="5" selection-start-line="500" selection-start-column="5" selection-end-line="500" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.7078189">
+          <caret line="503" column="56" selection-start-line="503" selection-start-column="56" selection-end-line="503" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5072#5073#0" expanded="true" />
             <element signature="e#5116#5117#0" expanded="true" />
-            <element signature="e#17274#17275#0" expanded="true" />
-            <element signature="e#17348#17349#0" expanded="true" />
+            <element signature="e#17332#17333#0" expanded="true" />
           </folding>
         </state>
       </provider>

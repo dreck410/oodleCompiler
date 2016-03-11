@@ -497,7 +497,7 @@ public class SemanticChecker extends DepthFirstAdapter {
         if(Objects.equals(t, Type.oodleString)){
             reportError("Unsupported Feature: String");
         }
-        Application.getNodeProperties(node).setType(getNodeType(node));
+        Application.getNodeProperties(node).setType(t);
     }
 
     @Override
@@ -513,9 +513,8 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     @Override
     public void outAStringLitExpression(AStringLitExpression node) {
-
-        Application.getNodeProperties(node).setType(Type.oodleString);
         reportError("Unsupported Feature: String");
+        Application.getNodeProperties(node).setType(Type.oodleString);
     }
 
     @Override
