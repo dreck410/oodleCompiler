@@ -492,6 +492,27 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getValue().apply(this);
         }
+        if(node.getAssignee() != null)
+        {
+            node.getAssignee().apply(this);
+        }
+        outAAssignmentStatement(node);
+    }
+
+    public void inAAssignee(AAssignee node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAAssignee(AAssignee node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAAssignee(AAssignee node)
+    {
+        inAAssignee(node);
         {
             List<PExpression> copy = new ArrayList<PExpression>(node.getIndex());
             Collections.reverse(copy);
@@ -504,7 +525,7 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         {
             node.getIdentifier().apply(this);
         }
-        outAAssignmentStatement(node);
+        outAAssignee(node);
     }
 
     public void inAOrExpression(AOrExpression node)

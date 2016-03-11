@@ -166,8 +166,11 @@ Productions
                               {-> [stmt.statement] };
 
 
- assign_stmt  {-> statement } = T.identifier brace_expr* T.assignment P.expression
-                                {-> New statement.assignment(identifier, [brace_expr.expression], expression) };
+ assign_stmt  {-> statement } = assignee T.assignment P.expression
+                                {-> New statement.assignment(assignee.assignee, expression) };
+
+ assignee {-> assignee } = T.identifier brace_expr*
+                                {-> New assignee(identifier, [brace_expr.expression] ) };
 
 
  brace_expr {-> expression } = T.obrace P.expression T.cbrace {-> expression };
@@ -236,6 +239,8 @@ Productions
 
  expression_last {-> expression } = {int} T.integer
                                             {-> New expression.int(integer) }
+                        | {array} T.identifier brace_expr+
+                                            {-> New expression.array(identifier, [brace_expr.expression] ) }
                         | {id} T.identifier
                                             {-> New expression.id(identifier) }
                         | {string_lit} T.string_lit
@@ -278,10 +283,15 @@ Abstract Syntax Tree
                 | {boolean} [identifier]:boolean expression*
                 | {custom} [identifier]:identifier expression*;
 
+
+
+
  statement      = {if} [condition]:expression [true]:statement* [false]:statement*
                 | {loop} [condition]:expression statement*
                 | {call} [caller]:expression? [method]:identifier [args]:expression*
-                | {assignment} identifier [index]:expression* [value]:expression;
+                | {assignment} assignee [value]:expression;
+
+ assignee       = identifier [index]:expression*;
 
  expression     = {or} [lhs]:expression [rhs]:expression
                 | {and} [lhs]:expression [rhs]:expression

@@ -165,6 +165,12 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseAAssignee(AAssignee node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseAOrExpression(AOrExpression node)
     {
         defaultCase(node);

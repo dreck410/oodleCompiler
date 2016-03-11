@@ -474,6 +474,31 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseAAssignmentStatement(AAssignmentStatement node)
     {
         inAAssignmentStatement(node);
+        if(node.getAssignee() != null)
+        {
+            node.getAssignee().apply(this);
+        }
+        if(node.getValue() != null)
+        {
+            node.getValue().apply(this);
+        }
+        outAAssignmentStatement(node);
+    }
+
+    public void inAAssignee(AAssignee node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAAssignee(AAssignee node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAAssignee(AAssignee node)
+    {
+        inAAssignee(node);
         if(node.getIdentifier() != null)
         {
             node.getIdentifier().apply(this);
@@ -485,11 +510,7 @@ public class DepthFirstAdapter extends AnalysisAdapter
                 e.apply(this);
             }
         }
-        if(node.getValue() != null)
-        {
-            node.getValue().apply(this);
-        }
-        outAAssignmentStatement(node);
+        outAAssignee(node);
     }
 
     public void inAOrExpression(AOrExpression node)

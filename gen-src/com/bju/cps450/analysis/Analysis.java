@@ -27,6 +27,7 @@ public interface Analysis extends Switch
     void caseALoopStatement(ALoopStatement node);
     void caseACallStatement(ACallStatement node);
     void caseAAssignmentStatement(AAssignmentStatement node);
+    void caseAAssignee(AAssignee node);
     void caseAOrExpression(AOrExpression node);
     void caseAAndExpression(AAndExpression node);
     void caseAPlusExpression(APlusExpression node);

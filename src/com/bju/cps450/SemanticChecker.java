@@ -9,6 +9,7 @@ import com.bju.cps450.node.AAssignmentStatement;
 import com.bju.cps450.node.AVarDecl;
 import com.bju.cps450.node.*;
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import sun.org.mozilla.javascript.tools.ToolErrorReporter;
 import sun.org.mozilla.javascript.tools.shell.Global;
 
 import java.lang.instrument.ClassDefinition;
@@ -27,6 +28,7 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     private ClassDecl currentClass;
     private MethodDecl currentMethod;
+    private int NumberOfClasses = 0;
 
     public int NumberOfErrors = 0;
 
@@ -93,12 +95,19 @@ public class SemanticChecker extends DepthFirstAdapter {
     @Override
     public void outAClassDecl(AClassDecl node) {
         currentClass = null;
+        NumberOfClasses += 1;
+        if(NumberOfClasses > 1){
+            reportError("Unsupported Feature: Multiple classes are unsupported.");
+
+        }
+        Application.getNodeProperties(node).setType(new Type(node.getStart().getText()));
     }
 
 
     @Override
     public void inAMethodDecl(AMethodDecl node) {
         lastToken = node.getName();
+
         if(node.getType() != null){
             Application.getNodeProperties(node).setType(new Type(node.getType().toString().trim()));
 
@@ -115,6 +124,17 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     @Override
     public void outAMethodDecl(AMethodDecl node) {
+        if(!Objects.equals(node.getName().getText() , "start")){
+            reportError("Unsupported Feature: Only supports one method named 'start'");
+        }
+
+        if(Objects.equals(node.getName().getText(), "start")){
+            if(node.getVarDecl().size()> 0){
+                reportError("Unsupported Feature: Start method does not support local variables");
+            }
+        }
+
+
         if (node.getType() == null){
             Application.getNodeProperties(node).setType(Type.oodleNull);
            // currentMethod.lookupVariables(node.getName().getText()).setType(Type.oodleNull);
@@ -138,7 +158,7 @@ public class SemanticChecker extends DepthFirstAdapter {
     public void outAVarDecl(AVarDecl node) {
         Type rhsType = getNodeType(node.getType());
         if(Objects.equals(rhsType, Type.oodleString)){
-            reportError("String not supported");
+            reportError("Unsupported Feature: String not supported");
             Application.getNodeProperties(node).setType(Type.oodleString);
         }else{
             Application.getNodeProperties(node).setType(rhsType);
@@ -147,7 +167,7 @@ public class SemanticChecker extends DepthFirstAdapter {
 
     @Override
     public void inAAssignmentStatement(AAssignmentStatement node) {
-        lastToken = node.getIdentifier();
+        lastToken = ((AAssignee) node.getAssignee()).getIdentifier();
 
     }
 
@@ -167,22 +187,38 @@ public class SemanticChecker extends DepthFirstAdapter {
     }
 
     @Override
+    public void outAAssignee(AAssignee node) {
+        if(node.getIndex().size() > 0){
+            reportError("Unsupported Feature: does not support indexing");
+            for(int i = 0; i < node.getIndex().size(); ++i){
+                Type indexType = Application.getNodeProperties(node.getIndex().get(i)).getType();
+                if(!Objects.equals(indexType, Type.oodleInt)){
+                    reportError("Index not of type Int");
+                }
+            }
+            Type idType = Application.getNodeProperties(node.getIdentifier()).getType();
+            Application.getNodeProperties(node).setType(idType);
+        } else{
+            Type idType = Application.getNodeProperties(node.getIdentifier()).getType();
+            Application.getNodeProperties(node).setType(idType);
+        }
+    }
+
+    @Override
     public void outAAssignmentStatement(AAssignmentStatement node) {
 
-        if(node.getIndex().size() > 0 && !Objects.equals(node.getIndex().getClass(), Type.oodleInt.getClass())){
-            reportError("Index must be of type Int");
-        }
-        Type lhsType = getNodeType(node.getIdentifier());
+
+        Type lhsType = getNodeType(node.getAssignee());
 
         if (Objects.equals(lhsType, Type.oodleNull)){
             // still no?
-            reportError("Variable '" + node.getIdentifier().getText() + "' does not exist in current scope");
+            reportError("Variable '" + node.getAssignee() + "' does not exist in current scope");
 
         }else {
 
             Type rhsType = getNodeType(node.getValue());
             if(Objects.equals(rhsType, Type.oodleString)){
-                reportError("String not supported");
+                reportError("Unsupported Feature: String not supported");
             }
             if (!Objects.equals(lhsType, rhsType)) {
                 reportError("Tried to assign object of type '" + rhsType + "' to object of type '" + lhsType + "'");
@@ -470,7 +506,7 @@ public class SemanticChecker extends DepthFirstAdapter {
     public void outAStringLitExpression(AStringLitExpression node) {
 
         Application.getNodeProperties(node).setType(Type.oodleString);
-        reportError("String is not supported");
+        reportError("Unsupported Feature: String is not supported");
     }
 
     @Override
@@ -506,18 +542,18 @@ public class SemanticChecker extends DepthFirstAdapter {
     @Override
     public void outANullExpression(ANullExpression node) {
 
-        reportError("Does not support null");
+        reportError("Unsupported Feature: Does not support null");
         Application.getNodeProperties(node).setType(Type.oodleNull);    }
 
     @Override
     public void outAMeExpression(AMeExpression node) {
-        reportError("Does not support Me");
+        reportError("Unsupported Feature: Does not support Me");
         Application.getNodeProperties(node).setType(Type.Error);
     }
 
     @Override
     public void outANewExpression(ANewExpression node) {
-        reportError("Does not support New");
+        reportError("Unsupported Feature: Does not support New");
         Application.getNodeProperties(node).setType(Type.Error);
     }
 
@@ -566,4 +602,18 @@ public class SemanticChecker extends DepthFirstAdapter {
         }
     }
 
+    @Override
+    public void outAArrayExpression(AArrayExpression node) {
+        reportError("Unsupported Feature: array indexing is not supported");
+        for(int i = 0; i < node.getExpression().size(); ++i){
+            Type t = Application.getNodeProperties(node.getExpression().get(i)).getType();
+            if(!Objects.equals(t, Type.oodleInt)){
+                reportError("Index must be of type int");
+                Application.getNodeProperties(node).setType(Type.Error);
+                return;
+            }
+        }
+        Type listType = Application.getNodeProperties(node.getIdentifier()).getType();
+        Application.getNodeProperties(node).setType(Type.Error);
+    }
 }

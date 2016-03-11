@@ -2,14 +2,12 @@
 
 package com.bju.cps450.node;
 
-import java.util.*;
 import com.bju.cps450.analysis.*;
 
 @SuppressWarnings("nls")
 public final class AAssignmentStatement extends PStatement
 {
-    private TIdentifier _identifier_;
-    private final LinkedList<PExpression> _index_ = new LinkedList<PExpression>();
+    private PAssignee _assignee_;
     private PExpression _value_;
 
     public AAssignmentStatement()
@@ -18,14 +16,11 @@ public final class AAssignmentStatement extends PStatement
     }
 
     public AAssignmentStatement(
-        @SuppressWarnings("hiding") TIdentifier _identifier_,
-        @SuppressWarnings("hiding") List<?> _index_,
+        @SuppressWarnings("hiding") PAssignee _assignee_,
         @SuppressWarnings("hiding") PExpression _value_)
     {
         // Constructor
-        setIdentifier(_identifier_);
-
-        setIndex(_index_);
+        setAssignee(_assignee_);
 
         setValue(_value_);
 
@@ -35,8 +30,7 @@ public final class AAssignmentStatement extends PStatement
     public Object clone()
     {
         return new AAssignmentStatement(
-            cloneNode(this._identifier_),
-            cloneList(this._index_),
+            cloneNode(this._assignee_),
             cloneNode(this._value_));
     }
 
@@ -46,16 +40,16 @@ public final class AAssignmentStatement extends PStatement
         ((Analysis) sw).caseAAssignmentStatement(this);
     }
 
-    public TIdentifier getIdentifier()
+    public PAssignee getAssignee()
     {
-        return this._identifier_;
+        return this._assignee_;
     }
 
-    public void setIdentifier(TIdentifier node)
+    public void setAssignee(PAssignee node)
     {
-        if(this._identifier_ != null)
+        if(this._assignee_ != null)
         {
-            this._identifier_.parent(null);
+            this._assignee_.parent(null);
         }
 
         if(node != null)
@@ -68,33 +62,7 @@ public final class AAssignmentStatement extends PStatement
             node.parent(this);
         }
 
-        this._identifier_ = node;
-    }
-
-    public LinkedList<PExpression> getIndex()
-    {
-        return this._index_;
-    }
-
-    public void setIndex(List<?> list)
-    {
-        for(PExpression e : this._index_)
-        {
-            e.parent(null);
-        }
-        this._index_.clear();
-
-        for(Object obj_e : list)
-        {
-            PExpression e = (PExpression) obj_e;
-            if(e.parent() != null)
-            {
-                e.parent().removeChild(e);
-            }
-
-            e.parent(this);
-            this._index_.add(e);
-        }
+        this._assignee_ = node;
     }
 
     public PExpression getValue()
@@ -126,8 +94,7 @@ public final class AAssignmentStatement extends PStatement
     public String toString()
     {
         return ""
-            + toString(this._identifier_)
-            + toString(this._index_)
+            + toString(this._assignee_)
             + toString(this._value_);
     }
 
@@ -135,14 +102,9 @@ public final class AAssignmentStatement extends PStatement
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._identifier_ == child)
+        if(this._assignee_ == child)
         {
-            this._identifier_ = null;
-            return;
-        }
-
-        if(this._index_.remove(child))
-        {
+            this._assignee_ = null;
             return;
         }
 
@@ -159,28 +121,10 @@ public final class AAssignmentStatement extends PStatement
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._identifier_ == oldChild)
+        if(this._assignee_ == oldChild)
         {
-            setIdentifier((TIdentifier) newChild);
+            setAssignee((PAssignee) newChild);
             return;
-        }
-
-        for(ListIterator<PExpression> i = this._index_.listIterator(); i.hasNext();)
-        {
-            if(i.next() == oldChild)
-            {
-                if(newChild != null)
-                {
-                    i.set((PExpression) newChild);
-                    newChild.parent(this);
-                    oldChild.parent(null);
-                    return;
-                }
-
-                i.remove();
-                oldChild.parent(null);
-                return;
-            }
         }
 
         if(this._value_ == oldChild)
