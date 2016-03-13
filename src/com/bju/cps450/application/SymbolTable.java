@@ -188,11 +188,9 @@ public class SymbolTable {
             if(symbolTableStack.size() == 2){
                 // has to be in class
                 MethodDecl decl = new MethodDecl();
-                VarDecl retValue = new VarDecl();
-                retValue.setName(name);
+
 
                 decl.setName(name);
-                decl.getVariables().add(retValue);
 
                 addDeclToSymbolTable(decl);
                 currentMethodDecl = decl;

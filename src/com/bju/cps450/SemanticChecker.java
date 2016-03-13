@@ -80,6 +80,7 @@ public class SemanticChecker extends DepthFirstAdapter {
         if (t == Type.Error){
             t = Application.getNodeProperties(node).getType();
         }
+
         return t;
     }
     // Begin IN statements

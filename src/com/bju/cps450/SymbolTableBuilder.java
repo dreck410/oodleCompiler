@@ -128,11 +128,18 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
         if(!Objects.equals(node.getName().getText(), node.getEnd().getText())){
             reportError("Method name '"+node.getName().getText()+"' and end tag '" + node.getEnd().getText() + "' do not match");
         }
+        if(!Objects.equals(node.getType(), null)){
+            Type t = new Type(node.getType().toString().trim());
+            Application.getNodeProperties(node).setType(t);
+            currentMethod.setType(t);
+            currentMethod.lookupVariables(currentMethod.getName()).setType(t);
+        }
         try {
             symbolTable.endScope();
         } catch (Exception e) {
             reportError(e.getMessage());
         }
+
         currentMethod = null;
     }
 

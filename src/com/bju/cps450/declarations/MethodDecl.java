@@ -25,6 +25,10 @@ public class MethodDecl extends AbstractDeclaration {
 
     public void setName(String name) {
         this.name = name;
+        VarDecl returnValue = new VarDecl();
+        returnValue.setName(this.name);
+        returnValue.setMethodOwner(this);
+        variables.add(returnValue);
     }
 
     public List<ArgumentDecl> getArguments() {

@@ -1,11 +1,15 @@
 class stmt1 is
 
-  x: string
+  x: int
   start() is
   begin
-    x := "hello "
-    x := x & x
+    x := neg(x)
   end start 
 
+  neg(x: int): int is
+  begin
+    neg := -x
+
+  end neg
 end stmt1
 
