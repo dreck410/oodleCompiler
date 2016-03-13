@@ -625,4 +625,11 @@ public class SemanticChecker extends DepthFirstAdapter {
         Type listType = Application.getNodeProperties(node.getIdentifier()).getType();
         Application.getNodeProperties(node).setType(Type.Error);
     }
+
+    @Override
+    public void outAClassInherits(AClassInherits node) {
+        reportError("Does not support Inheritance");
+    }
+
+
 }

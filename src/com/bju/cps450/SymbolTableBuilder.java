@@ -26,8 +26,7 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
 
     public int NumberOfErrors = 0;
 
-    private HashMap<Node, HashMap<String, Object>> attributeGrammarMap
-            = new HashMap<Node, HashMap<String, Object>>();
+
 
 
     private void reportError(String error){

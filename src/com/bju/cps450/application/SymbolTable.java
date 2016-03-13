@@ -206,8 +206,8 @@ public class SymbolTable {
 
     public VarDecl addVarDecl(String name, Type type) throws Exception{
         if (lookup(name, VarDecl.class) == null && lookup(name, ArgumentDecl.class) == null) {
+            // has to be not in global
             if (symbolTableStack.size() != 1) {
-                // has to be not in global
                 VarDecl decl = new VarDecl();
                 decl.setName(name);
                 decl.setType(type);

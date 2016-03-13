@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a857c136-3dcb-492e-b4af-725a36bb600b" name="Default" comment="code refactorization DRY&#10;tests pass&#10;3_id shows up as an integer and an identifier look into this?">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/combined.txt" afterPath="$PROJECT_DIR$/combined.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java" afterPath="$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/phase_3/typeerrors/multiClass.ood" afterPath="$PROJECT_DIR$/tests/phase_3/typeerrors/multiClass.ood" />
     </list>
     <ignored path="oodleproject.iws" />
@@ -38,24 +36,26 @@
     <splitter split-orientation="horizontal" split-proportion="0.7107011">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="SemanticChecker.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="SemanticChecker.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6498258">
-                  <caret line="279" column="0" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
+                <state vertical-scroll-proportion="-16.193548">
+                  <caret line="631" column="5" selection-start-line="631" selection-start-column="5" selection-end-line="631" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#outANegExpression#0;class#SemanticChecker#0" expanded="false" />
+                    <element signature="e#22069#22070#0" expanded="true" />
+                    <element signature="e#22128#22129#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SymbolTableBuilder.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="SymbolTableBuilder.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-8.806452">
-                  <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.23801653">
+                  <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#reportError#0;class#SymbolTableBuilder#0" expanded="false" />
@@ -81,30 +81,10 @@
             <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="275" column="17" selection-start-line="275" selection-start-column="17" selection-end-line="275" selection-end-column="17" />
+                  <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ArgumentDecl.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AbstractDeclaration.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractDeclaration.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -164,8 +144,8 @@
           <file leaf-file-name="combined.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/combined.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.29752067">
-                  <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.23801653">
+                  <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -231,8 +211,8 @@
         <option value="$PROJECT_DIR$/src/com/bju/cps450/OodleCompiler.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java" />
         <option value="$PROJECT_DIR$/src/oodle.scc" />
-        <option value="$PROJECT_DIR$/combined.txt" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java" />
+        <option value="$PROJECT_DIR$/combined.txt" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java" />
         <option value="$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java" />
@@ -984,14 +964,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java</url>
-          <line>619</line>
-          <properties />
-          <option name="timeStamp" value="276" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java</url>
-          <line>133</line>
+          <line>132</line>
           <properties />
           <option name="timeStamp" value="294" />
         </line-breakpoint>
@@ -1028,6 +1002,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#outANegExpression#0;class#SemanticChecker#0" expanded="false" />
+            <element signature="e#22069#22070#0" expanded="true" />
+            <element signature="e#22128#22129#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1304,22 +1280,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractDeclaration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractVarDecl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1361,16 +1321,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gen-src/com/bju/cps450/node/AAssignmentStatement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1389,21 +1339,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/MethodDecl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.806452">
-          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#reportError#0;class#SymbolTableBuilder#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/combined.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23801653">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/ArgumentDecl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23801653">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/declarations/AbstractDeclaration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.446281">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/application/SymbolTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="275" column="17" selection-start-line="275" selection-start-column="17" selection-end-line="275" selection-end-column="17" />
+          <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1412,20 +1385,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SemanticChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6498258">
-          <caret line="279" column="0" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
+        <state vertical-scroll-proportion="-16.193548">
+          <caret line="631" column="5" selection-start-line="631" selection-start-column="5" selection-end-line="631" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#outANegExpression#0;class#SemanticChecker#0" expanded="false" />
+            <element signature="e#22069#22070#0" expanded="true" />
+            <element signature="e#22128#22129#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/combined.txt">
+    <entry file="file://$PROJECT_DIR$/src/com/bju/cps450/SymbolTableBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29752067">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.23801653">
+          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#reportError#0;class#SymbolTableBuilder#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
