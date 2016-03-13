@@ -41,47 +41,74 @@ public class SymbolTable {
      * @param <T>
      * @return
      */
+
     public <T extends AbstractDeclaration> T lookup(String name, boolean allScopes, Class<T> clazz) {
-        for (int i = symbolTableStack.size() - 1; i >= 0; --i) {
+        for(int i = symbolTableStack.size() - 1; i >= 0; --i) {
             for (int j = 0; j < symbolTableStack.get(i).size(); ++j) {
                 if (symbolTableStack.get(i).get(j).getClass().equals(clazz)) {
-                    // they're the same Type
                     AbstractDeclaration decl = symbolTableStack.get(i).get(j);
                     if (clazz.equals(ClassDecl.class)) {
-                        // they're both classes!
-
-                        if (((ClassDecl) decl).getName().equals(name)) {
-                            // they have the same name
-                            // found it!!
+                        if (((ClassDecl) decl).getType().getType().equals(name)) {
                             return (T) decl;
-
                         }
                     } else if (clazz.equals(MethodDecl.class)) {
-                        // they're both methods!
                         if (((MethodDecl) decl).getName().equals(name)) {
-                            // they have the same name!
                             return (T) decl;
                         }
-                    } else if (clazz.equals(VarDecl.class)) {
-                        if (((VarDecl) decl).getName().equals(name)) {
+                    } else if (clazz.equals(VarDecl.class) || clazz.equals(ArgumentDecl.class)) {
+                        if (((AbstractVarDecl) decl).getName().equals(name)) {
                             return (T) decl;
-                        } // if Var Decl
-                    } else if(clazz.equals(ArgumentDecl.class)){
-                        if (((ArgumentDecl) decl).getName().equals(name)) {
-                            return (T) decl;
-                        } // if Var Decl
+                        }
                     }
-
-                }// if same class
-            } // for j
-            if(!allScopes){
-                // quit early
+                }
+            }
+            if(!allScopes) {
                 return null;
             }
-        } // for i
-        // never found it looked everywhere
+        }
         return null;
-    } // end lookup
+    }
+//    public <T extends AbstractDeclaration> T lookup(String name, boolean allScopes, Class<T> clazz) {
+//        for (int i = symbolTableStack.size() - 1; i >= 0; --i) {
+//            for (int j = 0; j < symbolTableStack.get(i).size(); ++j) {
+//                if (symbolTableStack.get(i).get(j).getClass().equals(clazz)) {
+//                    // they're the same Type
+//                    AbstractDeclaration decl = symbolTableStack.get(i).get(j);
+//                    if (clazz.equals(ClassDecl.class)) {
+//                        // they're both classes!
+//
+//                        if (((ClassDecl) decl).getName().equals(name)) {
+//                            // they have the same name
+//                            // found it!!
+//                            return (T) decl;
+//
+//                        }
+//                    } else if (clazz.equals(MethodDecl.class)) {
+//                        // they're both methods!
+//                        if (((MethodDecl) decl).getName().equals(name)) {
+//                            // they have the same name!
+//                            return (T) decl;
+//                        }
+//                    } else if (clazz.equals(VarDecl.class)) {
+//                        if (((VarDecl) decl).getName().equals(name)) {
+//                            return (T) decl;
+//                        } // if Var Decl
+//                    } else if(clazz.equals(ArgumentDecl.class)){
+//                        if (((ArgumentDecl) decl).getName().equals(name)) {
+//                            return (T) decl;
+//                        } // if Var Decl
+//                    }
+//
+//                }// if same class
+//            } // for j
+//            if(!allScopes){
+//                // quit early
+//                return null;
+//            }
+//        } // for i
+//        // never found it looked everywhere
+//        return null;
+//    } // end lookup
 
     public void beginScope() throws Exception{
         symbolTableStack.push(new ArrayList<AbstractDeclaration>());

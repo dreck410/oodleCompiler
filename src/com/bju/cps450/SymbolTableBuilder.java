@@ -3,8 +3,7 @@ package com.bju.cps450;
 import com.bju.cps450.analysis.DepthFirstAdapter;
 import com.bju.cps450.application.Application;
 import com.bju.cps450.application.Type;
-import com.bju.cps450.declarations.ClassDecl;
-import com.bju.cps450.declarations.MethodDecl;
+import com.bju.cps450.declarations.*;
 import com.bju.cps450.node.*;
 
 import java.util.HashMap;
@@ -156,7 +155,7 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
             reportError("No type specified");
         }else {
             if (node.getExpression() != null && currentMethod == null) {
-                reportError("Unsupported Feature");
+                reportError("Unsupported Feature: Assigning Values");
                 t = Application.getNodeProperties(node.getExpression()).getType();
 
             }
@@ -178,6 +177,25 @@ public class SymbolTableBuilder extends DepthFirstAdapter {
         } catch (Exception e){
             reportError(e.getMessage());
         }
+    }
+
+    @Override
+    public void outAIdExpression(AIdExpression node) {
+
+        AbstractDeclaration decl = Globals.symbolTable.lookup(node.getIdentifier().getText().trim(), true, VarDecl.class);
+        if(decl == null){
+            decl = Globals.symbolTable.lookup(node.getIdentifier().getText(), true, MethodDecl.class);
+            if(decl == null){
+                decl = Globals.symbolTable.lookup(node.getIdentifier().getText(), true, ArgumentDecl.class);
+                if(decl == null) {
+                    reportError(node.getIdentifier().getText() + " is never defined in this scope");
+                    Application.getNodeProperties(node).setType(Type.Error);
+                    return;
+                }
+            }
+        }
+
+        Application.getNodeProperties(node).setType(decl.getType());
     }
 
     @Override
